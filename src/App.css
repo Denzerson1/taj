@@ -1,0 +1,63 @@
+/* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+
+/* App.css */
+body {
+  font-family: 'Mukta', sans-serif;
+  font-weight: 400;
+  /* Set normal weight for body text */
+  color: #333;
+  /* Optional: Set a default color for text */
+}
+
+/* Additional styling for headings, if needed */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  /* Use bold weight for headings */
+}
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
