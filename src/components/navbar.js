@@ -22,11 +22,13 @@ const Navbar = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const backgroundOpacity = menuOpen ? 1 : Math.min(1, scrollPosition / 200); // Full opacity if menuOpen is true
+
   return (
     <nav
-      className={`font-mukta fixed w-full top-0 z-50 transition-opacity duration-300 bg-black ${menuOpen ? 'bg-opacity-100' : 'lg:bg-opacity-15'
-        }`}
+      className={`font-mukta fixed w-full top-0 z-50 transition-opacity duration-300`}
       style={{
+        backgroundColor: `rgba(0, 0, 0, ${backgroundOpacity})`, // Set background opacity dynamically
         transition: 'background-color 0.3s ease',
       }}
     >
@@ -50,7 +52,7 @@ const Navbar = () => {
           className={`lg:flex flex-col lg:flex-row space-y-4 lg:space-y-0 space-x-0 lg:space-x-6 lg:items-center absolute lg:static top-16 left-0 w-full lg:w-auto bg-black lg:bg-transparent transition-all duration-300 ${menuOpen ? 'max-h-screen opacity-100 mt-4' : 'max-h-0 opacity-0 lg:opacity-100'
             } overflow-hidden lg:overflow-visible`}
         >
-          {['ABOUT', 'FOOD', 'DRINKS', 'INFO', 'PRESS', 'PRIVATE EVENTS'].map((link) => (
+          {['ABOUT', 'FOOD', 'DRINKS', 'INFO', 'BLOG', 'PRIVATE EVENTS'].map((link) => (
             <li key={link} className="text-center lg:text-left">
               <a
                 href={`#${link.toLowerCase().replace(' ', '-')}`}

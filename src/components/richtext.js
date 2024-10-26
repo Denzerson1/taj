@@ -3,7 +3,7 @@ import image1 from '../images/Richtext.jpg'; // Replace with your actual path fo
 
 const BombayComponent = () => {
   return (
-    <div className="bg-[#f8f5ec] text-gray-800 px-4 py-12 md:py-24">
+    <div id="richtext" className="font-mukta bg-[#f8f5ec] text-gray-800 px-4 py-12 md:py-24">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left Section */}
         <div className="lg:pr-12">

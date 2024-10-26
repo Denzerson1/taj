@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import Navbar from './components/navbar';
-import Slideshow from './components/slideshow';
-import Richtext from './components/richtext';
-import Cuisine from './components/cuisine';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
 
 const Main = () => {
   return (
-    <div>
-      <Navbar />
-      <Slideshow />
-      <Richtext />
-      <Cuisine />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<Home />} />
+        <Route path="/blogs" element={<Home />} />
+        <Route path="/food" element={<Home />} />
+        <Route path="/drinks" element={<Home />} />
+        <Route path="/info" element={<Home />} />
+        <Route path="/private-events" element={<Home />} />
+      </Routes>
+    </Router>
   );
 };
 
