@@ -16,22 +16,20 @@ const recipes = [
 
 const RecipeSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleRecipes, setVisibleRecipes] = useState(3); // Default number of visible recipes
+  const [visibleRecipes, setVisibleRecipes] = useState(3);
 
-  // Function to determine number of visible recipes based on window size
   const updateVisibleRecipes = () => {
     const width = window.innerWidth;
     if (width >= 1024) {
-      setVisibleRecipes(5); // For large screens
+      setVisibleRecipes(5);
     } else if (width >= 768) {
-      setVisibleRecipes(3); // For medium screens
+      setVisibleRecipes(3);
     } else {
-      setVisibleRecipes(1); // For small screens
+      setVisibleRecipes(1);
     }
   };
 
   useEffect(() => {
-    // Update visible recipes on initial render and resize
     updateVisibleRecipes();
     window.addEventListener('resize', updateVisibleRecipes);
     return () => {
@@ -52,7 +50,7 @@ const RecipeSection = () => {
   };
 
   return (
-    <div className="bg-[#f7f4eb] px-5 pt-8 lg:pt-0 lg:px-20"> {/* Adjusted padding */}
+    <div className="bg-[#f7f4eb] px-5 pt-8 lg:pt-0 lg:px-20">
       <div className="text-center mb-6">
         <h2 className="text-sm font-semibold tracking-wider text-gray-500 uppercase">
           Food Blog
@@ -63,21 +61,21 @@ const RecipeSection = () => {
       </div>
 
       <div className="mt-10">
-        {/* Mobile View: Single Recipe with Left/Right Arrows */}
+        {/* Mobile View */}
         <div className="lg:hidden relative flex items-center justify-center">
-          {/* Previous Button */}
           <button
             onClick={handlePrev}
-            className="absolute left-2 p-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 transition-colors"
+            className="absolute left-2 p-2 rounded-full transition-colors"
+            disabled={currentIndex === 0}
+            style={{ backgroundColor: 'rgba(255, 193, 7, 0.5)', zIndex: 10 }}
           >
-            <FaArrowLeft />
+            <FaArrowLeft className="text-white" />
           </button>
 
-          {/* Recipe Image with Slide Animation */}
           <div className="w-full overflow-hidden">
             <div
               className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${(currentIndex * 100) / visibleRecipes}%)` }} // Adjust based on visible recipes
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {recipes.map((recipe, index) => (
                 <div key={index} className="w-full flex-shrink-0 flex flex-col items-center">
@@ -101,30 +99,30 @@ const RecipeSection = () => {
             </div>
           </div>
 
-          {/* Next Button */}
           <button
             onClick={handleNext}
-            className="absolute right-2 p-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 transition-colors"
+            className="absolute right-2 p-2 rounded-full transition-colors"
+            disabled={currentIndex + visibleRecipes >= recipes.length}
+            style={{ backgroundColor: 'rgba(255, 193, 7, 0.5)', zIndex: 10 }}
           >
-            <FaArrowRight />
+            <FaArrowRight className="text-white" />
           </button>
         </div>
 
-        {/* Desktop View: Carousel with Left/Right Arrows */}
+        {/* Desktop View */}
         <div className="hidden lg:flex relative items-center">
-          {/* Previous Button for Desktop */}
           <button
             onClick={handlePrev}
-            className="absolute left-2 p-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 transition-colors"
+            className="absolute left-2 p-2 rounded-full transition-colors"
+            style={{ backgroundColor: 'rgba(255, 193, 7, 0.5)', zIndex: 10 }}
           >
-            <FaArrowLeft />
+            <FaArrowLeft className="text-white" />
           </button>
 
-          {/* Recipe Image Carousel */}
           <div className="w-full overflow-hidden">
             <div
               className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${(currentIndex * 100) / visibleRecipes}%)` }} // Adjust based on visible recipes
+              style={{ transform: `translateX(-${(currentIndex * 100) / visibleRecipes}%)` }}
             >
               {recipes.map((recipe, index) => (
                 <div key={index} className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/5 px-2">
@@ -148,19 +146,19 @@ const RecipeSection = () => {
             </div>
           </div>
 
-          {/* Next Button for Desktop */}
           <button
             onClick={handleNext}
-            className="absolute right-2 p-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 transition-colors"
+            className="absolute right-2 p-2 rounded-full transition-colors"
+            style={{ backgroundColor: 'rgba(255, 193, 7, 0.5)', zIndex: 10 }}
           >
-            <FaArrowRight />
+            <FaArrowRight className="text-white" />
           </button>
         </div>
 
         {/* Explore Recipes Button */}
         <div className="text-center mt-6">
-          <a 
-            href="/order" 
+          <a
+            href="/order"
             className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block"
           >
             Explore our blog

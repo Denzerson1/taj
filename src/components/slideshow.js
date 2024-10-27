@@ -42,7 +42,6 @@ const Slideshow = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
     };
 
-    // Adjusted scroll function with navbar offset
     const scrollToSection = () => {
         const section = document.getElementById('richtext');
         if (section) {
@@ -104,7 +103,7 @@ const Slideshow = () => {
                 <img 
                     src={pfeile} 
                     alt="Down Arrow" 
-                    className="mt-4 cursor-pointer w-8 h-8" 
+                    className="mt-4 cursor-pointer w-8 h-8 transition-transform duration-300 transform hover:scale-110" 
                     onClick={scrollToSection}
                 />
             </div>

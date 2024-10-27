@@ -118,9 +118,9 @@ const InfoSection = () => {
       <div className="flex flex-col md:flex-row items-center gap-0 overflow-hidden mt-10 md:-mt-24 md:py-24">
         <div className="md:hidden w-full">
           <img
-            srcSet={`${takeoutImage} 1024w, ${takeoutImage} 480w`}
+            srcSet={`${image3} 1024w, ${image3} 480w`}
             sizes="(max-width: 768px) 480px, 1024px"
-            src={takeoutImage}
+            src={image3}
             alt="About Us"
             className="w-full h-[300px] object-cover mb-4"
           />
