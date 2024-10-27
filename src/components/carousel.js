@@ -7,11 +7,11 @@ import recipeImage4 from '../images/Ready to eat_The Taj_Chicken Kabli 02 (1).jp
 import recipeImage5 from '../images/Start eating_The Taj_04 (1).jpg';
 
 const recipes = [
-  { title: 'IMG_6166', type: 'RECIPE', image: recipeImage1, link: '#' },
+  { title: 'Some food', type: 'RECIPE', image: recipeImage1, link: '#' },
   { title: 'Paneer Shashlik', type: 'RECIPE', image: recipeImage2, link: '#' },
   { title: 'Paneer Tikka', type: 'RECIPE', image: recipeImage3, link: '#' },
   { title: 'Chicken Kabli', type: 'DINNER', image: recipeImage4, link: '#' },
-  { title: 'Start Eating', type: 'RECIPE', image: recipeImage5, link: '#' },
+  { title: 'Some food', type: 'RECIPE', image: recipeImage5, link: '#' },
 ];
 
 const RecipeSection = () => {
@@ -52,13 +52,13 @@ const RecipeSection = () => {
   };
 
   return (
-    <div className="bg-[#f7f4eb] py-10 px-5 lg:px-20">
+    <div className="bg-[#f7f4eb] px-5 pt-8 lg:pt-0 lg:px-20"> {/* Adjusted padding */}
       <div className="text-center mb-6">
         <h2 className="text-sm font-semibold tracking-wider text-gray-500 uppercase">
-          Choice Recipes to Recreate at Home
+          Food Blog
         </h2>
         <h3 className="text-2xl font-light text-gray-800 mt-2">
-          A selection of the best recipes from our cafés and beyond
+          A selection of the best recipes from Taj
         </h3>
       </div>
 
@@ -159,9 +159,12 @@ const RecipeSection = () => {
 
         {/* Explore Recipes Button */}
         <div className="text-center mt-6">
-          <button className="border border-gray-700 text-gray-700 px-4 py-2 rounded transition-colors duration-300 hover:bg-gray-700 hover:text-white">
-            Explore recipes
-          </button>
+          <a 
+            href="/order" 
+            className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block"
+          >
+            Explore our blog
+          </a>
         </div>
       </div>
     </div>

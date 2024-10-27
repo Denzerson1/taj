@@ -67,7 +67,7 @@ const Navbar = () => {
           {/* Reservation Button for Mobile */}
           <li className="lg:hidden mt-4 px-4 pb-4">
             <a
-              href="#reservations"
+              href="https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222"
               className="block text-center border border-red-600 bg-red-600 text-sm text-white py-1 rounded transition-colors duration-300 hover:bg-transparent hover:text-red-600"
               onClick={() => setMenuOpen(false)} // Close menu on button click
             >
@@ -79,7 +79,7 @@ const Navbar = () => {
         {/* Reservation Button for Desktop */}
         <div className="hidden lg:block">
           <a
-            href="#reservations"
+            href="https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222"
             className="border border-red-600 bg-red-600 text-sm text-white py-1 px-3 rounded transition-colors duration-300 hover:bg-transparent hover:text-red-600"
           >
             BOOK A TABLE

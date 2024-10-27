@@ -12,7 +12,7 @@ import takeout from '../images/takeout.jpg';
 import flasche from '../images/flasche.jpg';
 import chicken from '../images/ingredients.jpg';
 import ambiente2 from '../images/ambiente/ambiente2.jpg';
-import pfeile from '../images/pfeile.png'; // Import the image
+import pfeile from '../images/pfeile.png';
 
 const slides = [
     { image: fullTable },
@@ -30,25 +30,25 @@ const slides = [
 
 const Slideshow = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isTransitioning, setIsTransitioning] = useState(true);
 
     useEffect(() => {
         const interval = setInterval(() => {
             nextSlide();
-        }, 4000); // Change slide every 4 seconds
-
+        }, 4000);
         return () => clearInterval(interval);
     }, [currentIndex]);
 
     const nextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length); // Loop back to the first slide
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
     };
 
-    // Function to handle scroll to section
+    // Adjusted scroll function with navbar offset
     const scrollToSection = () => {
         const section = document.getElementById('richtext');
         if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+            const yOffset = -80; // Offset for navbar overlap
+            const yPosition = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: yPosition, behavior: 'smooth' });
         }
     };
 
@@ -56,33 +56,33 @@ const Slideshow = () => {
         <div className="font-mukta relative w-full h-screen overflow-hidden bg-gray-900">
             <style>
                 {`
-          .slide-container {
-            display: flex;
-            width: 100%; /* Full width for the slide container */
-            height: 100%;
-            transition: transform 1s ease-in-out;
-            transform: translateX(-${currentIndex * 100}%); /* Move to current slide */
-          }
+                    .slide-container {
+                        display: flex;
+                        width: 100%;
+                        height: 100%;
+                        transition: transform 1s ease-in-out;
+                        transform: translateX(-${currentIndex * 100}%);
+                    }
 
-          .slide {
-            width: 100%; /* Ensure each slide takes full width */
-            height: 100%; /* Full height of the container */
-            flex-shrink: 0;
-            object-fit: cover; /* Adjust image to fill the slide without empty spaces */
-          }
+                    .slide {
+                        width: 100%;
+                        height: 100%;
+                        flex-shrink: 0;
+                        object-fit: cover;
+                    }
 
-          .social-icons a {
-            color: #d4af37;
-            transition: color 0.3s;
-          }
+                    .social-icons a {
+                        color: #d4af37;
+                        transition: color 0.3s;
+                    }
 
-          .social-icons a:hover {
-            color: #b89f30;
-          }
-        `}
+                    .social-icons a:hover {
+                        color: #b89f30;
+                    }
+                `}
             </style>
 
-            {/* Slide container with images aligned horizontally */}
+            {/* Slide container with images */}
             <div className="absolute inset-0 flex slide-container">
                 {slides.map((slide, index) => (
                     <img key={index} src={slide.image} alt={`Slide ${index + 1}`} className="slide" />
@@ -105,7 +105,7 @@ const Slideshow = () => {
                     src={pfeile} 
                     alt="Down Arrow" 
                     className="mt-4 cursor-pointer w-8 h-8" 
-                    onClick={scrollToSection} // Add onClick handler
+                    onClick={scrollToSection}
                 />
             </div>
 
