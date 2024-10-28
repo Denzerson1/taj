@@ -1,10 +1,43 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import image1 from '../images/Richtext.jpg'; // Replace with your actual path for the image
 
 const BombayComponent = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Disconnect once it's visible to improve performance
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the component is visible
+      }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div id="richtext" className="font-mukta bg-[#f8f5ec] text-gray-800 px-4 py-12 md:py-24">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <div
+      id="richtext"
+      ref={elementRef}
+      className={`font-mukta bg-[#f8f5ec] text-gray-800 px-4 py-12 md:py-24 transition-all duration-700 ease-out transform ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
+    >
+      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left Section */}
         <div className="lg:pr-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif leading-snug md:leading-tight text-center lg:text-left text-gray-900 mb-6 md:mb-8 lg:mb-12">
@@ -25,7 +58,7 @@ const BombayComponent = () => {
         <div className="relative">
           <img
             src={image1}
-            alt="Chicken Biryani alt"
+            alt="Chicken Biryani"
             className="w-full h-auto object-cover rounded-lg shadow-lg"
           />
           <p className="text-xs text-gray-600 mt-2 lg:mt-4 lg:absolute lg:top-4 lg:left-4 lg:bg-white lg:bg-opacity-75 lg:px-2 lg:py-1 lg:rounded">
