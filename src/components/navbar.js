@@ -55,7 +55,7 @@ const Navbar = () => {
           {['ABOUT', 'FOOD', 'DRINKS', 'INFO', 'BLOG', 'PRIVATE EVENTS'].map((link) => (
             <li key={link} className="text-center lg:text-left">
               <a
-                href={`#${link.toLowerCase().replace(' ', '-')}`}
+                href={`${link.toLowerCase().replace(' ', '-')}`}
                 className="block transition-colors duration-300 text-base font-normal text-white hover:text-[#FFD700] px-2 py-1"
                 onClick={() => setMenuOpen(false)} // Close menu on link click
               >

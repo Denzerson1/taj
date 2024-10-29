@@ -10,11 +10,11 @@ const BombayComponent = () => {
       (entries) => {
         if (entries[0].isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Disconnect once it's visible to improve performance
+          observer.disconnect();
         }
       },
       {
-        threshold: 0.1, // Trigger when 10% of the component is visible
+        threshold: 0.1,
       }
     );
 
@@ -56,21 +56,24 @@ const BombayComponent = () => {
 
         {/* Right Section */}
         <div className="relative">
-          <img
-            src={image1}
-            alt="Chicken Biryani"
-            className="w-full h-auto object-cover rounded-lg shadow-lg"
-          />
-          <p className="text-xs text-gray-600 mt-2 lg:mt-4 lg:absolute lg:top-4 lg:left-4 lg:bg-white lg:bg-opacity-75 lg:px-2 lg:py-1 lg:rounded">
-            The legendary Chicken?
-          </p>
-          {/* Overlapping Button */}
-          <a 
-            href="https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222" 
-            className="absolute bottom-4 right-4 bg-[#FFC107] text-black font-semibold py-3 px-6 rounded shadow-lg transition duration-300 hover:bg-[#ffca2d]"
-          >
-            Book a table
-          </a>
+          {/* Image with Button Positioned Inside */}
+          <div className="relative inline-block">
+            <img
+              src={image1}
+              alt="Chicken Biryani"
+              className="w-full h-auto object-cover rounded-lg shadow-lg"
+            />
+            <p className="absolute top-4 left-4 bg-white bg-opacity-75 px-2 py-1 rounded text-xs text-gray-600">
+              The legendary Chicken?
+            </p>
+            <a 
+              href="https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222" 
+              className="absolute bottom-2 right-2 bg-[#FFC107] text-black font-semibold py-2 px-4 rounded shadow-lg transition duration-300 hover:bg-[#ffca2d]"
+              style={{ zIndex: '10' }}
+            >
+              Book a table
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -6,6 +6,10 @@ import recipeImage2 from '../images/One dish_The Taj_Paneer Shashlik_02 (1).jpg'
 import recipeImage3 from '../images/One dish_The Taj_Paneer Tikka (1).jpg';
 import recipeImage4 from '../images/Ready to eat_The Taj_Chicken Kabli 02 (1).jpg';
 import recipeImage5 from '../images/Start eating_The Taj_04 (1).jpg';
+import recipeImage6 from '../images/Action_The Taj_Gin Fizz_06 (1).jpg';
+import recipeImage7 from '../images/Action_The Taj_Smoked Old Fashioned_08 (1).jpg';
+import recipeImage8 from '../images/Full Table_The Taj_MUghal Negroni 02 (1).jpg';
+import recipeImage9 from '../images/Full Table_The Taj_Butter Chicken (1).jpg';
 
 const recipes = [
   { title: 'Some food', type: 'RECIPE', image: recipeImage1, link: '#' },
@@ -13,6 +17,10 @@ const recipes = [
   { title: 'Paneer Tikka', type: 'RECIPE', image: recipeImage3, link: '#' },
   { title: 'Chicken Kabli', type: 'DINNER', image: recipeImage4, link: '#' },
   { title: 'Some food', type: 'RECIPE', image: recipeImage5, link: '#' },
+  { title: 'New Dish 1', type: 'RECIPE', image: recipeImage6, link: '#' },
+  { title: 'New Dish 2', type: 'RECIPE', image: recipeImage7, link: '#' },
+  { title: 'New Dish 3', type: 'DINNER', image: recipeImage8, link: '#' },
+  { title: 'New Dish 4', type: 'RECIPE', image: recipeImage9, link: '#' },
 ];
 
 const RecipeSection = () => {
@@ -40,7 +48,6 @@ const RecipeSection = () => {
     };
   }, []);
 
-  // Intersection Observer to trigger animation when section is in view
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -48,7 +55,7 @@ const RecipeSection = () => {
           setIsInViewport(true);
         }
       },
-      { threshold: 0.2 } // Trigger when 20% of the section is visible
+      { threshold: 0.2 }
     );
 
     if (sectionRef.current) {
@@ -100,8 +107,12 @@ const RecipeSection = () => {
       <div className="mt-10">
         {/* Mobile View */}
         <div className="lg:hidden relative flex items-center justify-center">
-          <button onClick={handlePrev} className="absolute left-2 p-2 rounded-full" disabled={currentIndex === 0}>
-            <FaArrowLeft className="text-white" />
+          <button 
+            onClick={handlePrev} 
+            className="absolute left-2 p-2 rounded-full z-10" 
+            disabled={currentIndex === 0}
+          >
+            <FaArrowLeft className="text-black" />
           </button>
 
           <div className="w-full overflow-hidden">
@@ -124,15 +135,23 @@ const RecipeSection = () => {
             </div>
           </div>
 
-          <button onClick={handleNext} className="absolute right-2 p-2 rounded-full" disabled={currentIndex + visibleRecipes >= recipes.length}>
-            <FaArrowRight className="text-white" />
+          <button 
+            onClick={handleNext} 
+            className="absolute right-2 p-2 rounded-full z-10" 
+            disabled={currentIndex + visibleRecipes >= recipes.length}
+          >
+            <FaArrowRight className="text-black" />
           </button>
         </div>
 
         {/* Desktop View */}
         <div className="hidden lg:flex relative items-center">
-          <button onClick={handlePrev} className="absolute left-2 p-2 rounded-full">
-            <FaArrowLeft className="text-white" />
+          <button 
+            onClick={handlePrev} 
+            className="absolute left-2 p-2 rounded-full z-10" 
+            disabled={currentIndex === 0}
+          >
+            <FaArrowLeft className="text-black" />
           </button>
 
           <div className="w-full overflow-hidden">
@@ -155,8 +174,12 @@ const RecipeSection = () => {
             </div>
           </div>
 
-          <button onClick={handleNext} className="absolute right-2 p-2 rounded-full">
-            <FaArrowRight className="text-white" />
+          <button 
+            onClick={handleNext} 
+            className="absolute right-2 p-2 rounded-full z-10" 
+            disabled={currentIndex + visibleRecipes >= recipes.length}
+          >
+            <FaArrowRight className="text-black" />
           </button>
         </div>
 
