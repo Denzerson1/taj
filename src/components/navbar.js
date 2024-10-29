@@ -1,10 +1,13 @@
+// src/components/Navbar.js
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa'; // Import icons for the hamburger menu
+import { useLocation } from 'react-router-dom'; // Import useLocation for detecting the route
 import Logo from '../images/logo.png'; // Adjust the path according to your file structure
 
 const Navbar = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation(); // Get the current URL path
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,13 +25,15 @@ const Navbar = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const backgroundOpacity = menuOpen ? 1 : Math.min(1, scrollPosition / 200); // Full opacity if menuOpen is true
+  // Set the background opacity based on the scroll or if it's on the /food or /drinks page
+  const isFoodOrDrinkPage = location.pathname === '/food' || location.pathname === '/drinks';
+  const backgroundOpacity = isFoodOrDrinkPage ? 1 : (menuOpen ? 1 : Math.min(1, scrollPosition / 200));
 
   return (
     <nav
       className={`font-mukta fixed w-full top-0 z-50 transition-opacity duration-300`}
       style={{
-        backgroundColor: `rgba(0, 0, 0, ${backgroundOpacity})`, // Set background opacity dynamically
+        backgroundColor: `rgba(0, 0, 0, ${backgroundOpacity})`,
         transition: 'background-color 0.3s ease',
       }}
     >
@@ -43,7 +48,7 @@ const Navbar = () => {
         {/* Hamburger Icon for Mobile */}
         <div className="lg:hidden flex items-center">
           <button onClick={toggleMenu} className="text-white focus:outline-none">
-            {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />} {/* Smaller icon size */}
+            {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
           </button>
         </div>
 
@@ -55,8 +60,9 @@ const Navbar = () => {
           {['ABOUT', 'FOOD', 'DRINKS', 'INFO', 'BLOG', 'PRIVATE EVENTS'].map((link) => (
             <li key={link} className="text-center lg:text-left">
               <a
-                href={`${link.toLowerCase().replace(' ', '-')}`}
-                className="block transition-colors duration-300 text-base font-normal text-white hover:text-[#FFD700] px-2 py-1"
+                href={`/${link.toLowerCase().replace(' ', '-')}`}
+                className={`block transition-colors duration-300 text-base font-normal px-2 py-1
+                  ${(link === 'FOOD' && location.pathname === '/food') || (link === 'DRINKS' && location.pathname === '/drinks') ? 'text-[#FFD700]' : 'text-white'} hover:text-[#FFD700]`}
                 onClick={() => setMenuOpen(false)} // Close menu on link click
               >
                 {link}
