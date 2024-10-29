@@ -6,7 +6,7 @@ import DrinkImage from '../components/drinkImage';
 
 const DrinkSection = () => {
     return (
-        <div className="mt-20 min-h-screen bg-gray-50 flex flex-col">
+        <div className="bg-black font-mukta mt-20 min-h-screen flex flex-col">
             <Navbar />
             <DrinkImage />
             <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-center lg:justify-start bg-gray-50">
@@ -20,7 +20,7 @@ const DrinkSection = () => {
                 </div>
 
                 {/* Right - Text Content */}
-                <div className="w-full lg:w-1/2 h-auto lg:h-[400px] bg-teal-800 text-white flex items-center">
+                <div className="w-full lg:w-1/2 h-auto lg:h-[400px] bg-black text-white flex items-center">
                     <div className="p-6 sm:p-8">
                         <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-4">SIGNATURE COCKTAILS & CRAFTED DRINKS</h2>
                         <p className="mb-4 text-gray-200 text-sm sm:text-base">
@@ -33,7 +33,19 @@ const DrinkSection = () => {
                             Raise a glass and savor the spirit of good company, unique flavors, and unforgettable memories.
                         </p>
                         <a href="/drinks.pdf">
-                            <button className="px-6 py-2 bg-white text-teal-800 font-semibold rounded shadow hover:bg-gray-100 transition duration-300">
+                            <button
+                                style={{
+                                    padding: '12px 24px',
+                                    backgroundColor: '#FFD700', // Gold color
+                                    color: 'black',
+                                    fontWeight: 'bold',
+                                    borderRadius: '5px',
+                                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                                    transition: 'background-color 0.3s ease',
+                                }}
+                                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#FFC107')} // Darker gold on hover
+                                onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#FFD700')} // Back to gold on mouse out
+                            >
                                 View Drink Menu
                             </button>
                         </a>

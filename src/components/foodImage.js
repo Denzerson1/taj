@@ -3,12 +3,12 @@ import foodImage from '../images/foodImage.jpg';
 
 const HeroBanner = () => {
     return (
-        <div style={styles.bannerContainer}>
+        <div className='font-mukta' style={styles.bannerContainer}>
             <img src={foodImage} alt="Indian Cuisine" style={styles.image} />
             <div style={styles.overlay}>
                 <h1 style={styles.header}>CELEBRATING INDIAN HERITAGE THROUGH A VIENNESE LENS</h1>
                 <a href="/food.pdf" style={styles.button}>
-                    View Menu
+                    View Food Menu
                 </a>
             </div>
         </div>
@@ -49,15 +49,19 @@ const styles = {
     button: {
         marginTop: '20px',
         padding: '12px 18px',
-        backgroundColor: '#008080',
-        color: 'white',
+        backgroundColor: '#FFD700', // Gold color
+        color: 'black', // Text color in black for contrast
         textDecoration: 'none',
         borderRadius: '5px',
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: '16px',
         transition: 'background-color 0.3s ease',
+        ':hover': {
+            backgroundColor: '#FFC107', // Slightly darker gold on hover
+        },
     },
+    
 };
 
 export default HeroBanner;
