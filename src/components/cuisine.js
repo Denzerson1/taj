@@ -41,7 +41,7 @@ const InfoSection = () => {
 
   return (
     <div className="font-mukta bg-[#f8f5ec]">
-      
+
       {/* Cuisine Section */}
       <motion.div
         ref={cuisineRef}
@@ -62,9 +62,12 @@ const InfoSection = () => {
           <p className="text-gray-700 my-4">
             Our menu showcases the vibrant regional flavors of India, crafted with fresh, local ingredients. It honors tradition while embracing a modern culinary vision.
           </p>
-          <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block">
-            VIEW OUR FOOD
-          </button>
+          <a href="/food">
+            <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block">
+              VIEW OUR FOOD
+            </button>
+
+          </a>
         </div>
       </motion.div>
 
@@ -90,9 +93,11 @@ const InfoSection = () => {
           <p className="text-gray-700 my-4">
             At Taj, cocktails are a journey of flavor, where classic recipes meet innovative twists, inviting you to explore every sip.
           </p>
-          <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block">
-            VIEW OUR DRINKS
-          </button>
+          <a href="/drinks">
+            <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block">
+              VIEW OUR DRINKS
+            </button>
+          </a>
         </div>
       </motion.div>
 
@@ -178,9 +183,11 @@ const InfoSection = () => {
           <p className="text-gray-700 my-4">
             Dive into our rich history and culinary journey that fuses the traditional and modern. Learn how our passion for exceptional flavors and welcoming atmosphere creates unforgettable experiences.
           </p>
-          <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block">
-            DISCOVER OUR STORY
-          </button>
+          <a href="/about">
+            <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block">
+              DISCOVER OUR STORY
+            </button>
+          </a>
         </div>
 
         <div className="hidden md:block md:w-3/5 w-full">

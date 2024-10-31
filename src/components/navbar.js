@@ -1,13 +1,12 @@
-// src/components/Navbar.js
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa'; // Import icons for the hamburger menu
-import { useLocation } from 'react-router-dom'; // Import useLocation for detecting the route
-import Logo from '../images/logo.png'; // Adjust the path according to your file structure
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom';
+import Logo from '../images/logo.png';
 
 const Navbar = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation(); // Get the current URL path
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,13 +24,13 @@ const Navbar = () => {
     setMenuOpen(!menuOpen);
   };
 
-  // Set the background opacity based on the scroll or if it's on the /food or /drinks page
-  const isFoodOrDrinkPage = location.pathname === '/food' || location.pathname === '/drinks';
-  const backgroundOpacity = isFoodOrDrinkPage ? 1 : (menuOpen ? 1 : Math.min(1, scrollPosition / 200));
+  // Set background opacity for /food, /drinks, and /blog pages
+  const isSpecialPage = location.pathname === '/food' || location.pathname === '/drinks' || location.pathname === '/blog';
+  const backgroundOpacity = isSpecialPage ? 1 : (menuOpen ? 1 : Math.min(1, scrollPosition / 200));
 
   return (
     <nav
-      className={`font-mukta fixed w-full top-0 z-50 transition-opacity duration-300`}
+      className="font-mukta fixed w-full top-0 z-50 transition-opacity duration-300"
       style={{
         backgroundColor: `rgba(0, 0, 0, ${backgroundOpacity})`,
         transition: 'background-color 0.3s ease',
@@ -41,7 +40,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="text-xl transition-colors duration-300">
           <a href="/" className="flex items-center">
-            <img src={Logo} alt="Logo" className="h-12" /> {/* Adjusted height for a smaller logo */}
+            <img src={Logo} alt="Logo" className="h-12" />
           </a>
         </div>
 
@@ -54,21 +53,28 @@ const Navbar = () => {
 
         {/* Navbar Links */}
         <ul
-          className={`lg:flex flex-col lg:flex-row space-y-4 lg:space-y-0 space-x-0 lg:space-x-6 lg:items-center absolute lg:static top-16 left-0 w-full lg:w-auto bg-black lg:bg-transparent transition-all duration-300 ${menuOpen ? 'max-h-screen opacity-100 mt-4' : 'max-h-0 opacity-0 lg:opacity-100'
-            } overflow-hidden lg:overflow-visible`}
+          className={`lg:flex flex-col lg:flex-row space-y-4 lg:space-y-0 space-x-0 lg:space-x-6 lg:items-center absolute lg:static top-16 left-0 w-full lg:w-auto bg-black lg:bg-transparent transition-all duration-300 ${
+            menuOpen ? 'max-h-screen opacity-100 mt-4' : 'max-h-0 opacity-0 lg:opacity-100'
+          } overflow-hidden lg:overflow-visible`}
         >
-          {['ABOUT', 'FOOD', 'DRINKS', 'INFO', 'BLOG', 'PRIVATE EVENTS'].map((link) => (
-            <li key={link} className="text-center lg:text-left">
-              <a
-                href={`/${link.toLowerCase().replace(' ', '-')}`}
-                className={`block transition-colors duration-300 text-base font-normal px-2 py-1
-                  ${(link === 'FOOD' && location.pathname === '/food') || (link === 'DRINKS' && location.pathname === '/drinks') ? 'text-[#FFD700]' : 'text-white'} hover:text-[#FFD700]`}
-                onClick={() => setMenuOpen(false)} // Close menu on link click
-              >
-                {link}
-              </a>
-            </li>
-          ))}
+          {['ABOUT', 'FOOD', 'DRINKS', 'INFO', 'BLOG', 'PRIVATE EVENTS'].map((link) => {
+            const isCurrentPage = location.pathname === `/${link.toLowerCase().replace(' ', '-')}`;
+            const linkColor = (link === 'BLOG' && location.pathname === '/blog') ? 'text-black' : 'text-white';
+
+            return (
+              <li key={link} className="text-center lg:text-left">
+                <a
+                  href={`/${link.toLowerCase().replace(' ', '-')}`}
+                  className={`block transition-colors duration-300 text-base font-normal px-2 py-1 ${
+                    isCurrentPage ? 'text-[#FFD700]' : linkColor
+                  } hover:text-[#FFD700]`}
+                  onClick={() => setMenuOpen(false)} // Close menu on link click
+                >
+                  {link}
+                </a>
+              </li>
+            );
+          })}
 
           {/* Reservation Button for Mobile */}
           <li className="lg:hidden mt-4 px-4 pb-4">
