@@ -1,15 +1,17 @@
+// src/components/HeroBanner.js
 import React from 'react';
 import foodImage from '../images/foodImage.jpg';
 
-const HeroBanner = () => {
+const HeroBanner = ({ onScrollToMenu }) => {
     return (
         <div className='font-mukta' style={styles.bannerContainer}>
             <img src={foodImage} alt="Indian Cuisine" style={styles.image} />
             <div style={styles.overlay}>
                 <h1 style={styles.header}>CELEBRATING INDIAN HERITAGE THROUGH A VIENNESE LENS</h1>
-                <a href="/food.pdf" style={styles.button}>
+                {/* Use button for better accessibility and functionality */}
+                <button onClick={onScrollToMenu} style={styles.button}>
                     View Food Menu
-                </a>
+                </button>
             </div>
         </div>
     );
@@ -51,17 +53,14 @@ const styles = {
         padding: '12px 18px',
         backgroundColor: '#FFD700', // Gold color
         color: 'black', // Text color in black for contrast
-        textDecoration: 'none',
+        border: 'none', // Remove default border
         borderRadius: '5px',
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: '16px',
+        cursor: 'pointer', // Change cursor to pointer
         transition: 'background-color 0.3s ease',
-        ':hover': {
-            backgroundColor: '#FFC107', // Slightly darker gold on hover
-        },
     },
-    
 };
 
 export default HeroBanner;

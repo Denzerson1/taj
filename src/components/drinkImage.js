@@ -1,16 +1,17 @@
 // src/components/DrinkBanner.js
-import React from 'react';
+import React from 'react'; // Removed useRef as it's no longer needed
 import drinkImage from '../images/oldfashioned.jpg'; // Update the image path if necessary
 
-const DrinkBanner = () => {
+const DrinkBanner = ({ onScrollToGallery }) => {
     return (
         <div className="font-mukta" style={styles.bannerContainer}>
             <img src={drinkImage} alt="Indian-inspired cocktails" style={styles.image} />
             <div style={styles.overlay}>
                 <h1 style={styles.header}>ELEVATE YOUR EVENING WITH EXOTIC COCKTAILS</h1>
-                <a href="/drinks.pdf" style={styles.button}>
+                {/* Updated to use a button for better accessibility */}
+                <button onClick={onScrollToGallery} style={styles.button}>
                     View Drink Menu
-                </a>
+                </button>
             </div>
         </div>
     );
@@ -52,17 +53,14 @@ const styles = {
         padding: '12px 18px',
         backgroundColor: '#FFD700', // Gold color
         color: 'black', // Text color in black for contrast
-        textDecoration: 'none',
+        border: 'none', // Remove default border
         borderRadius: '5px',
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: '16px',
+        cursor: 'pointer', // Change cursor to pointer
         transition: 'background-color 0.3s ease',
-        ':hover': {
-            backgroundColor: '#FFC107', // Slightly darker gold on hover
-        },
     },
-    
 };
 
 export default DrinkBanner;

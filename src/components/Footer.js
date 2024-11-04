@@ -45,10 +45,11 @@ const Footer = () => {
                 <div>
                     <h4 className="text-lg font-semibold mb-4 text-[#d4af37]">QUICK LINKS</h4>
                     <ul className="space-y-2 text-sm">
-                        <li><a href="/home" className="hover:text-red-500 text-black">Home</a></li>
+                        <li><a href="#" className="hover:text-red-500 text-black">Home</a></li>
                         <li><a href="/about" className="hover:text-red-500 text-black">About Us</a></li>
-                        <li><a href="/menu" className="hover:text-red-500 text-black">Menu</a></li>
-                        <li><a href="/contact" className="hover:text-red-500 text-black">Contact</a></li>
+                        <li><a href="/food" className="hover:text-red-500 text-black">Food</a></li>
+                        <li><a href="/drinks" className="hover:text-red-500 text-black">Drinks</a></li>
+                        <li><a href="/info" className="hover:text-red-500 text-black">Contact</a></li>
                         <li><a href="https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222?aid=63" className="hover:text-red-500 text-black">Reservations</a></li>
                     </ul>
                 </div>

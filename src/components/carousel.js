@@ -185,7 +185,7 @@ const RecipeSection = () => {
 
         {/* Explore Recipes Button */}
         <div className="text-center mt-6">
-          <a href="/order" className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block">
+          <a href="/blog" className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block">
             Explore our blog
           </a>
         </div>
