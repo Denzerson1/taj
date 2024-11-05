@@ -74,10 +74,10 @@ const FoodBlog = () => {
     return (
         <div>
             <Navbar />
-            <div className="bg-[#f8f4e9] pt-32 text-gray-900 font-mukta py-10 px-4 lg:px-24">
+            <div className="bg-[#B2B2B2] pt-32 text-gray-900 font-mukta py-10 px-4 lg:px-24">
                 {/* Page Header */}
                 <header className="text-center mb-12">
-                    <h1 className="text-5xl font-bold text-gray-800 mb-4">The Global Plate</h1>
+                    <h1 className="text-5xl font-bold text-black mb-4">The Global Plate</h1> {/* Black header */}
                     <p className="text-lg text-gray-700">A culinary adventure for every kind of food lover</p>
                 </header>
 
@@ -107,12 +107,12 @@ const FoodBlog = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             aria-label={`Read more about ${post.title}`}
-                                            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 block"
+                                            className="bg-gray-500 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 block"
                                         >
                                             <img src={post.img} alt={post.title} className="w-full h-48 object-cover" />
                                             <div className="p-6">
                                                 <h3 className="text-2xl font-semibold text-gray-800 mb-2">{post.title}</h3>
-                                                <p className="text-[#d4af37]">{post.subtitle}</p> {/* Gold subtitle */}
+                                                <p className="text-[#FFD700]">{post.subtitle}</p> {/* Light golden subtitle */}
                                             </div>
                                         </a>
                                     ))}

@@ -100,25 +100,26 @@ const Slideshow = () => {
                 </p>
 
                 {/* Down Arrow Image */}
-                <img 
-                    src={pfeile} 
-                    alt="Down Arrow" 
-                    className="mt-4 cursor-pointer w-8 h-8 transition-transform duration-300 transform hover:scale-110" 
+                <img
+                    src={pfeile}
+                    alt="Down Arrow"
+                    className="mt-4 cursor-pointer w-8 h-8 transition-transform duration-300 transform hover:scale-110"
                     onClick={scrollToSection}
                 />
             </div>
 
             {/* Social Media Icons */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 social-icons">
-                <div className="flex space-x-6 text-white">
-                    <a href="https://www.facebook.com/austriantaj/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+                <div className="flex justify-center space-x-6 text-white">
+                    <a href="https://www.facebook.com/austriantaj/" target="_blank" rel="noopener noreferrer">
                         <FaFacebookF size={24} className="text-[#d4af37] hover:text-[#b89f30]" />
                     </a>
-                    <a href="https://www.instagram.com/austriantaj1080/" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500">
+                    <a href="https://www.instagram.com/austriantaj1080/" target="_blank" rel="noopener noreferrer">
                         <FaInstagram size={24} className="text-[#d4af37] hover:text-[#b89f30]" />
                     </a>
                 </div>
             </div>
+
         </div>
     );
 };

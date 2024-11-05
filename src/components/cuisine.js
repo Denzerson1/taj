@@ -40,7 +40,7 @@ const InfoSection = () => {
   const aboutInView = useInView(aboutRef, { once: true });
 
   return (
-    <div className="font-mukta bg-[#f8f5ec]">
+    <div className="font-mukta bg-[#B2B2B2]">
 
       {/* Cuisine Section */}
       <motion.div
@@ -63,7 +63,7 @@ const InfoSection = () => {
             Our menu showcases the vibrant regional flavors of India, crafted with fresh, local ingredients. It honors tradition while embracing a modern culinary vision.
           </p>
           <a href="/food">
-            <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block">
+            <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-gray-200 transition-all inline-block">
               VIEW OUR FOOD
             </button>
 
@@ -94,7 +94,7 @@ const InfoSection = () => {
             At Taj, cocktails are a journey of flavor, where classic recipes meet innovative twists, inviting you to explore every sip.
           </p>
           <a href="/drinks">
-            <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block">
+            <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-gray-200 transition-all inline-block">
               VIEW OUR DRINKS
             </button>
           </a>
@@ -123,7 +123,7 @@ const InfoSection = () => {
           </p>
           <button
             onClick={toggleMenu}
-            className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block"
+            className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-gray-200 transition-all inline-block"
           >
             ORDER ONLINE
           </button>
@@ -184,7 +184,7 @@ const InfoSection = () => {
             Dive into our rich history and culinary journey that fuses the traditional and modern. Learn how our passion for exceptional flavors and welcoming atmosphere creates unforgettable experiences.
           </p>
           <a href="/about">
-            <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block">
+            <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-gray-200 transition-all inline-block">
               DISCOVER OUR STORY
             </button>
           </a>

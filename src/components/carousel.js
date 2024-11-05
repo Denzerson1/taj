@@ -92,7 +92,7 @@ const RecipeSection = () => {
       initial="initial"
       animate="animate"
       variants={slideInFromTop}
-      className="bg-[#f7f4eb] px-5 pt-8 lg:pt-0 lg:px-20"
+      className="bg-[#B2B2B2] px-5 pt-8 lg:pt-0 lg:px-20"
     >
       <div className="text-center mb-6">
         <h2 className="text-sm font-semibold tracking-wider text-gray-500 uppercase">
@@ -185,7 +185,7 @@ const RecipeSection = () => {
 
         {/* Explore Recipes Button */}
         <div className="text-center mt-6">
-          <a href="/blog" className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-[#FFF9E3] transition-all inline-block">
+          <a href="/blog" className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-gray-200 transition-all inline-block">
             Explore our blog
           </a>
         </div>
