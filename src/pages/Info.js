@@ -5,23 +5,23 @@ import bannerImage from '../images/ambiente/ambiente.jpg';
 
 const InfoPage = () => {
     return (
-        <div className="bg-gradient-to-b from-[#B2B2B2] to-gray-600 min-h-screen text-gray-800">
+        <div className="min-h-screen text-gray-800 bg-gradient-to-b from-gray-300 to-gray-700">
             <Navbar />
             
             {/* Banner Section with Background Image */}
             <div
-                className="relative bg-cover bg-center py-32 lg:py-48 text-center"
+                className="relative py-32 lg:py-48 text-center bg-cover bg-center"
                 style={{
                     backgroundImage: `url(${bannerImage})`,
+                    backgroundAttachment: 'local', // Avoids mobile issues with fixed backgrounds
                     backgroundSize: 'cover',
-                    backgroundAttachment: 'scroll', // Ensure consistency across mobile devices
                 }}
             >
-                {/* Dark overlay to enhance text visibility */}
+                {/* Overlay */}
                 <div className="absolute inset-0 bg-black opacity-50"></div>
 
                 <div className="relative z-10 max-w-4xl mx-auto px-4">
-                    <h1 className="text-5xl lg:text-7xl font-bold text-white text-shadow-lg">
+                    <h1 className="text-5xl lg:text-7xl font-bold text-white">
                         Discover a Journey of Flavors and Traditions
                     </h1>
                     <p className="mt-4 text-lg lg:text-xl text-white">
@@ -31,7 +31,7 @@ const InfoPage = () => {
             </div>
             
             {/* Hours Section */}
-            <div className="bg-[#B2B2B2] py-16 px-6 text-center">
+            <div className="bg-gray-300 py-16 px-6 text-center">
                 <h2 className="text-3xl font-semibold text-gray-900 mb-6">Hours</h2>
                 <div className="text-gray-700 space-y-4 text-lg">
                     <p>Monday - Thursday: 11:00 AM - 10:00 PM</p>
@@ -41,16 +41,16 @@ const InfoPage = () => {
             </div>
 
             {/* Gradient Divider */}
-            <div className="bg-gradient-to-b from-[#B2B2B2] to-gray-600 h-16 md:h-20"></div>
+            <div className="h-16 bg-gradient-to-b from-gray-300 to-gray-600 md:h-20"></div>
 
-            {/* Location Section with Google Maps Iframe */}
+            {/* Location Section */}
             <div className="bg-gray-600 py-16 px-6 text-center text-white">
                 <h2 className="text-3xl font-semibold mb-6">Location</h2>
                 <p className="text-lg max-w-xl mx-auto mb-8">
                     123 Flavor Street, Spice Town, IN 45678
                 </p>
                 <button
-                    className="mt-4 px-6 py-2 bg-[#FFD700] text-black font-semibold rounded hover:bg-yellow-600 transition duration-200"
+                    className="mt-4 px-6 py-2 bg-yellow-500 text-black font-semibold rounded hover:bg-yellow-600 transition duration-200"
                     onClick={() => window.open('https://maps.google.com?q=123+Flavor+Street,+Spice+Town,+IN+45678', '_blank')}
                 >
                     Get Directions
@@ -69,10 +69,10 @@ const InfoPage = () => {
             </div>
 
             {/* Gradient Divider */}
-            <div className="bg-gradient-to-b from-gray-600 to-[#B2B2B2] h-16 md:h-20"></div>
+            <div className="h-16 bg-gradient-to-b from-gray-600 to-gray-300 md:h-20"></div>
 
             {/* Contact Section */}
-            <div className="bg-[#B2B2B2] py-16 px-6 text-center">
+            <div className="bg-gray-300 py-16 px-6 text-center">
                 <h2 className="text-3xl font-semibold text-gray-900 mb-6">Contact Us</h2>
                 <p className="text-lg text-gray-700 mb-4">Phone: (123) 456-7890</p>
                 <p className="text-lg text-gray-700 mb-4">Email: contact@tajrestaurant.com</p>
@@ -80,7 +80,7 @@ const InfoPage = () => {
             </div>
 
             {/* Gradient Divider */}
-            <div className="bg-gradient-to-b from-[#B2B2B2] to-gray-600 h-16 md:h-20"></div>
+            <div className="h-16 bg-gradient-to-b from-gray-300 to-gray-600 md:h-20"></div>
 
             {/* Reservation Section */}
             <div className="bg-gray-600 py-16 px-6 text-center text-white">
@@ -89,7 +89,7 @@ const InfoPage = () => {
                     Reserve a table for a memorable dining experience with friends and family.
                 </p>
                 <button
-                    className="px-6 py-2 bg-[#FFD700] text-black font-semibold rounded hover:bg-yellow-600 transition duration-200"
+                    className="px-6 py-2 bg-yellow-500 text-black font-semibold rounded hover:bg-yellow-600 transition duration-200"
                     onClick={() => window.open('/reservation', '_blank')}
                 >
                     Book Now
