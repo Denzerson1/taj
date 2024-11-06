@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        lightgold: '#E8C547', // A light gold color
+      },
       fontFamily: {
         mukta: ['Mukta', 'sans-serif'], // Add Mukta font here
       },
