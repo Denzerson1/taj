@@ -14,9 +14,10 @@ const InfoPage = () => {
                 style={{
                     backgroundImage: `url(${bannerImage})`,
                     backgroundSize: 'cover',
-                    backgroundAttachment: 'fixed', // Makes it more prominent on mobile
+                    backgroundAttachment: 'scroll', // Ensure consistency across mobile devices
                 }}
             >
+                {/* Dark overlay to enhance text visibility */}
                 <div className="absolute inset-0 bg-black opacity-50"></div>
 
                 <div className="relative z-10 max-w-4xl mx-auto px-4">
@@ -40,7 +41,7 @@ const InfoPage = () => {
             </div>
 
             {/* Gradient Divider */}
-            <div className="h-16 bg-gradient-to-b from-[#B2B2B2] to-gray-600 md:h-20"></div>
+            <div className="bg-gradient-to-b from-[#B2B2B2] to-gray-600 h-16 md:h-20"></div>
 
             {/* Location Section with Google Maps Iframe */}
             <div className="bg-gray-600 py-16 px-6 text-center text-white">
@@ -68,7 +69,7 @@ const InfoPage = () => {
             </div>
 
             {/* Gradient Divider */}
-            <div className="h-16 bg-gradient-to-b from-gray-600 to-[#B2B2B2] md:h-20"></div>
+            <div className="bg-gradient-to-b from-gray-600 to-[#B2B2B2] h-16 md:h-20"></div>
 
             {/* Contact Section */}
             <div className="bg-[#B2B2B2] py-16 px-6 text-center">
@@ -79,7 +80,7 @@ const InfoPage = () => {
             </div>
 
             {/* Gradient Divider */}
-            <div className="h-16 bg-gradient-to-b from-[#B2B2B2] to-gray-600 md:h-20"></div>
+            <div className="bg-gradient-to-b from-[#B2B2B2] to-gray-600 h-16 md:h-20"></div>
 
             {/* Reservation Section */}
             <div className="bg-gray-600 py-16 px-6 text-center text-white">
