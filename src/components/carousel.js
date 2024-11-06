@@ -92,7 +92,8 @@ const RecipeSection = () => {
       initial="initial"
       animate="animate"
       variants={slideInFromTop}
-      className="bg-[#B2B2B2] px-5 pt-8 lg:pt-0 lg:px-20"
+      style={{ backgroundImage: 'linear-gradient(to bottom, #B2B2B2, #4B5563)' }} // Gradient from light gray to dark gray
+      className="px-5 pt-8 lg:pt-0 lg:px-20"
     >
       <div className="text-center mb-6">
         <h2 className="text-sm font-semibold tracking-wider text-gray-500 uppercase">
@@ -164,7 +165,7 @@ const RecipeSection = () => {
                   <div className="text-center mt-2">
                     <span className="text-xs font-semibold text-gray-500 uppercase">{recipe.type}</span>
                     <a href={recipe.link}>
-                      <h4 className="text-lg font-normal text-gray-800 mt-1 hover:text-gray-600 transition-colors">
+                      <h4 className="text-lg font-normal text-gray-200 mt-1 hover:text-gray-600 transition-colors">
                         {recipe.title}
                       </h4>
                     </a>
@@ -185,7 +186,7 @@ const RecipeSection = () => {
 
         {/* Explore Recipes Button */}
         <div className="text-center mt-6">
-          <a href="/blog" className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-gray-200 transition-all inline-block">
+          <a href="/blog" className="px-6 py-2 border border-[#FFC107] text-gray-200 font-semibold hover:bg-gray-500 transition-all inline-block">
             Explore our blog
           </a>
         </div>

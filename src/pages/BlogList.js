@@ -74,7 +74,12 @@ const FoodBlog = () => {
     return (
         <div>
             <Navbar />
-            <div className="bg-[#B2B2B2] pt-32 text-gray-900 font-mukta py-10 px-4 lg:px-24">
+            <div
+                style={{
+                    backgroundImage: 'linear-gradient(to bottom, #B2B2B2, #4B5563)' // Gradient from light gray to dark gray
+                }}
+                className="pt-32 text-gray-900 font-mukta py-10 px-4 lg:px-24"
+            >
                 {/* Page Header */}
                 <header className="text-center mb-12">
                     <h1 className="text-5xl font-bold text-black mb-4">The Global Plate</h1> {/* Black header */}

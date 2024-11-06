@@ -33,9 +33,9 @@ const BombayComponent = () => {
     <div
       id="richtext"
       ref={elementRef}
-      className={`font-mukta bg-[#B2B2B2] text-gray-800 px-4 py-12 md:py-24 transition-all duration-700 ease-out transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}
+      style={{ backgroundImage: 'linear-gradient(to bottom, #4B5563, #B2B2B2)' }} // Gradient from dark gray to light gray
+      className={`font-mukta text-gray-800 px-4 py-12 md:py-24 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
     >
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left Section */}
@@ -47,9 +47,9 @@ const BombayComponent = () => {
             <br className="hidden lg:block" />
             and every ingredient speaks of tradition.
           </h2>
-          <p className="text-sm md:text-base lg:text-lg leading-relaxed text-gray-600">
-            So, sit back and let us transport you from the streets of Vienna to the royal kitchens of Rajasthan, 
-            the bustling eateries of Delhi, and the coastal delights of Kerala. Here, amidst the soft glow of candles 
+          <p className="text-sm md:text-base lg:text-lg leading-relaxed text-gray-800">
+            So, sit back and let us transport you from the streets of Vienna to the royal kitchens of Rajasthan,
+            the bustling eateries of Delhi, and the coastal delights of Kerala. Here, amidst the soft glow of candles
             and the gentle hum of Indian music, Taj invites you to share stories, laughter, and unforgettable meals with your loved ones.
           </p>
         </div>
@@ -63,11 +63,8 @@ const BombayComponent = () => {
               alt="Chicken Biryani"
               className="w-full h-auto object-cover rounded-lg shadow-md"
             />
-            <p className="absolute top-4 left-4 bg-gray-100 bg-opacity-90 px-2 py-1 rounded text-xs text-gray-700 shadow-sm">
-              The legendary Chicken?
-            </p>
-            <a 
-              href="https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222" 
+            <a
+              href="https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222"
               className="absolute bottom-2 right-2 bg-gray-700 text-gray-100 font-semibold py-2 px-4 rounded shadow-md transition duration-300 hover:bg-gray-600"
               style={{ zIndex: '10' }}
             >

@@ -1,6 +1,6 @@
 // src/components/DrinkBanner.js
 import React from 'react'; // Removed useRef as it's no longer needed
-import drinkImage from '../images/oldfashioned.jpg'; // Update the image path if necessary
+import drinkImage from '../images/lieblingsbild1.jfif'; // Update the image path if necessary
 
 const DrinkBanner = ({ onScrollToGallery }) => {
     return (

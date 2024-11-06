@@ -13,9 +13,11 @@ import flasche from '../images/flasche.jpg';
 import chicken from '../images/ingredients.jpg';
 import ambiente2 from '../images/ambiente/ambiente2.jpg';
 import pfeile from '../images/pfeile.png';
+import lieblingsbild from '../images/lieblingsbild2.jpg';
 
 const slides = [
     { image: fullTable },
+    { image: lieblingsbild },
     { image: fullTable2 },
     { image: drinks },
     { image: drink2 },
