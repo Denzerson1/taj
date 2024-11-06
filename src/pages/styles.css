@@ -1,0 +1,18 @@
+/* styles.css */
+
+/* Gradient styles */
+.gradient-top {
+    background: linear-gradient(to bottom, #B2B2B2, #808080);
+  }
+  
+  .gradient-bottom {
+    background: linear-gradient(to bottom, #808080, #B2B2B2);
+  }
+  
+  /* Add a fallback color for smaller screens */
+  @media (max-width: 768px) {
+    .gradient-top, .gradient-bottom {
+      background: #B2B2B2; /* Fallback background color for mobile */
+    }
+  }
+  

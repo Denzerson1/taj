@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from '../components/navbar'; // Import Navbar component if you have one
-import Footer from '../components/Footer'; // Import Footer component if you have one
-import bannerImage from '../images/ambiente/ambiente.jpg'; // Ensure the banner image exists in this path
+import Navbar from '../components/navbar';
+import Footer from '../components/Footer';
+import bannerImage from '../images/ambiente/ambiente.jpg';
 
 const InfoPage = () => {
     return (
@@ -13,9 +13,10 @@ const InfoPage = () => {
                 className="relative bg-cover bg-center py-32 lg:py-48 text-center"
                 style={{
                     backgroundImage: `url(${bannerImage})`,
+                    backgroundSize: 'cover',
+                    backgroundAttachment: 'fixed', // Makes it more prominent on mobile
                 }}
             >
-                {/* Add a dark overlay to enhance text visibility */}
                 <div className="absolute inset-0 bg-black opacity-50"></div>
 
                 <div className="relative z-10 max-w-4xl mx-auto px-4">
@@ -39,7 +40,7 @@ const InfoPage = () => {
             </div>
 
             {/* Gradient Divider */}
-            <div className="bg-gradient-to-b from-[#B2B2B2] to-gray-600 h-16"></div>
+            <div className="h-16 bg-gradient-to-b from-[#B2B2B2] to-gray-600 md:h-20"></div>
 
             {/* Location Section with Google Maps Iframe */}
             <div className="bg-gray-600 py-16 px-6 text-center text-white">
@@ -53,7 +54,6 @@ const InfoPage = () => {
                 >
                     Get Directions
                 </button>
-                {/* Embedded Google Maps Iframe */}
                 <div className="mt-8 max-w-4xl mx-auto">
                     <iframe
                         title="Google Maps Location"
@@ -68,7 +68,7 @@ const InfoPage = () => {
             </div>
 
             {/* Gradient Divider */}
-            <div className="bg-gradient-to-b from-gray-600 to-[#B2B2B2] h-16"></div>
+            <div className="h-16 bg-gradient-to-b from-gray-600 to-[#B2B2B2] md:h-20"></div>
 
             {/* Contact Section */}
             <div className="bg-[#B2B2B2] py-16 px-6 text-center">
@@ -79,7 +79,7 @@ const InfoPage = () => {
             </div>
 
             {/* Gradient Divider */}
-            <div className="bg-gradient-to-b from-[#B2B2B2] to-gray-600 h-16"></div>
+            <div className="h-16 bg-gradient-to-b from-[#B2B2B2] to-gray-600 md:h-20"></div>
 
             {/* Reservation Section */}
             <div className="bg-gray-600 py-16 px-6 text-center text-white">
@@ -89,7 +89,7 @@ const InfoPage = () => {
                 </p>
                 <button
                     className="px-6 py-2 bg-[#FFD700] text-black font-semibold rounded hover:bg-yellow-600 transition duration-200"
-                    onClick={() => window.open('/reservation', '_blank')} // Update URL if you have a reservation page
+                    onClick={() => window.open('/reservation', '_blank')}
                 >
                     Book Now
                 </button>
