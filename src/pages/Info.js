@@ -73,14 +73,19 @@ const InfoPage = () => {
             {/* Contact Section */}
             <div className="bg-[#B2B2B2] py-16 px-6 text-center">
                 <h2 className="text-3xl font-semibold text-gray-900 mb-6">Contact Us</h2>
-                <p className="text-lg text-black mb-4">Phone: <a
+                <p className="text-lg text-gray-800 mb-4">Phone: <a
                     href="tel:+4319247141"
                     className="hover:text-black"
                 >
                     +43 (1) 924 7141
                 </a></p>
-                <p className="text-lg text-gray-700 mb-4">Email: contact@tajrestaurant.com</p>
-                <p className="text-lg text-gray-700">Feel free to reach out for any questions or special requests.</p>
+                <p className="text-lg text-gray-800 mb-4">Email: <a
+                    href="mailto:Office@thetaj.at"
+                    className="hover:text-black"
+                >
+                    Office@thetaj.at
+                </a></p>
+                <p className="text-lg text-gray-800">Feel free to reach out for any questions or special requests.</p>
             </div>
 
             {/* Gradient Divider */}
