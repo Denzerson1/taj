@@ -54,6 +54,7 @@ const DrinkSection = () => {
 
                 {/* Image Gallery - Vertical Scrollable Layout */}
                 <div ref={galleryRef} className="flex flex-col items-center gap-4 p-6 bg-gray-600"> {/* Keeping the background gray */}
+                    <h1 className="text-3xl font-semibold text-white m-4">Our Menu</h1>
                     <img src={image2} alt="Cocktail 2" className="w-full max-w-2xl h-auto object-cover rounded shadow-md" />
                     <img src={image3} alt="Cocktail 3" className="w-full max-w-2xl h-auto object-cover rounded shadow-md" />
                     <img src={image4} alt="Cocktail 4" className="w-full max-w-2xl h-auto object-cover rounded shadow-md" />
