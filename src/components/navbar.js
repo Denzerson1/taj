@@ -1,10 +1,32 @@
-// src/components/Navbar.js
-
 import React, { useState, useEffect } from 'react'; // Make sure to import useEffect
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext'; // Import the language context
 import Logo from '../images/logo.png';
+
+// Translations for the Navbar component
+const translations = {
+  EN: {
+    about: 'About',
+    food: 'Food',
+    drinks: 'Drinks',
+    info: 'Info',
+    blog: 'Blog',
+    privateEvents: 'Private Events',
+    bookTable: 'BOOK A TABLE',
+    language: 'Language',
+  },
+  DE: {
+    about: 'Über Uns',
+    food: 'Essen',
+    drinks: 'Getränke',
+    info: 'Informationen',
+    blog: 'Blog',
+    privateEvents: 'Private Veranstaltungen',
+    bookTable: 'RESERVIEREN',
+    language: 'Sprache',
+  },
+};
 
 const Navbar = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -42,6 +64,9 @@ const Navbar = () => {
   const isSpecialPage = location.pathname === '/food' || location.pathname === '/drinks' || location.pathname === '/blog';
   const backgroundOpacity = isSpecialPage ? 1 : (menuOpen ? 1 : Math.min(1, scrollPosition / 200));
 
+  // Get the current translations based on the selected language
+  const { about, food, drinks, info, blog, privateEvents, bookTable, language: languageLabel } = translations[language];
+
   return (
     <nav
       className="font-mukta fixed w-full top-0 z-50 transition-opacity duration-300"
@@ -70,15 +95,15 @@ const Navbar = () => {
           className={`lg:flex flex-col lg:flex-row space-y-4 lg:space-y-0 space-x-0 lg:space-x-6 lg:items-center absolute lg:static top-16 left-0 w-full lg:w-auto bg-black lg:bg-transparent transition-all duration-300 ${menuOpen ? 'max-h-screen opacity-100 mt-4' : 'max-h-0 opacity-0 lg:opacity-100'
             } overflow-hidden lg:overflow-visible`}
         >
-          {['ABOUT', 'FOOD', 'DRINKS', 'INFO', 'BLOG', 'PRIVATE EVENTS'].map((link) => {
+          {[about, food, drinks, info, blog, privateEvents].map((link, index) => {
+            const linkText = link === blog && location.pathname === '/blog' ? 'text-black' : 'text-white';
             const isCurrentPage = location.pathname === `/${link.toLowerCase().replace(' ', '-')}`;
-            const linkColor = link === 'BLOG' && location.pathname === '/blog' ? 'text-black' : 'text-white';
 
             return (
-              <li key={link} className="text-center lg:text-left">
+              <li key={index} className="text-center lg:text-left">
                 <a
                   href={`/${link.toLowerCase().replace(' ', '-')}`}
-                  className={`block transition-colors duration-300 text-base font-normal px-2 py-1 ${isCurrentPage ? 'text-[#FFD700]' : linkColor
+                  className={`block transition-colors duration-300 text-base font-normal px-2 py-1 ${isCurrentPage ? 'text-[#FFD700]' : linkText
                     } hover:text-[#FFD700]`}
                   onClick={() => setMenuOpen(false)} // Close menu on link click
                 >
@@ -95,14 +120,14 @@ const Navbar = () => {
               className="block text-center border border-[#FFD700] bg-[#FFD700] text-sm text-black py-1 rounded transition-colors duration-300 hover:bg-transparent hover:text-[#FFD700]"
               onClick={() => setMenuOpen(false)} // Close menu on button click
             >
-              BOOK A TABLE
+              {bookTable}
             </a>
           </li>
 
           {/* Language Dropdown for Mobile */}
           <li className="lg:hidden mt-4 px-4 pb-4">
             <button onClick={toggleDropdown} className="w-full text-center bg-gray-800 text-white py-1 rounded">
-              Language: {language}
+              {languageLabel}: {language}
             </button>
             {dropdownOpen && (
               <div className="w-full bg-gray-900 mt-2 rounded">
@@ -129,7 +154,7 @@ const Navbar = () => {
             href="https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222"
             className="border border-[#FFD700] bg-[#FFD700] text-sm text-black py-1 px-3 rounded transition-colors duration-300 hover:bg-transparent hover:text-[#FFD700]"
           >
-            BOOK A TABLE
+            {bookTable}
           </a>
 
           {/* Language Dropdown */}
