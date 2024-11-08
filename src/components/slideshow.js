@@ -1,3 +1,5 @@
+// src/components/Slideshow.js
+
 import React, { useState, useEffect } from 'react';
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import fullTable from '../images/1.jpg';
@@ -14,6 +16,7 @@ import chicken from '../images/ingredients.jpg';
 import ambiente2 from '../images/ambiente/ambiente2.jpg';
 import pfeile from '../images/pfeile.png';
 import lieblingsbild from '../images/lieblingsbild2.jpg';
+import { useLanguage } from '../LanguageContext';
 
 const slides = [
     { image: fullTable },
@@ -30,8 +33,19 @@ const slides = [
     { image: ambiente2 },
 ];
 
+const translations = {
+    en: {
+        subtitle: 'Experience the Essence of Indian Culinary',
+    },
+    de: {
+        subtitle: 'Erleben Sie die indische Küche',
+    },
+};
+
 const Slideshow = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const { language } = useLanguage();
+    const currentTranslation = translations[language.toLowerCase()] || translations['en'];
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -98,7 +112,7 @@ const Slideshow = () => {
                     className="h-36 sm:h-48 md:h-60 lg:h-72 xl:h-80 opacity-90 pointer-events-none user-select-none"
                 />
                 <p className="text-white mt-4 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light">
-                    Experience the Essence of Indian Culinary
+                    {currentTranslation.subtitle}
                 </p>
 
                 {/* Down Arrow Image */}
@@ -121,7 +135,6 @@ const Slideshow = () => {
                     </a>
                 </div>
             </div>
-
         </div>
     );
 };

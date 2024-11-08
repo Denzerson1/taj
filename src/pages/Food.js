@@ -1,4 +1,3 @@
-// src/components/FoodSection.js
 import React, { useRef } from 'react'; // Import useRef
 import foodImage from '../images/food.jpg'; // Update the image path if necessary
 import Navbar from '../components/navbar';
@@ -19,15 +18,38 @@ import image11 from '../images/food/food-11.png';
 import image12 from '../images/food/food-12.png';
 import image13 from '../images/food/food-13.png';
 import Footer from '../components/Footer';
+import { useLanguage } from '../LanguageContext'; // Import the language context
 
 const FoodSection = () => {
     const galleryRef = useRef(null); // Create a ref for the gallery
+    const { language } = useLanguage(); // Access current language from context
 
     const scrollToGallery = () => {
         if (galleryRef.current) {
             galleryRef.current.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the gallery
         }
     };
+
+    // Translations for different languages
+    const content = {
+        en: {
+            title: "Indian Cuisine",
+            description: "Experience the diversity of Indian traditions through our exquisite dishes. Every meal is made with the freshest ingredients, bursting with flavor and tradition.",
+            menuTitle: "Our Menu",
+            descriptionTwo: "From savory street food to elaborate curries, our menu offers a taste of India's diverse culinary landscape – perfect for any occasion.",
+            descriptionThree: "Come to us and enjoy the true India on your plate."
+        },
+        de: {
+            title: "Indische Küche",
+            description: "Erleben Sie die Vielfalt der indischen Traditionen durch unsere exquisiten Gerichte. Jede Mahlzeit wird mit den frischesten Zutaten zubereitet, die voller Aromen und Traditionen stecken.",
+            menuTitle: "Unser Menü",
+            descriptionTwo: "Vom herzhaften Street Food bis zu aufwendigen Currys bietet unsere Speisekarte einen Geschmack der vielfältigen kulinarischen Landschaft Indiens – perfekt für jede Gelegenheit.",
+            descriptionThree: "Kommen Sie zu uns und genießen Sie das wahre Indien auf Ihrem Teller."
+        }
+    };
+
+    // Use the current language to fetch the relevant content
+    const currentContent = language === 'DE' ? content.de : content.en;
 
     return (
         <div>
@@ -47,15 +69,15 @@ const FoodSection = () => {
                     {/* Right - Text Content */}
                     <div className="w-full lg:w-1/2 h-auto lg:h-[500px] bg-gray-600 flex items-center"> {/* Keeping the background gray */}
                         <div className="p-6 sm:p-8">
-                            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-4 text-white">INDIAN CUISINE</h2>
+                            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-4 text-white">{currentContent.title}</h2> {/* Title */}
                             <p className="mb-4 text-gray-200 text-sm sm:text-base">
-                                Experience the richness of Indian heritage through our exquisite dishes. Each meal is prepared with the freshest ingredients, bursting with flavors and traditions.
+                                {currentContent.description}
                             </p>
                             <p className="mb-4 text-gray-200 text-sm sm:text-base">
-                                From savory street food to elaborate curries, our menu offers a taste of India's diverse culinary landscape, perfect for every occasion.
+                                {currentContent.descriptionTwo}
                             </p>
                             <p className="text-gray-200 mb-6 text-sm sm:text-base">
-                                Join us and savor the essence of India on your plate.
+                                {currentContent.descriptionThree}
                             </p>
                         </div>
                     </div>
@@ -63,7 +85,7 @@ const FoodSection = () => {
 
                 {/* Image Gallery - Vertical Scrollable Layout */}
                 <div ref={galleryRef} className="flex flex-col items-center gap-4 p-6 bg-gray-600">
-                    <h1 className="text-3xl font-semibold text-white m-4">Our Menu</h1>
+                    <h1 className="text-3xl font-semibold text-white m-4">{currentContent.menuTitle}</h1> {/* Menu Title */}
                     <img src={image1} alt="Food 1" className="w-full max-w-2xl h-auto object-cover rounded shadow-md" />
                     <img src={image2} alt="Food 2" className="w-full max-w-2xl h-auto object-cover rounded shadow-md" />
                     <img src={image3} alt="Food 3" className="w-full max-w-2xl h-auto object-cover rounded shadow-md" />

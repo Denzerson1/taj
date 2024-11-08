@@ -1,11 +1,63 @@
 import React from 'react';
+import { useLanguage } from '../LanguageContext'; // Import the language context
 import Navbar from '../components/navbar'; // Import Navbar component if you have one
 import Footer from '../components/Footer'; // Import Footer component if you have one
 import bannerImage from '../images/ambiente/ambiente.jpg'; // Ensure the banner image exists in this path
 
 const InfoPage = () => {
+    const { language } = useLanguage(); // Get the current language
+
+    // Define dynamic text based on the selected language
+    const sectionText = {
+        EN: {
+            header: 'Discover a Journey of Flavors and Traditions',
+            subheader: 'Where every meal tells a story, connecting people through flavors and memories.',
+            hoursTitle: 'Hours',
+            hours: [
+                'Monday - Thursday: 11:00 AM - 10:00 PM',
+                'Friday - Saturday: 11:00 AM - 11:00 PM',
+                'Sunday: 11:00 AM - 9:00 PM',
+            ],
+            locationTitle: 'Location',
+            location: '123 Flavor Street, Spice Town, IN 45678',
+            directions: 'Get Directions',
+            contactTitle: 'Contact Us',
+            contactDetails: {
+                phone: '+43 (1) 924 7141',
+                email: 'Office@thetaj.at',
+                message: 'Feel free to reach out for any questions or special requests.',
+            },
+            reservationTitle: 'Make a Reservation',
+            reservationMessage:
+                'Reserve a table for a memorable dining experience with friends and family.',
+            reservationButton: 'Book Now',
+        },
+        DE: {
+            header: 'Entdecken Sie eine Reise voller Aromen und Traditionen', // German translation
+            subheader: 'Wo jedes Gericht eine Geschichte erzählt, die Menschen durch Aromen und Erinnerungen verbindet.',
+            hoursTitle: 'Öffnungszeiten',
+            hours: [
+                'Montag - Donnerstag: 11:00 - 22:00',
+                'Freitag - Samstag: 11:00 - 23:00',
+                'Sonntag: 11:00 - 21:00',
+            ],
+            locationTitle: 'Standort',
+            location: '123 Flavor Street, Spice Town, IN 45678',
+            directions: 'Wegbeschreibung',
+            contactTitle: 'Kontaktieren Sie uns',
+            contactDetails: {
+                phone: '+43 (1) 924 7141',
+                email: 'Office@thetaj.at',
+                message: 'Zögern Sie nicht, uns bei Fragen oder besonderen Anfragen zu kontaktieren.',
+            },
+            reservationTitle: 'Reservierung vornehmen',
+            reservationMessage: 'Reservieren Sie einen Tisch für ein unvergessliches kulinarisches Erlebnis mit Freunden und Familie.',
+            reservationButton: 'Jetzt buchen',
+        },
+    };
+
     return (
-        <div className="bg-gradient-to-b from-[#B2B2B2] to-gray-600 min-h-screen text-gray-800">
+        <div className="font-mukta bg-gradient-to-b from-[#B2B2B2] to-gray-600 min-h-screen text-gray-800">
             <Navbar />
 
             {/* Banner Section with Background Image */}
@@ -20,21 +72,23 @@ const InfoPage = () => {
 
                 <div className="relative z-10 max-w-4xl mx-auto px-4">
                     <h1 className="text-5xl lg:text-7xl font-bold text-white text-shadow-lg">
-                        Discover a Journey of Flavors and Traditions
+                        {sectionText[language].header}
                     </h1>
                     <p className="mt-4 text-lg lg:text-xl text-white">
-                        Where every meal tells a story, connecting people through flavors and memories.
+                        {sectionText[language].subheader}
                     </p>
                 </div>
             </div>
 
             {/* Hours Section */}
-            <div className="bg-[#B2B2B2] py-16 px-6 text-center">
-                <h2 className="text-3xl font-semibold text-gray-900 mb-6">Hours</h2>
+            <div className="bg-[#B2B2B2] py-10 px-6 text-center">
+                <h2 className="text-3xl font-semibold text-gray-900 mb-6">
+                    {sectionText[language].hoursTitle}
+                </h2>
                 <div className="text-gray-700 space-y-4 text-lg">
-                    <p>Monday - Thursday: 11:00 AM - 10:00 PM</p>
-                    <p>Friday - Saturday: 11:00 AM - 11:00 PM</p>
-                    <p>Sunday: 11:00 AM - 9:00 PM</p>
+                    {sectionText[language].hours.map((hour, index) => (
+                        <p key={index}>{hour}</p>
+                    ))}
                 </div>
             </div>
 
@@ -42,16 +96,18 @@ const InfoPage = () => {
             <div className="bg-gradient-to-b from-[#B2B2B2] to-gray-600 h-16"></div>
 
             {/* Location Section with Google Maps Iframe */}
-            <div className="bg-gray-600 py-16 px-6 text-center text-white">
-                <h2 className="text-3xl font-semibold mb-6">Location</h2>
+            <div className="bg-gray-600 py-12 px-6 text-center text-white">
+                <h2 className="text-3xl font-semibold mb-6">
+                    {sectionText[language].locationTitle}
+                </h2>
                 <p className="text-lg max-w-xl mx-auto mb-8">
-                    123 Flavor Street, Spice Town, IN 45678
+                    {sectionText[language].location}
                 </p>
                 <button
-                    className=" px-6 py-2 bg-[#FFD700] text-black font-semibold rounded hover:bg-yellow-600 transition duration-200"
+                    className="px-6 py-2 bg-[#FFD700] text-black font-semibold rounded hover:bg-yellow-600 transition duration-200"
                     onClick={() => window.open('https://maps.app.goo.gl/TesETbkyUZdL7S9W6', '_blank')}
                 >
-                    Get Directions
+                    {sectionText[language].directions}
                 </button>
                 {/* Embedded Google Maps Iframe */}
                 <div className="mt-8 max-w-4xl mx-auto">
@@ -70,38 +126,48 @@ const InfoPage = () => {
             {/* Gradient Divider */}
             <div className="bg-gradient-to-b from-gray-600 to-[#B2B2B2] h-16"></div>
 
-            {/* Contact Section */}
-            <div className="bg-[#B2B2B2] py-16 px-6 text-center">
-                <h2 className="text-3xl font-semibold text-gray-900 mb-6">Contact Us</h2>
-                <p className="text-lg text-gray-800 mb-4">Phone: <a
-                    href="tel:+4319247141"
-                    className="hover:text-black"
-                >
-                    +43 (1) 924 7141
-                </a></p>
-                <p className="text-lg text-gray-800 mb-4">Email: <a
-                    href="mailto:Office@thetaj.at"
-                    className="hover:text-black"
-                >
-                    Office@thetaj.at
-                </a></p>
-                <p className="text-lg text-gray-800">Feel free to reach out for any questions or special requests.</p>
+            <div className="bg-[#B2B2B2] py-8 px-6 text-center">
+                <h2 className="text-3xl font-semibold text-gray-900 mb-6">
+                    {sectionText[language].contactTitle}
+                </h2>
+                <p className="text-lg text-gray-800 mb-4">
+                    {sectionText[language].contactDetails.message}
+                </p>
+                <p className="text-lg text-gray-800 mb-4">
+                    <strong>Phone:</strong> <a
+                        href={`tel:${sectionText[language].contactDetails.phone}`}
+                        className="hover:text-black"
+                    >
+                        {sectionText[language].contactDetails.phone}
+                    </a>
+                </p>
+                <p className="text-lg text-gray-800 mb-4">
+                    <strong>Email:</strong> <a
+                        href={`mailto:${sectionText[language].contactDetails.email}`}
+                        className="hover:text-black"
+                    >
+                        {sectionText[language].contactDetails.email}
+                    </a>
+                </p>
             </div>
+
 
             {/* Gradient Divider */}
             <div className="bg-gradient-to-b from-[#B2B2B2] to-gray-600 h-16"></div>
 
             {/* Reservation Section */}
             <div className="bg-gray-600 py-16 px-6 text-center text-white">
-                <h2 className="text-3xl font-semibold mb-6">Make a Reservation</h2>
+                <h2 className="text-3xl font-semibold mb-6">
+                    {sectionText[language].reservationTitle}
+                </h2>
                 <p className="text-lg max-w-xl mx-auto mb-8">
-                    Reserve a table for a memorable dining experience with friends and family.
+                    {sectionText[language].reservationMessage}
                 </p>
                 <button
                     className="px-6 py-2 bg-[#FFD700] text-black font-semibold rounded hover:bg-yellow-600 transition duration-200"
-                    onClick={() => window.open("https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222?aid=63", '_blank')} // Update URL if you have a reservation page
+                    onClick={() => window.open("https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222?aid=63", '_blank')}
                 >
-                    Book Now
+                    {sectionText[language].reservationButton}
                 </button>
             </div>
 

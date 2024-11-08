@@ -1,7 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '../LanguageContext'; // Import the language context
 import image1 from '../images/Richtext.jpg'; // Replace with your actual path for the image
 
+// Translations for the component
+const translations = {
+  EN: {
+    title: "At Taj, every dish is a journey through India’s vibrant flavors, where each spice tells a story and every ingredient speaks of tradition.",
+    paragraph: "So, sit back and let us transport you from the streets of Vienna to the royal kitchens of Rajasthan, the bustling eateries of Delhi, and the coastal delights of Kerala. Here, amidst the soft glow of candles and the gentle hum of Indian music, Taj invites you to share stories, laughter, and unforgettable meals with your loved ones.",
+    button: "Book a table"
+  },
+  DE: {
+    title: "Im Taj ist jedes Gericht eine Reise durch Indiens lebendige Aromenwelt, wo jedes Gewürz eine Geschichte erzählt und jede Zutat von Tradition spricht.",
+    paragraph: "Lehnen Sie sich zurück und lassen Sie sich von uns von den Straßen Wiens zu den königlichen Küchen Rajasthans, den geschäftigen Lokalen Delhis und den Küstendelikatesse Keralas entführen. Hier, im sanften Kerzenlicht und dem leisen Klang indischer Musik, lädt das Taj Sie ein, Geschichten, Lachen und unvergessliche Mahlzeiten mit Ihren Lieben zu teilen.",
+    button: "Tisch reservieren"
+  }
+};
+
 const BombayComponent = () => {
+  const { language } = useLanguage(); // Get the current language from context
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef(null);
 
@@ -29,11 +45,13 @@ const BombayComponent = () => {
     };
   }, []);
 
+  const { title, paragraph, button } = translations[language]; // Use the translations for the selected language
+
   return (
     <div
       id="richtext"
       ref={elementRef}
-      style={{ backgroundImage: 'linear-gradient(to bottom, #4B5563, #B2B2B2)' }} // Gradient from dark gray to light gray
+      style={{ backgroundImage: 'linear-gradient(to bottom, #4B5563, #B2B2B2)' }}
       className={`font-mukta text-gray-800 px-4 py-12 md:py-24 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
     >
@@ -41,16 +59,10 @@ const BombayComponent = () => {
         {/* Left Section */}
         <div className="lg:pr-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif leading-snug md:leading-tight text-center lg:text-left text-gray-900 mb-6 md:mb-8 lg:mb-12">
-            At Taj, every dish is a journey through India’s vibrant flavors, &nbsp;
-            <br className="hidden lg:block" />
-            where each spice tells a story&nbsp;
-            <br className="hidden lg:block" />
-            and every ingredient speaks of tradition.
+            {title}
           </h2>
           <p className="text-sm md:text-base lg:text-lg leading-relaxed text-gray-800">
-            So, sit back and let us transport you from the streets of Vienna to the royal kitchens of Rajasthan,
-            the bustling eateries of Delhi, and the coastal delights of Kerala. Here, amidst the soft glow of candles
-            and the gentle hum of Indian music, Taj invites you to share stories, laughter, and unforgettable meals with your loved ones.
+            {paragraph}
           </p>
         </div>
 
@@ -60,7 +72,7 @@ const BombayComponent = () => {
           <div className="relative inline-block">
             <img
               src={image1}
-              alt="Chicken Biryani"
+              alt="Indian dish"
               className="w-full h-auto object-cover rounded-lg shadow-md"
             />
             <a
@@ -68,7 +80,7 @@ const BombayComponent = () => {
               className="absolute bottom-2 right-2 bg-gray-700 text-gray-100 font-semibold py-2 px-4 rounded shadow-md transition duration-300 hover:bg-gray-600"
               style={{ zIndex: '10' }}
             >
-              Book a table
+              {button}
             </a>
           </div>
         </div>

@@ -1,16 +1,28 @@
-// src/components/DrinkBanner.js
-import React from 'react'; // Removed useRef as it's no longer needed
+import React from 'react';
+import { useLanguage } from '../LanguageContext'; // Import the language context
 import drinkImage from '../images/lieblingsbild1.jfif'; // Update the image path if necessary
 
 const DrinkBanner = ({ onScrollToGallery }) => {
+    const { language } = useLanguage(); // Access the current language
+
+    // Define text based on language selection
+    const bannerText = {
+        EN: 'ELEVATE YOUR EVENING WITH EXOTIC COCKTAILS',
+        DE: 'VERLEIHEN SIE IHREM ABEND MIT EXOTISCHEN COCKTAILS ETWAS BESONDERES', // German translation
+    };
+
+    const buttonText = {
+        EN: 'View Drink Menu',
+        DE: 'Getränkekarte ansehen', // German translation
+    };
+
     return (
         <div className="font-mukta" style={styles.bannerContainer}>
             <img src={drinkImage} alt="Indian-inspired cocktails" style={styles.image} />
             <div style={styles.overlay}>
-                <h1 style={styles.header}>ELEVATE YOUR EVENING WITH EXOTIC COCKTAILS</h1>
-                {/* Updated to use a button for better accessibility */}
+                <h1 style={styles.header}>{bannerText[language]}</h1>
                 <button onClick={onScrollToGallery} style={styles.button}>
-                    View Drink Menu
+                    {buttonText[language]}
                 </button>
             </div>
         </div>
@@ -39,7 +51,7 @@ const styles = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'column',
+        flexDirection: 'column', // Stack header and button vertically
     },
     header: {
         color: 'white',

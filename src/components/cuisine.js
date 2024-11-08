@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion'; // Import framer-motion and useInView
+import { useLanguage } from '../LanguageContext'; // Import language context
 import image1 from '../images/butterchicken.jpg';
 import image2 from '../images/manhattan.jpg';
 import image3 from '../images/about.jpg';
@@ -9,8 +10,69 @@ import caviarLogo from '../images/takeout/3.png';
 import image2Mobile from '../images/manhattan.jpg';
 import takeoutImage from '../images/takeout.jpg';
 
+// Translations for the component
+const translations = {
+  EN: {
+    cuisine: {
+      title: "OUR CUISINE",
+      description: "Our menu showcases the vibrant regional flavors of India, crafted with fresh, local ingredients. It honors tradition while embracing a modern culinary vision.",
+      button: "VIEW OUR FOOD"
+    },
+    cocktails: {
+      title: "OUR COCKTAILS",
+      description: "At Taj, cocktails are a journey of flavor, where classic recipes meet innovative twists, inviting you to explore every sip.",
+      button: "VIEW OUR DRINKS"
+    },
+    takeout: {
+      title: "ORDER TAKEOUT",
+      description: "Enjoy the flavors of India at home with our delicious takeout options, perfectly prepared and ready for you to savor.",
+      button: "ORDER ONLINE",
+      menuTitle: "Takeout Menu",
+      platforms: {
+        wolt: "Wolt",
+        grubhub: "Lieferando",
+        caviar: "Foodora"
+      }
+    },
+    about: {
+      title: "ABOUT US",
+      description: "Dive into our rich history and culinary journey that fuses the traditional and modern. Learn how our passion for exceptional flavors and welcoming atmosphere creates unforgettable experiences.",
+      button: "DISCOVER OUR STORY"
+    }
+  },
+  DE: {
+    cuisine: {
+      title: "UNSERE KÜCHE",
+      description: "Unser Menü zeigt die lebendigen regionalen Aromen Indiens, zubereitet mit frischen, lokalen Zutaten. Es ehrt die Tradition, während es eine moderne kulinarische Vision umarmt.",
+      button: "UNSERE SPEISEKARTE ANSEHEN"
+    },
+    cocktails: {
+      title: "UNSERE COCKTAILS",
+      description: "Im Taj sind Cocktails eine Reise des Geschmacks, bei der klassische Rezepte auf innovative Wendungen treffen und Sie zu jedem Schluck einladen.",
+      button: "UNSERE GETRÄNKE ANSEHEN"
+    },
+    takeout: {
+      title: "BESTELLEN SIE ZUM MITNEHMEN",
+      description: "Genießen Sie die Aromen Indiens zu Hause mit unseren köstlichen Takeout-Optionen, die perfekt zubereitet und bereit sind, von Ihnen genossen zu werden.",
+      button: "ONLINE BESTELLEN",
+      menuTitle: "Takeout-Menü",
+      platforms: {
+        wolt: "Wolt",
+        grubhub: "Lieferando",
+        caviar: "Foodora"
+      }
+    },
+    about: {
+      title: "ÜBER UNS",
+      description: "Tauchen Sie ein in unsere reiche Geschichte und kulinarische Reise, die Tradition und Moderne vereint. Erfahren Sie, wie unsere Leidenschaft für außergewöhnliche Aromen und eine einladende Atmosphäre unvergessliche Erlebnisse schafft.",
+      button: "ENTDECKEN SIE UNSERE GESCHICHTE"
+    }
+  }
+};
+
 const InfoSection = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language } = useLanguage(); // Get the current language from context
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -39,9 +101,10 @@ const InfoSection = () => {
   const takeoutInView = useInView(takeoutRef, { once: true });
   const aboutInView = useInView(aboutRef, { once: true });
 
+  const { cuisine, cocktails, takeout, about } = translations[language]; // Get translations for current language
+
   return (
     <div className="font-mukta bg-[#B2B2B2]">
-
       {/* Cuisine Section */}
       <motion.div
         ref={cuisineRef}
@@ -58,15 +121,12 @@ const InfoSection = () => {
           />
         </div>
         <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-4 px-4">
-          <h2 className="text-black text-lg font-bold">OUR CUISINE</h2>
-          <p className="text-gray-700 my-4">
-            Our menu showcases the vibrant regional flavors of India, crafted with fresh, local ingredients. It honors tradition while embracing a modern culinary vision.
-          </p>
+          <h2 className="text-black text-lg font-bold">{cuisine.title}</h2>
+          <p className="text-gray-700 my-4">{cuisine.description}</p>
           <a href="/food">
             <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-gray-200 transition-all inline-block">
-              VIEW OUR FOOD
+              {cuisine.button}
             </button>
-
           </a>
         </div>
       </motion.div>
@@ -89,13 +149,11 @@ const InfoSection = () => {
           />
         </div>
         <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-4 px-4">
-          <h2 className="text-black text-lg font-bold">OUR COCKTAILS</h2>
-          <p className="text-gray-700 my-4">
-            At Taj, cocktails are a journey of flavor, where classic recipes meet innovative twists, inviting you to explore every sip.
-          </p>
+          <h2 className="text-black text-lg font-bold">{cocktails.title}</h2>
+          <p className="text-gray-700 my-4">{cocktails.description}</p>
           <a href="/drinks">
             <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-gray-200 transition-all inline-block">
-              VIEW OUR DRINKS
+              {cocktails.button}
             </button>
           </a>
         </div>
@@ -117,43 +175,41 @@ const InfoSection = () => {
           />
         </div>
         <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-4 px-4">
-          <h2 className="text-black text-lg font-bold">ORDER TAKEOUT</h2>
-          <p className="text-gray-700 my-4">
-            Enjoy the flavors of India at home with our delicious takeout options, perfectly prepared and ready for you to savor.
-          </p>
+          <h2 className="text-black text-lg font-bold">{takeout.title}</h2>
+          <p className="text-gray-700 my-4">{takeout.description}</p>
           <button
             onClick={toggleMenu}
             className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-gray-200 transition-all inline-block"
           >
-            ORDER ONLINE
+            {takeout.button}
           </button>
 
           <div
             className={`transition-all duration-500 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
               }`}
           >
-            <h3 className="text-black text-md font-bold">Takeout Menu</h3>
+            <h3 className="text-black text-md font-bold">{takeout.menuTitle}</h3>
             <div className="flex justify-center gap-4 mt-1">
               <button
                 onClick={() => window.location.href = 'https://wolt.com/de-at/aut/vienna/restaurant/taj-indian-restaurant-bar'}
                 className="flex flex-col items-center"
               >
                 <img src={chowNowLogo} alt="Chow Now" className="h-16" />
-                <span className="text-sm">Wolt</span>
+                <span className="text-sm">{takeout.platforms.wolt}</span>
               </button>
               <button
                 onClick={() => window.location.href = 'https://www.lieferando.at/speisekarte/the-taj-restaurant-bar'}
                 className="flex flex-col items-center"
               >
                 <img src={grubhubLogo} alt="Grubhub" className="h-16" />
-                <span className="text-sm">Lieferando</span>
+                <span className="text-sm">{takeout.platforms.grubhub}</span>
               </button>
               <button
                 onClick={() => window.location.href = 'https://www.foodora.at/restaurant/zwlp/taj'}
                 className="flex flex-col items-center"
               >
                 <img src={caviarLogo} alt="Caviar" className="h-16" />
-                <span className="text-sm">Foodora</span>
+                <span className="text-sm">{takeout.platforms.caviar}</span>
               </button>
             </div>
           </div>
@@ -179,13 +235,11 @@ const InfoSection = () => {
         </div>
 
         <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-4 px-4">
-          <h2 className="text-black text-lg font-bold">ABOUT US</h2>
-          <p className="text-gray-700 my-4">
-            Dive into our rich history and culinary journey that fuses the traditional and modern. Learn how our passion for exceptional flavors and welcoming atmosphere creates unforgettable experiences.
-          </p>
+          <h2 className="text-black text-lg font-bold">{about.title}</h2>
+          <p className="text-gray-700 my-4">{about.description}</p>
           <a href="/about">
             <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-gray-200 transition-all inline-block">
-              DISCOVER OUR STORY
+              {about.button}
             </button>
           </a>
         </div>

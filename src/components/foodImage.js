@@ -1,16 +1,28 @@
-// src/components/HeroBanner.js
 import React from 'react';
+import { useLanguage } from '../LanguageContext'; // Import the language context
 import foodImage from '../images/foodImage.jpg';
 
 const HeroBanner = ({ onScrollToMenu }) => {
+    const { language } = useLanguage(); // Access the current language
+
+    // Define text based on language selection
+    const bannerText = {
+        EN: 'CELEBRATING INDIAN HERITAGE THROUGH A VIENNESE LENS',
+        DE: 'INDISCHE KULTUR DURCH EINE WIENER PERSPEKTIVE FEIERN', // German translation
+    };
+
+    const buttonText = {
+        EN: 'View Food Menu',
+        DE: 'Speisekarte ansehen', // German translation
+    };
+
     return (
         <div className='font-mukta' style={styles.bannerContainer}>
             <img src={foodImage} alt="Indian Cuisine" style={styles.image} />
             <div style={styles.overlay}>
-                <h1 style={styles.header}>CELEBRATING INDIAN HERITAGE THROUGH A VIENNESE LENS</h1>
-                {/* Use button for better accessibility and functionality */}
+                <h1 style={styles.header}>{bannerText[language]}</h1>
                 <button onClick={onScrollToMenu} style={styles.button}>
-                    View Food Menu
+                    {buttonText[language]}
                 </button>
             </div>
         </div>

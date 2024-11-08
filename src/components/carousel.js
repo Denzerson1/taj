@@ -1,6 +1,9 @@
+// src/components/RecipeSection.js
+
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
+import { useLanguage } from '../LanguageContext';
 import recipeImage1 from '../images/IMG_6166.jpg';
 import recipeImage2 from '../images/One dish_The Taj_Paneer Shashlik_02 (1).jpg';
 import recipeImage3 from '../images/One dish_The Taj_Paneer Tikka (1).jpg';
@@ -8,7 +11,7 @@ import recipeImage4 from '../images/Ready to eat_The Taj_Chicken Kabli 02 (1).jp
 import recipeImage5 from '../images/Start eating_The Taj_04 (1).jpg';
 import recipeImage6 from '../images/Action_The Taj_Gin Fizz_06 (1).jpg';
 import recipeImage7 from '../images/Action_The Taj_Smoked Old Fashioned_08 (1).jpg';
-import recipeImage8 from '../images/Full Table_The Taj_MUghal Negroni 02 (1).jpg';
+import recipeImage8 from '../images/Action_The Taj_Cocktail 14 (1).jpg';
 import recipeImage9 from '../images/Full Table_The Taj_Butter Chicken (1).jpg';
 
 const recipes = [
@@ -23,94 +26,86 @@ const recipes = [
   { title: 'New Dish 4', type: 'RECIPE', image: recipeImage9, link: '#' },
 ];
 
+const translations = {
+  en: {
+    foodBlog: 'Food Blog',
+    title: 'A selection of the best recipes from Taj',
+    exploreButton: 'Explore our blog',
+  },
+  de: {
+    foodBlog: 'Lebensmittel Blog',
+    title: 'Eine Auswahl der besten Rezepte von Taj',
+    exploreButton: 'Entdecken Sie unseren Blog',
+  },
+};
+
 const RecipeSection = () => {
+  const { language } = useLanguage();
+  const currentTranslations = translations[language.toLowerCase()] || translations['en'];
+  
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleRecipes, setVisibleRecipes] = useState(3);
-  const [isInViewport, setIsInViewport] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef(null);
 
   const updateVisibleRecipes = () => {
     const width = window.innerWidth;
-    if (width >= 1024) {
-      setVisibleRecipes(5);
-    } else if (width >= 768) {
-      setVisibleRecipes(3);
-    } else {
-      setVisibleRecipes(1);
-    }
+    setVisibleRecipes(width >= 1024 ? 5 : width >= 768 ? 3 : 1);
   };
 
   useEffect(() => {
     updateVisibleRecipes();
     window.addEventListener('resize', updateVisibleRecipes);
-    return () => {
-      window.removeEventListener('resize', updateVisibleRecipes);
-    };
+    return () => window.removeEventListener('resize', updateVisibleRecipes);
   }, []);
 
+  // Intersection Observer for triggering animation once
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInViewport(true);
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
         }
       },
       { threshold: 0.2 }
     );
+    const currentRef = sectionRef.current;
+    if (currentRef) observer.observe(currentRef);
+    return () => currentRef && observer.unobserve(currentRef);
+  }, [hasAnimated]);
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  const handleNext = () => {
-    if (currentIndex + visibleRecipes < recipes.length) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
-    }
-  };
+  const handleNext = () => currentIndex + visibleRecipes < recipes.length && setCurrentIndex((prev) => prev + 1);
+  const handlePrev = () => currentIndex > 0 && setCurrentIndex((prev) => prev - 1);
 
   const slideInFromTop = {
     initial: { y: '-100vh', opacity: 0 },
-    animate: isInViewport ? { y: 0, opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } } : {},
+    animate: { y: 0, opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } },
   };
 
   return (
     <motion.div
       ref={sectionRef}
       initial="initial"
-      animate="animate"
+      animate={hasAnimated ? "animate" : "initial"}
       variants={slideInFromTop}
-      style={{ backgroundImage: 'linear-gradient(to bottom, #B2B2B2, #4B5563)' }} // Gradient from light gray to dark gray
+      style={{ backgroundImage: 'linear-gradient(to bottom, #B2B2B2, #4B5563)' }}
       className="px-5 pt-8 lg:pt-0 lg:px-20"
     >
       <div className="text-center mb-6">
         <h2 className="text-sm font-semibold tracking-wider text-gray-500 uppercase">
-          Food Blog
+          {currentTranslations.foodBlog}
         </h2>
         <h3 className="text-2xl font-light text-gray-800 mt-2">
-          A selection of the best recipes from Taj
+          {currentTranslations.title}
         </h3>
       </div>
 
-      {/* Recipe cards */}
       <div className="mt-10">
-        {/* Mobile View */}
+        {/* Mobile view */}
         <div className="lg:hidden relative flex items-center justify-center">
-          <button 
-            onClick={handlePrev} 
-            className="absolute left-2 p-2 rounded-full z-10" 
+          <button
+            onClick={handlePrev}
+            className="absolute left-2 p-2 rounded-full z-10"
             disabled={currentIndex === 0}
           >
             <FaArrowLeft className="text-black" />
@@ -119,37 +114,25 @@ const RecipeSection = () => {
           <div className="w-full overflow-hidden">
             <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
               {recipes.map((recipe, index) => (
-                <div key={index} className="w-full flex-shrink-0 flex flex-col items-center">
-                  <a href={recipe.link} className="block w-full h-48">
-                    <img src={recipe.image} alt={recipe.title} className="w-full h-full object-cover rounded-md transition-transform duration-300 hover:scale-105" />
-                  </a>
-                  <div className="text-center mt-2">
-                    <span className="text-xs font-semibold text-gray-500 uppercase">{recipe.type}</span>
-                    <a href={recipe.link}>
-                      <h4 className="text-lg font-normal text-gray-800 mt-1 hover:text-gray-600 transition-colors">
-                        {recipe.title}
-                      </h4>
-                    </a>
-                  </div>
-                </div>
+                <RecipeCard key={index} recipe={recipe} />
               ))}
             </div>
           </div>
 
-          <button 
-            onClick={handleNext} 
-            className="absolute right-2 p-2 rounded-full z-10" 
+          <button
+            onClick={handleNext}
+            className="absolute right-2 p-2 rounded-full z-10"
             disabled={currentIndex + visibleRecipes >= recipes.length}
           >
             <FaArrowRight className="text-black" />
           </button>
         </div>
 
-        {/* Desktop View */}
+        {/* Desktop view */}
         <div className="hidden lg:flex relative items-center">
-          <button 
-            onClick={handlePrev} 
-            className="absolute left-2 p-2 rounded-full z-10" 
+          <button
+            onClick={handlePrev}
+            className="absolute left-2 p-2 rounded-full z-10"
             disabled={currentIndex === 0}
           >
             <FaArrowLeft className="text-black" />
@@ -158,41 +141,45 @@ const RecipeSection = () => {
           <div className="w-full overflow-hidden">
             <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${(currentIndex * 100) / visibleRecipes}%)` }}>
               {recipes.map((recipe, index) => (
-                <div key={index} className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/5 px-2">
-                  <a href={recipe.link} className="block w-full">
-                    <img src={recipe.image} alt={recipe.title} className="w-full h-48 object-cover rounded-md transition-transform duration-300 hover:scale-105" />
-                  </a>
-                  <div className="text-center mt-2">
-                    <span className="text-xs font-semibold text-gray-500 uppercase">{recipe.type}</span>
-                    <a href={recipe.link}>
-                      <h4 className="text-lg font-normal text-gray-200 mt-1 hover:text-gray-600 transition-colors">
-                        {recipe.title}
-                      </h4>
-                    </a>
-                  </div>
-                </div>
+                <RecipeCard key={index} recipe={recipe} largeView />
               ))}
             </div>
           </div>
 
-          <button 
-            onClick={handleNext} 
-            className="absolute right-2 p-2 rounded-full z-10" 
+          <button
+            onClick={handleNext}
+            className="absolute right-2 p-2 rounded-full z-10"
             disabled={currentIndex + visibleRecipes >= recipes.length}
           >
             <FaArrowRight className="text-black" />
           </button>
         </div>
 
-        {/* Explore Recipes Button */}
         <div className="text-center mt-6">
           <a href="/blog" className="px-6 py-2 border border-[#FFC107] text-gray-200 font-semibold hover:bg-gray-500 transition-all inline-block">
-            Explore our blog
+            {currentTranslations.exploreButton}
           </a>
         </div>
       </div>
     </motion.div>
   );
 };
+
+// Reusable RecipeCard Component
+const RecipeCard = ({ recipe, largeView = false }) => (
+  <div className={`flex-shrink-0 ${largeView ? 'w-full sm:w-1/2 lg:w-1/5 px-2' : 'w-full flex flex-col items-center'}`}>
+    <a href={recipe.link} className="block w-full h-48">
+      <img src={recipe.image} alt={recipe.title} className="w-full h-full object-cover rounded-md transition-transform duration-300 hover:scale-105" />
+    </a>
+    <div className="text-center mt-2">
+      <span className="text-xs font-semibold text-gray-500 uppercase">{recipe.type}</span>
+      <a href={recipe.link}>
+        <h4 className="text-lg font-normal text-gray-200 mt-1 hover:text-gray-600 transition-colors">
+          {recipe.title}
+        </h4>
+      </a>
+    </div>
+  </div>
+);
 
 export default RecipeSection;
