@@ -8,7 +8,7 @@ import { useLanguage } from '../LanguageContext'; // Import the language context
 // Translations for the AboutPage component
 const translations = {
   EN: {
-    title: "Discover the Essence of India in the Heart of Vienna",
+    title: "Taj: A Feast for the Senses – The Flavors of India in the Heart of Vienna",
     description: "Step into a world where tradition meets elegance. At Taj, we invite you to embark on a culinary journey through the vibrant landscapes of India, reimagined for the refined tastes of our discerning guests.",
     symphonyTitle: "A Symphony of Flavors, Curated with Passion",
     symphonyText: "At Taj, each dish is a masterpiece crafted with meticulous care, capturing the boldness and beauty of India’s culinary heritage. From the royal Mughlai feasts of Rajasthan to the coastal delicacies of Kerala, every plate tells a story of timeless tradition blended with contemporary sophistication.",
@@ -53,7 +53,7 @@ const AboutPage = () => {
       <Navbar />
 
       {/* Header Section with Gradient Background */}
-      <div className="relative pt-24 pb-16 px-4 sm:pt-32 sm:pb-20 lg:px-24 text-center bg-gradient-to-b from-gray-700 to-[#B2B2B2] text-gray-100">
+      <div className="relative pt-24 pb-16 px-4 sm:pt-32 sm:pb-20 lg:px-24 text-center bg-gradient-to-b from-[#4D2816] to-[#512E1F] text-gray-100">
         <h1 className="text-lightgold text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">
           {title}
         </h1>
@@ -62,18 +62,18 @@ const AboutPage = () => {
         </p>
       </div>
 
-      {/* Main Content Section */}
-      <div className="bg-[#B2B2B2] text-gray-800 py-12 sm:py-16 px-4 lg:px-24">
+      {/* Main Content Section with Smooth Gradient */}
+      <div className="bg-gradient-to-b from-[#512E1F] to-[#3E261C] text-gray-100 py-12 sm:py-16 px-4 lg:px-24">
         <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2">
           {/* Left Column: Rich Text */}
           <div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-900 mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-lightgold mb-6 sm:mb-8">
               {symphonyTitle}
             </h2>
-            <p className="leading-relaxed text-gray-700 mb-6 sm:mb-8">
+            <p className="leading-relaxed text-gray-200 mb-6 sm:mb-8">
               {symphonyText}
             </p>
-            <p className="leading-relaxed text-gray-700">
+            <p className="leading-relaxed text-gray-200">
               {missionText}
             </p>
           </div>
@@ -85,13 +85,13 @@ const AboutPage = () => {
               alt="Indian cuisine"
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />
-            <div className="absolute bottom-0 left-0 w-full h-20 sm:h-32 bg-gradient-to-t from-gray-600 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 w-full h-20 sm:h-32 bg-gradient-to-t from-[#512E1F] to-transparent"></div>
           </div>
         </div>
       </div>
 
-      {/* Mission & Vision Section */}
-      <div className="bg-gray-700 py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
+      {/* Mission & Vision Section with Smooth Gradient */}
+      <div className="bg-gradient-to-b from-[#3E261C] to-[#2F2019] py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8">
             {missionTitle}
@@ -102,8 +102,8 @@ const AboutPage = () => {
         </div>
       </div>
 
-      {/* Experience Section */}
-      <div className="bg-[#B2B2B2] py-16 sm:py-20 px-4 lg:px-24">
+      {/* Experience Section with Smooth Gradient */}
+      <div className="bg-gradient-to-b from-[#2F2019] to-[#1E0D0D] py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
         <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2 items-center">
           {/* Left Column: Image */}
           <div className="relative">
@@ -112,35 +112,35 @@ const AboutPage = () => {
               alt="Elegant Indian restaurant interior"
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />
-            <div className="absolute top-0 left-0 w-full h-20 sm:h-32 bg-gradient-to-b from-gray-600 to-transparent"></div>
+            <div className="absolute top-0 left-0 w-full h-20 sm:h-32 bg-gradient-to-b from-[#3E261C] to-transparent"></div>
           </div>
 
           {/* Right Column: Description */}
           <div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-900 mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-lightgold mb-6 sm:mb-8">
               {experienceTitle}
             </h2>
-            <p className="leading-relaxed text-gray-700 mb-6 sm:mb-8">
+            <p className="leading-relaxed text-gray-200 mb-6 sm:mb-8">
               {experienceText}
             </p>
-            <p className="leading-relaxed text-gray-700">
+            <p className="leading-relaxed text-gray-200">
               {experienceText}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Final CTA Section */}
-      <div className="bg-gradient-to-b from-[#B2B2B2] to-gray-600 py-16 sm:py-20 px-4 lg:px-24 text-center text-gray-100">
+      {/* Final CTA Section with Smooth Gradient */}
+      <div className="bg-gradient-to-b from-[#1E0D0D] to-[#0B0706] py-16 sm:py-20 px-4 lg:px-24 text-center text-gray-100">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8">
           {ctaTitle}
         </h2>
-        <p className="text-base sm:text-lg leading-relaxed max-w-3xl mx-auto mb-6 sm:mb-8">
+        <p className="text-lg sm:text-xl leading-relaxed mb-6 sm:mb-8">
           {ctaText}
         </p>
         <a
-          href="https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222"
-          className="inline-block bg-[#FFD700] text-gray-900 font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-lg shadow-lg hover:bg-gray-800 hover:text-white transition"
+          href="#reservation"
+          className="inline-block bg-lightgold text-gray-900 px-8 py-3 sm:py-4 rounded-lg shadow-lg hover:bg-gray-800 hover:text-white transition"
         >
           Reserve a Table
         </a>

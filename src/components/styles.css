@@ -1,0 +1,26 @@
+/* CSS for slide animations */
+.slide-hidden {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  
+  .slide-in-left {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .slide-in-right {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  [data-in-view='left'] .slide-hidden {
+    transform: translateX(-100%);
+  }
+  
+  [data-in-view='right'] .slide-hidden {
+    transform: translateX(100%);
+  }
+  

@@ -67,16 +67,17 @@ const Footer = () => {
   const currentTranslations = translations[language.toLowerCase()] || translations['en'];
 
   return (
-    <footer className="bg-gray-600 bg-[#B2B2B2] text-white py-16 px-4 md:px-20">
+    <footer className="bg-[#0B0706] text-white py-16 px-4 md:px-20"
+    >
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 text-center md:text-left">
-        
+
         {/* Logo and Copyright */}
         <div className="flex flex-col items-center md:items-start">
           <img src={Logo} alt="Logo" className="h-12 mb-2" />
           <div className="text-sm font-bold text-gray-300">© 2024 Taj</div>
           <div className="text-sm text-gray-300">Site by DK</div>
         </div>
-        
+
         {/* Dining Hours */}
         <div>
           <h4 className="text-lg font-semibold mb-4 text-[#FFD700]">
@@ -141,10 +142,10 @@ const Footer = () => {
             {currentTranslations.followUs}
           </h4>
           <div className="flex justify-center md:justify-start space-x-4 text-[#FFD700]">
-            <a href="https://www.facebook.com/austriantaj/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+            <a href="https://www.facebook.com/austriantaj/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">
               <FaFacebookF size={20} />
             </a>
-            <a href="https://www.instagram.com/austriantaj1080/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+            <a href="https://www.instagram.com/austriantaj1080/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">
               <FaInstagram size={20} />
             </a>
           </div>

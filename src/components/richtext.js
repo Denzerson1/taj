@@ -51,17 +51,19 @@ const BombayComponent = () => {
     <div
       id="richtext"
       ref={elementRef}
-      style={{ backgroundImage: 'linear-gradient(to bottom, #4B5563, #B2B2B2)' }}
-      className={`font-mukta text-gray-800 px-4 py-12 md:py-24 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      style={{
+        backgroundImage: 'linear-gradient(to bottom, #2C1A1A, #3B1414, #1E0D0D)', // Darker brown to black gradient
+      }}
+      className={`font-merriweather text-[#F5F5F5] px-4 py-12 md:py-24 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
     >
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left Section */}
         <div className="lg:pr-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-serif leading-snug md:leading-tight text-center lg:text-left text-gray-900 mb-6 md:mb-8 lg:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif leading-snug md:leading-tight text-center lg:text-left text-[#F5F5F5] mb-6 md:mb-8 lg:mb-12">
             {title}
           </h2>
-          <p className="text-sm md:text-base lg:text-lg leading-relaxed text-gray-800">
+          <p className="text-lg md:text-lg lg:text-xl leading-relaxed text-[#E0E0E0]">
             {paragraph}
           </p>
         </div>
@@ -73,11 +75,13 @@ const BombayComponent = () => {
             <img
               src={image1}
               alt="Indian dish"
-              className="w-full h-auto object-cover rounded-lg shadow-md"
+              className="w-full h-[400px] md:h-[600px] lg:h-[985px] object-cover rounded-lg shadow-md"
             />
+
+
             <a
               href="https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222"
-              className="absolute bottom-2 right-2 bg-gray-700 text-gray-100 font-semibold py-2 px-4 rounded shadow-md transition duration-300 hover:bg-gray-600"
+              className="absolute bottom-2 right-2 bg-gray-800 text-gray-100 font-semibold py-2 px-4 rounded shadow-md transition duration-300 hover:bg-gray-700"
               style={{ zIndex: '10' }}
             >
               {button}

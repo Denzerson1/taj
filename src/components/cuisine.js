@@ -104,11 +104,14 @@ const InfoSection = () => {
   const { cuisine, cocktails, takeout, about } = translations[language]; // Get translations for current language
 
   return (
-    <div className="font-mukta bg-[#B2B2B2]">
+    <div className="font-mukta"
+      style={{
+        backgroundImage: 'linear-gradient(to bottom, #1E0D0D, #321808, #3E261C, #2F2019,#27140D)', // Darker brown to black gradient
+      }}>
       {/* Cuisine Section */}
       <motion.div
         ref={cuisineRef}
-        className="flex flex-col md:flex-row items-center gap-0 overflow-hidden"
+        className="flex flex-col md:flex-row items-center gap-8 overflow-hidden"
         initial="hidden"
         animate={cuisineInView ? "visible" : "hidden"}
         variants={slideInLeft}
@@ -117,14 +120,14 @@ const InfoSection = () => {
           <img
             src={image1}
             alt="Cuisine"
-            className="w-full h-[300px] md:h-[400px] object-cover"
+            className="w-full h-[300px] md:h-[400px] object-cover shadow-lg" loading="lazy"
           />
         </div>
-        <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-4 px-4">
-          <h2 className="text-black text-lg font-bold">{cuisine.title}</h2>
-          <p className="text-gray-700 my-4">{cuisine.description}</p>
+        <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-8 px-6">
+          <h2 className="text-[#FFC107] text-3xl font-serif font-semibold">{cuisine.title}</h2>
+          <p className="text-gray-200 my-6 text-lg">{cuisine.description}</p>
           <a href="/food">
-            <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-gray-200 transition-all inline-block">
+          <button className="px-6 py-3 border border-[#FFC107] bg-[#FFC107] text-black font-semibold transition-all ease-in-out duration-300 hover:bg-[#FFC1071A] hover:text-gray-200">
               {cuisine.button}
             </button>
           </a>
@@ -134,7 +137,7 @@ const InfoSection = () => {
       {/* Cocktails Section */}
       <motion.div
         ref={cocktailsRef}
-        className="flex flex-col md:flex-row-reverse items-center gap-0 overflow-hidden mt-10 md:-mt-24 md:py-24"
+        className="flex flex-col md:flex-row-reverse items-center gap-8 overflow-hidden mt-10 md:-mt-24 md:py-24"
         initial="hidden"
         animate={cocktailsInView ? "visible" : "hidden"}
         variants={slideInRight}
@@ -145,14 +148,14 @@ const InfoSection = () => {
             sizes="(max-width: 768px) 480px, 1024px"
             src={image2Mobile}
             alt="Cocktails"
-            className="w-full h-[300px] md:h-[400px] object-cover"
+            className="w-full h-[300px] md:h-[400px] object-cover shadow-lg" loading="lazy"
           />
         </div>
-        <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-4 px-4">
-          <h2 className="text-black text-lg font-bold">{cocktails.title}</h2>
-          <p className="text-gray-700 my-4">{cocktails.description}</p>
+        <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-8 px-6">
+          <h2 className="text-[#FFC107] text-3xl font-serif font-semibold">{cocktails.title}</h2>
+          <p className="text-gray-200 my-6 text-lg">{cocktails.description}</p>
           <a href="/drinks">
-            <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-gray-200 transition-all inline-block">
+          <button className="px-6 py-3 border border-[#FFC107] bg-[#FFC107] text-black font-semibold transition-all ease-in-out duration-300 hover:bg-[#FFC1071A] hover:text-gray-200">
               {cocktails.button}
             </button>
           </a>
@@ -162,7 +165,7 @@ const InfoSection = () => {
       {/* Takeout Section */}
       <motion.div
         ref={takeoutRef}
-        className="flex flex-col md:flex-row items-center gap-0 overflow-hidden mt-10 md:-mt-24"
+        className="flex flex-col md:flex-row items-center gap-8 overflow-hidden mt-10 md:-mt-24"
         initial="hidden"
         animate={takeoutInView ? "visible" : "hidden"}
         variants={slideInLeft}
@@ -171,15 +174,15 @@ const InfoSection = () => {
           <img
             src={takeoutImage}
             alt="Takeout"
-            className="w-full h-[300px] md:h-[400px] object-cover"
+            className="w-full h-[300px] md:h-[400px] object-cover shadow-lg" loading="lazy"
           />
         </div>
-        <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-4 px-4">
-          <h2 className="text-black text-lg font-bold">{takeout.title}</h2>
-          <p className="text-gray-700 my-4">{takeout.description}</p>
+        <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-8 px-6">
+          <h2 className="text-[#FFC107] text-3xl font-serif font-semibold">{takeout.title}</h2>
+          <p className="text-gray-200 my-6 text-lg">{takeout.description}</p>
           <button
             onClick={toggleMenu}
-            className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-gray-200 transition-all inline-block"
+            className="px-6 py-3 border border-[#FFC107] bg-[#FFC107] text-black font-semibold transition-all ease-in-out duration-300 hover:bg-[#FFC1071A] hover:text-gray-200"
           >
             {takeout.button}
           </button>
@@ -188,28 +191,27 @@ const InfoSection = () => {
             className={`transition-all duration-500 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'
               }`}
           >
-            <h3 className="text-black text-md font-bold">{takeout.menuTitle}</h3>
-            <div className="flex justify-center gap-4 mt-1">
+            <div className="flex justify-center gap-4 mt-4">
               <button
                 onClick={() => window.location.href = 'https://wolt.com/de-at/aut/vienna/restaurant/taj-indian-restaurant-bar'}
                 className="flex flex-col items-center"
               >
-                <img src={chowNowLogo} alt="Chow Now" className="h-16" />
-                <span className="text-sm">{takeout.platforms.wolt}</span>
+                <img src={chowNowLogo} alt="Chow Now" className="h-16 mb-2" />
+                <span className="text-sm text-gray-200">{takeout.platforms.wolt}</span>
               </button>
               <button
                 onClick={() => window.location.href = 'https://www.lieferando.at/speisekarte/the-taj-restaurant-bar'}
                 className="flex flex-col items-center"
               >
-                <img src={grubhubLogo} alt="Grubhub" className="h-16" />
-                <span className="text-sm">{takeout.platforms.grubhub}</span>
+                <img src={grubhubLogo} alt="Grubhub" className="h-16 mb-2" />
+                <span className="text-sm text-gray-200">{takeout.platforms.grubhub}</span>
               </button>
               <button
                 onClick={() => window.location.href = 'https://www.foodora.at/restaurant/zwlp/taj'}
                 className="flex flex-col items-center"
               >
-                <img src={caviarLogo} alt="Caviar" className="h-16" />
-                <span className="text-sm">{takeout.platforms.caviar}</span>
+                <img src={caviarLogo} alt="Caviar" className="h-16 mb-2" />
+                <span className="text-sm text-gray-200">{takeout.platforms.caviar}</span>
               </button>
             </div>
           </div>
@@ -219,7 +221,7 @@ const InfoSection = () => {
       {/* About Section */}
       <motion.div
         ref={aboutRef}
-        className="flex flex-col md:flex-row items-center gap-0 overflow-hidden mt-10 md:-mt-24 md:py-24"
+        className="flex flex-col md:flex-row items-center gap-8 overflow-hidden mt-10 md:-mt-24 md:py-24"
         initial="hidden"
         animate={aboutInView ? "visible" : "hidden"}
         variants={slideInRight}
@@ -230,15 +232,15 @@ const InfoSection = () => {
             sizes="(max-width: 768px) 480px, 1024px"
             src={image3}
             alt="About Us"
-            className="w-full h-[300px] object-cover mb-4"
+            className="w-full h-[300px] object-cover mb-4" loading="lazy"
           />
         </div>
 
-        <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-4 px-4">
-          <h2 className="text-black text-lg font-bold">{about.title}</h2>
-          <p className="text-gray-700 my-4">{about.description}</p>
+        <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-8 px-6">
+          <h2 className="text-[#FFC107] text-3xl font-serif font-semibold">{about.title}</h2>
+          <p className="text-gray-200 my-6 text-lg">{about.description}</p>
           <a href="/about">
-            <button className="px-6 py-2 border border-[#FFC107] text-black font-semibold hover:bg-gray-200 transition-all inline-block">
+          <button className="px-6 py-3 border border-[#FFC107] bg-[#FFC107] text-black font-semibold transition-all ease-in-out duration-300 hover:bg-[#FFC1071A] hover:text-gray-200">
               {about.button}
             </button>
           </a>
@@ -250,7 +252,7 @@ const InfoSection = () => {
             sizes="(max-width: 768px) 480px, 1024px"
             src={image3}
             alt="About Us"
-            className="w-full h-[400px] object-cover mb-4"
+            className="w-full h-[400px] object-cover mb-4" loading="lazy"
           />
         </div>
       </motion.div>

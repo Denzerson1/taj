@@ -1,7 +1,4 @@
-// src/components/RecipeSection.js
-
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import { useLanguage } from '../LanguageContext';
 import recipeImage1 from '../images/IMG_6166.jpg';
@@ -33,20 +30,18 @@ const translations = {
     exploreButton: 'Explore our blog',
   },
   de: {
-    foodBlog: 'Lebensmittel Blog',
+    foodBlog: 'Food Blog',
     title: 'Eine Auswahl der besten Rezepte von Taj',
-    exploreButton: 'Entdecken Sie unseren Blog',
+    exploreButton: 'Entdecken Sie einzigartige Gerichte ',
   },
 };
 
 const RecipeSection = () => {
   const { language } = useLanguage();
   const currentTranslations = translations[language.toLowerCase()] || translations['en'];
-  
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleRecipes, setVisibleRecipes] = useState(3);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const sectionRef = useRef(null);
 
   const updateVisibleRecipes = () => {
     const width = window.innerWidth;
@@ -59,117 +54,97 @@ const RecipeSection = () => {
     return () => window.removeEventListener('resize', updateVisibleRecipes);
   }, []);
 
-  // Intersection Observer for triggering animation once
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-    const currentRef = sectionRef.current;
-    if (currentRef) observer.observe(currentRef);
-    return () => currentRef && observer.unobserve(currentRef);
-  }, [hasAnimated]);
-
   const handleNext = () => currentIndex + visibleRecipes < recipes.length && setCurrentIndex((prev) => prev + 1);
   const handlePrev = () => currentIndex > 0 && setCurrentIndex((prev) => prev - 1);
 
-  const slideInFromTop = {
-    initial: { y: '-100vh', opacity: 0 },
-    animate: { y: 0, opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } },
-  };
-
   return (
-    <motion.div
-      ref={sectionRef}
-      initial="initial"
-      animate={hasAnimated ? "animate" : "initial"}
-      variants={slideInFromTop}
-      style={{ backgroundImage: 'linear-gradient(to bottom, #B2B2B2, #4B5563)' }}
+    <div
       className="px-5 pt-8 lg:pt-0 lg:px-20"
+      style={{
+        backgroundImage: 'linear-gradient(to bottom, #27140D, #0B0706)', // Darker brown to black gradient
+      }}
     >
-      <div className="text-center mb-6">
-        <h2 className="text-sm font-semibold tracking-wider text-gray-500 uppercase">
-          {currentTranslations.foodBlog}
-        </h2>
-        <h3 className="text-2xl font-light text-gray-800 mt-2">
-          {currentTranslations.title}
-        </h3>
-      </div>
+      <div className="bg-transparent">
+        <div className="text-center mb-6">
+          <h2 className="text-sm font-semibold tracking-wider text-gray-300 uppercase">
+            {currentTranslations.foodBlog}
+          </h2>
+          <h3 className="text-2xl font-light text-gray-200 mt-2">
+            {currentTranslations.title}
+          </h3>
+        </div>
 
-      <div className="mt-10">
-        {/* Mobile view */}
-        <div className="lg:hidden relative flex items-center justify-center">
-          <button
-            onClick={handlePrev}
-            className="absolute left-2 p-2 rounded-full z-10"
-            disabled={currentIndex === 0}
-          >
-            <FaArrowLeft className="text-black" />
-          </button>
+        <div className="mt-10">
+          {/* Mobile view */}
+          <div className="lg:hidden relative flex items-center justify-center">
+            <button
+              onClick={handlePrev}
+              className="absolute left-2 p-2 rounded-full z-10"
+              disabled={currentIndex === 0}
+            >
+              <FaArrowLeft className="text-black" />
+            </button>
 
-          <div className="w-full overflow-hidden">
-            <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-              {recipes.map((recipe, index) => (
-                <RecipeCard key={index} recipe={recipe} />
-              ))}
+            <div className="w-full overflow-hidden">
+              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+                {recipes.map((recipe, index) => (
+                  <RecipeCard key={index} recipe={recipe} />
+                ))}
+              </div>
             </div>
+
+            <button
+              onClick={handleNext}
+              className="absolute right-2 p-2 rounded-full z-10"
+              disabled={currentIndex + visibleRecipes >= recipes.length}
+            >
+              <FaArrowRight className="text-black" />
+            </button>
           </div>
 
-          <button
-            onClick={handleNext}
-            className="absolute right-2 p-2 rounded-full z-10"
-            disabled={currentIndex + visibleRecipes >= recipes.length}
-          >
-            <FaArrowRight className="text-black" />
-          </button>
-        </div>
+          {/* Desktop view */}
+          <div className="hidden lg:flex relative items-center">
+            <button
+              onClick={handlePrev}
+              className="absolute left-2 p-2 rounded-full z-10"
+              disabled={currentIndex === 0}
+            >
+              <FaArrowLeft className="text-black" />
+            </button>
 
-        {/* Desktop view */}
-        <div className="hidden lg:flex relative items-center">
-          <button
-            onClick={handlePrev}
-            className="absolute left-2 p-2 rounded-full z-10"
-            disabled={currentIndex === 0}
-          >
-            <FaArrowLeft className="text-black" />
-          </button>
-
-          <div className="w-full overflow-hidden">
-            <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${(currentIndex * 100) / visibleRecipes}%)` }}>
-              {recipes.map((recipe, index) => (
-                <RecipeCard key={index} recipe={recipe} largeView />
-              ))}
+            <div className="w-full overflow-hidden">
+              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${(currentIndex * 100) / visibleRecipes}%)` }}>
+                {recipes.map((recipe, index) => (
+                  <RecipeCard key={index} recipe={recipe} largeView />
+                ))}
+              </div>
             </div>
+
+            <button
+              onClick={handleNext}
+              className="absolute right-2 p-2 rounded-full z-10"
+              disabled={currentIndex + visibleRecipes >= recipes.length}
+            >
+              <FaArrowRight className="text-black" />
+            </button>
           </div>
 
-          <button
-            onClick={handleNext}
-            className="absolute right-2 p-2 rounded-full z-10"
-            disabled={currentIndex + visibleRecipes >= recipes.length}
-          >
-            <FaArrowRight className="text-black" />
-          </button>
-        </div>
-
-        <div className="text-center mt-6">
-          <a href="/blog" className="px-6 py-2 border border-[#FFC107] text-gray-200 font-semibold hover:bg-gray-500 transition-all inline-block">
-            {currentTranslations.exploreButton}
-          </a>
+          <div className="text-center mt-6">
+            <a href="/blog" className="px-6 py-2 border border-[#FFC107] text-gray-200 font-semibold hover:bg-[#FFC1071A]  transition-all inline-block">
+              {currentTranslations.exploreButton}
+            </a>
+          </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
-// Reusable RecipeCard Component
+// Reusable RecipeCard Component with Lazy Loading
 const RecipeCard = ({ recipe, largeView = false }) => (
   <div className={`flex-shrink-0 ${largeView ? 'w-full sm:w-1/2 lg:w-1/5 px-2' : 'w-full flex flex-col items-center'}`}>
     <a href={recipe.link} className="block w-full h-48">
-      <img src={recipe.image} alt={recipe.title} className="w-full h-full object-cover rounded-md transition-transform duration-300 hover:scale-105" />
+      <img src={recipe.image} alt={recipe.title} className="w-full h-full object-cover rounded-md transition-transform duration-300 hover:scale-105" loading="lazy" />
     </a>
     <div className="text-center mt-2">
       <span className="text-xs font-semibold text-gray-500 uppercase">{recipe.type}</span>

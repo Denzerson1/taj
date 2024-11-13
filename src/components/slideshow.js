@@ -100,7 +100,7 @@ const Slideshow = () => {
             {/* Slide container with images */}
             <div className="absolute inset-0 flex slide-container">
                 {slides.map((slide, index) => (
-                    <img key={index} src={slide.image} alt={`Slide ${index + 1}`} className="slide" />
+                    <img loading="lazy" key={index} src={slide.image} alt={`Slide ${index + 1}`} className="slide" />
                 ))}
             </div>
 
@@ -109,6 +109,7 @@ const Slideshow = () => {
                 <img
                     src={Logo}
                     alt="Logo"
+                    loading="lazy"
                     className="h-36 sm:h-48 md:h-60 lg:h-72 xl:h-80 opacity-90 pointer-events-none user-select-none"
                 />
                 <p className="text-white mt-4 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light">
@@ -119,6 +120,7 @@ const Slideshow = () => {
                 <img
                     src={pfeile}
                     alt="Down Arrow"
+                    loading="lazy"
                     className="mt-4 cursor-pointer w-8 h-8 transition-transform duration-300 transform hover:scale-110"
                     onClick={scrollToSection}
                 />
