@@ -102,7 +102,7 @@ const blogData = {
 };
 
 const FoodBlog = () => {
-    const { language } = useLanguage(); // Accessing the language context
+    const { language } = useLanguage();
     const sectionRefs = {
         everyone: useRef(null),
         vegan: useRef(null),
@@ -125,7 +125,6 @@ const FoodBlog = () => {
         visible: { x: 0, opacity: 1, transition: { duration: 0.8 } }
     };
 
-    // Translation data for the page headers
     const sectionText = {
         EN: {
             header: 'The Global Plate',
@@ -152,14 +151,14 @@ const FoodBlog = () => {
             <Navbar />
             <div
                 style={{
-                    backgroundImage: 'linear-gradient(to bottom, #B2B2B2, #4B5563)' // Gradient from light gray to dark gray
+                    backgroundImage: 'linear-gradient(to bottom, #4D2816, #54271E,   #0B0706)',
                 }}
                 className="pt-32 text-gray-900 font-mukta py-10 px-4 lg:px-24"
             >
                 {/* Page Header */}
                 <header className="text-center mb-12">
-                    <h1 className="text-5xl font-bold text-black mb-4">{sectionText[language].header}</h1> {/* Black header */}
-                    <p className="text-lg text-gray-700">{sectionText[language].subtitle}</p>
+                    <h1 className="text-6xl font-serif font-semibold text-[#FFC107] mb-4">{sectionText[language].header}</h1>
+                    <p className="text-xl text-gray-300">{sectionText[language].subtitle}</p>
                 </header>
 
                 {/* Blog Sections */}
@@ -176,7 +175,7 @@ const FoodBlog = () => {
                                 animate={inViewStates[section] ? "visible" : "hidden"}
                                 variants={animationVariant}
                             >
-                                <h2 className="text-3xl font-bold text-gray-800 mb-6 capitalize text-shadow-lg">
+                                <h2 className="text-4xl font-semibold text-[#FFC107] mb-8 capitalize text-shadow-lg">
                                     {sectionText[language].categories[section]}
                                 </h2>
 
@@ -187,12 +186,12 @@ const FoodBlog = () => {
                                             href={post.link}
                                             rel="noopener noreferrer"
                                             aria-label={`Read more about ${post.title}`}
-                                            className="bg-gray-500 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 block"
+                                            className="bg-[#6E5447] rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 block"
                                         >
                                             <img src={post.img} alt={post.title} className="w-full h-48 object-cover" />
-                                            <div className="p-6">
-                                                <h3 className="text-2xl font-semibold text-gray-800 mb-2">{post.title}</h3>
-                                                <p className="text-lightgold">{post.subtitle}</p> {/* Light golden subtitle */}
+                                            <div className="p-8">
+                                                <h3 className="text-3xl font-semibold text-white mb-4">{post.title}</h3>
+                                                <p className="text-lg text-gray-200">{post.subtitle}</p>
                                             </div>
                                         </a>
                                     ))}
@@ -206,5 +205,6 @@ const FoodBlog = () => {
         </div>
     );
 };
+
 
 export default FoodBlog;
