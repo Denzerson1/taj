@@ -120,7 +120,7 @@ const InfoSection = () => {
           <img
             src={image1}
             alt="Cuisine"
-            className="w-full h-[300px] md:h-[400px] object-cover shadow-lg" loading="lazy"
+            className="w-full h-[300px] md:h-[400px] object-cover shadow-lg"
           />
         </div>
         <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-8 px-6">
@@ -148,7 +148,7 @@ const InfoSection = () => {
             sizes="(max-width: 768px) 480px, 1024px"
             src={image2Mobile}
             alt="Cocktails"
-            className="w-full h-[300px] md:h-[400px] object-cover shadow-lg" loading="lazy"
+            className="w-full h-[300px] md:h-[400px] object-cover shadow-lg"
           />
         </div>
         <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-8 px-6">
@@ -174,7 +174,7 @@ const InfoSection = () => {
           <img
             src={takeoutImage}
             alt="Takeout"
-            className="w-full h-[300px] md:h-[400px] object-cover shadow-lg" loading="lazy"
+            className="w-full h-[300px] md:h-[400px] object-cover shadow-lg"
           />
         </div>
         <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-8 px-6">
@@ -232,7 +232,7 @@ const InfoSection = () => {
             sizes="(max-width: 768px) 480px, 1024px"
             src={image3}
             alt="About Us"
-            className="w-full h-[300px] object-cover mb-4" loading="lazy"
+            className="w-full h-[300px] object-cover mb-4"
           />
         </div>
 
@@ -252,7 +252,7 @@ const InfoSection = () => {
             sizes="(max-width: 768px) 480px, 1024px"
             src={image3}
             alt="About Us"
-            className="w-full h-[400px] object-cover mb-4" loading="lazy"
+            className="w-full h-[400px] object-cover mb-4"
           />
         </div>
       </motion.div>
