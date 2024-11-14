@@ -56,85 +56,91 @@ const AboutPage = () => {
       <Navbar />
 
       {/* Header Section with Gradient Background */}
-      <div style={{backgroundImage: 'linear-gradient(to bottom, #4D2816, #512E1F'}} className="relative pt-24 pb-16 px-4 sm:pt-32 sm:pb-20 lg:px-24 text-center text-gray-100">
-        <h1 className="text-lightgold text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">
-          {title}
-        </h1>
-        <p className="text-base sm:text-lg md:text-xl text-gray-100 max-w-3xl mx-auto">
-          {description}
-        </p>
-      </div>
+      <div style={{ backgroundImage: 'linear-gradient(to bottom, #1C1411, #241007' }} >
+        <div className="relative pt-24 pb-16 px-4 sm:pt-32 sm:pb-20 lg:px-24 text-center text-gray-100">
+          <h1 className="text-lightgold text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">
+            {title}
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl text-gray-100 max-w-3xl mx-auto">
+            {description}
+          </p>
+        </div>
 
-      {/* Main Content Section with Smooth Gradient */}
-      <div style={{backgroundImage: 'linear-gradient(to bottom, #512E1F, #3E261C'}} className="text-gray-100 py-12 sm:py-16 px-4 lg:px-24">
-        <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2">
-          {/* Left Column: Rich Text */}
-          <div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-lightgold mb-6 sm:mb-8">
-              {symphonyTitle}
-            </h2>
-            <p className="leading-relaxed text-gray-200 mb-6 sm:mb-8">
-              {symphonyText}
-            </p>
-            <p className="leading-relaxed text-gray-200">
-              {missionText}
-            </p>
-          </div>
 
-          {/* Right Column: Image with Overlay */}
-          <div className="relative">
-            <img
-              src={aboutImage}
-              alt="Indian cuisine"
-              className="w-full h-full object-cover rounded-lg shadow-lg"
-            />
-            <div style={{backgroundImage: 'linear-gradient(to bottom, #512E1F, transperant'}}  className="absolute bottom-0 left-0 w-full h-20 sm:h-32"></div>
+        {/* Main Content Section with Smooth Gradient */}
+        <div className="text-gray-100 py-12 sm:py-16 px-4 lg:px-24">
+          <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2">
+            {/* Left Column: Rich Text */}
+            <div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-lightgold mb-6 sm:mb-8">
+                {symphonyTitle}
+              </h2>
+              <p className="leading-relaxed text-gray-200 mb-6 sm:mb-8">
+                {symphonyText}
+              </p>
+              <p className="leading-relaxed text-gray-200">
+                {missionText}
+              </p>
+            </div>
+
+            {/* Right Column: Image with Overlay */}
+            <div className="relative">
+              <img
+                src={aboutImage}
+                alt="Indian cuisine"
+                className="w-full h-full object-cover rounded-lg shadow-lg"
+              />
+              <div style={{ backgroundImage: 'linear-gradient(to bottom, #512E1F, transperant' }} className="absolute bottom-0 left-0 w-full h-20 sm:h-32"></div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Mission & Vision Section with Smooth Gradient */}
-      <div style={{backgroundImage: 'linear-gradient(to bottom, #3E261C, #2F2019'}} className="py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8">
-            {missionTitle}
-          </h2>
-          <p className="text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
-            {missionText}
-          </p>
-        </div>
-      </div>
-
-      {/* Experience Section with Smooth Gradient */}
-      <div style={{backgroundImage: 'linear-gradient(to bottom, #2F2019, #1E0D0D'}} className="py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
-        <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2 items-center">
-          {/* Left Column: Image */}
-          <div className="relative">
-            <img
-              src={aboutImage2}
-              alt="Elegant Indian restaurant interior"
-              className="w-full h-full object-cover rounded-lg shadow-lg"
-            />
-            <div style={{backgroundImage: 'linear-gradient(to bottom, #3E261C, transparent'}} className="absolute top-0 left-0 w-full h-20 sm:h-32"></div>
-          </div>
-
-          {/* Right Column: Description */}
-          <div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-lightgold mb-6 sm:mb-8">
-              {experienceTitle}
+      <div style={{ backgroundImage: 'linear-gradient(to bottom, #241007, #1E0D0D' }}>
+        <div className="py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8">
+              {missionTitle}
             </h2>
-            <p className="leading-relaxed text-gray-200 mb-6 sm:mb-8">
-              {experienceText}
+            <p className="text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
+              {missionText}
             </p>
-            <p className="leading-relaxed text-gray-200">
-              {experienceText}
-            </p>
+          </div>
+        </div>
+
+
+        {/* Experience Section with Smooth Gradient */}
+        <div className="py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
+          <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2 items-center">
+            {/* Left Column: Image */}
+            <div className="relative">
+              <img
+                src={aboutImage2}
+                alt="Elegant Indian restaurant interior"
+                className="w-full h-full object-cover rounded-lg shadow-lg"
+              />
+              <div style={{ backgroundImage: 'linear-gradient(to bottom, #3E261C, transparent' }} className="absolute top-0 left-0 w-full h-20 sm:h-32"></div>
+            </div>
+
+            {/* Right Column: Description */}
+            <div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-lightgold mb-6 sm:mb-8">
+                {experienceTitle}
+              </h2>
+              <p className="leading-relaxed text-gray-200 mb-6 sm:mb-8">
+                {experienceText}
+              </p>
+              <p className="leading-relaxed text-gray-200">
+                {experienceText}
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Final CTA Section with Smooth Gradient */}
-      <div style={{backgroundImage: 'linear-gradient(to bottom, #1E0D0D, #0B0706'}} className="py-16 sm:py-20 px-4 lg:px-24 text-center text-gray-100">
+      <div style={{ backgroundImage: 'linear-gradient(to bottom, #1E0D0D, #0B0706' }} className="py-16 sm:py-20 px-4 lg:px-24 text-center text-gray-100">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8">
           {ctaTitle}
         </h2>

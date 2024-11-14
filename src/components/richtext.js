@@ -60,10 +60,10 @@ const BombayComponent = () => {
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left Section */}
         <div className="lg:pr-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif leading-snug md:leading-tight text-center lg:text-left text-[#F5F5F5] mb-6 md:mb-8 lg:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif leading-snug md:leading-tight text-center lg:text-left text-[#F5F5F5] mb-6 md:mb-8 lg:mb-12">
             {title}
           </h2>
-          <p className="text-lg md:text-lg lg:text-xl leading-relaxed text-[#E0E0E0]">
+          <p className="text-base sm:text-m md:text-lg lg:text-xl leading-relaxed text-[#E0E0E0]">
             {paragraph}
           </p>
         </div>
@@ -72,12 +72,11 @@ const BombayComponent = () => {
         <div className="relative">
           {/* Image with Button Positioned Inside */}
           <div className="relative inline-block">
-            <img
+          <img
               src={image1}
               alt="Indian dish"
-              className="w-full h-[400px] md:h-[600px] lg:h-[985px] object-cover rounded-lg shadow-md"
+              className="w-full h-[400px] md:h-[600px] lg:h-[700px] object-cover rounded-lg shadow-md"
             />
-
 
             <a
               href="https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222"
