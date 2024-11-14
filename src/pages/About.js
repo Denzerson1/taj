@@ -18,6 +18,7 @@ const translations = {
     experienceText: "Taj Vienna is more than a restaurant—it is an experience. Amidst an ambiance that combines opulence and warmth, our guests are treated to exceptional service and attention to detail. Every moment is designed to evoke the charm and grandeur of Indian hospitality.",
     ctaTitle: "Ready to Begin Your Culinary Journey?",
     ctaText: "Whether it’s an intimate dinner or a celebration with loved ones, Taj Vienna offers the perfect setting for unforgettable moments. Reserve your table and allow us to share the flavors and traditions of India with you.",
+    reserveButton: "Reserve a table",
   },
   DE: {
     title: "Taj: Ein Fest für die Sinne – Indiens Aromen im Herzen Wiens",
@@ -30,6 +31,7 @@ const translations = {
     experienceText: "Das Taj Wien ist mehr als ein Restaurant—es ist ein Erlebnis. Inmitten einer Atmosphäre, die Opulenz und Wärme vereint, werden unsere Gäste mit außergewöhnlichem Service und Liebe zum Detail behandelt. Jeder Moment ist darauf ausgelegt, den Charme und die Grandeur der indischen Gastfreundschaft zu wecken.",
     ctaTitle: "Bereit, Ihre kulinarische Reise zu beginnen?",
     ctaText: "Ob es sich um ein intimes Abendessen oder eine Feier mit Ihren Liebsten handelt, Taj Wien bietet die perfekte Kulisse für unvergessliche Momente. Reservieren Sie Ihren Tisch und lassen Sie uns die Aromen und Traditionen Indiens mit Ihnen teilen.",
+    reserveButton: "Zur Reservierung",
   }
 };
 
@@ -46,6 +48,7 @@ const AboutPage = () => {
     experienceText,
     ctaTitle,
     ctaText,
+    reserveButton,
   } = translations[language]; // Get translations based on the selected language
 
   return (
@@ -63,7 +66,7 @@ const AboutPage = () => {
       </div>
 
       {/* Main Content Section with Smooth Gradient */}
-      <div className="bg-gradient-to-b from-[#512E1F] to-[#3E261C] text-gray-100 py-12 sm:py-16 px-4 lg:px-24">
+      <div style={{backgroundImage: 'linear-gradient(to bottom, #512E1F, #3E261C'}} className="text-gray-100 py-12 sm:py-16 px-4 lg:px-24">
         <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2">
           {/* Left Column: Rich Text */}
           <div>
@@ -85,13 +88,13 @@ const AboutPage = () => {
               alt="Indian cuisine"
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />
-            <div className="absolute bottom-0 left-0 w-full h-20 sm:h-32 bg-gradient-to-t from-[#512E1F] to-transparent"></div>
+            <div style={{backgroundImage: 'linear-gradient(to bottom, #512E1F, transperant'}}  className="absolute bottom-0 left-0 w-full h-20 sm:h-32"></div>
           </div>
         </div>
       </div>
 
       {/* Mission & Vision Section with Smooth Gradient */}
-      <div className="bg-gradient-to-b from-[#3E261C] to-[#2F2019] py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
+      <div style={{backgroundImage: 'linear-gradient(to bottom, #3E261C, #2F2019'}} className="py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8">
             {missionTitle}
@@ -103,7 +106,7 @@ const AboutPage = () => {
       </div>
 
       {/* Experience Section with Smooth Gradient */}
-      <div className="bg-gradient-to-b from-[#2F2019] to-[#1E0D0D] py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
+      <div style={{backgroundImage: 'linear-gradient(to bottom, #2F2019, #1E0D0D'}} className="py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
         <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2 items-center">
           {/* Left Column: Image */}
           <div className="relative">
@@ -112,7 +115,7 @@ const AboutPage = () => {
               alt="Elegant Indian restaurant interior"
               className="w-full h-full object-cover rounded-lg shadow-lg"
             />
-            <div className="absolute top-0 left-0 w-full h-20 sm:h-32 bg-gradient-to-b from-[#3E261C] to-transparent"></div>
+            <div style={{backgroundImage: 'linear-gradient(to bottom, #3E261C, transparent'}} className="absolute top-0 left-0 w-full h-20 sm:h-32"></div>
           </div>
 
           {/* Right Column: Description */}
@@ -131,7 +134,7 @@ const AboutPage = () => {
       </div>
 
       {/* Final CTA Section with Smooth Gradient */}
-      <div className="bg-gradient-to-b from-[#1E0D0D] to-[#0B0706] py-16 sm:py-20 px-4 lg:px-24 text-center text-gray-100">
+      <div style={{backgroundImage: 'linear-gradient(to bottom, #1E0D0D, #0B0706'}} className="py-16 sm:py-20 px-4 lg:px-24 text-center text-gray-100">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8">
           {ctaTitle}
         </h2>
@@ -142,7 +145,7 @@ const AboutPage = () => {
           href="#reservation"
           className="inline-block bg-lightgold text-gray-900 px-8 py-3 sm:py-4 rounded-lg shadow-lg hover:bg-gray-800 hover:text-white transition"
         >
-          Reserve a Table
+          {reserveButton}
         </a>
       </div>
 

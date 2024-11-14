@@ -90,28 +90,50 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Navbar Links */}
         <ul
           className={`lg:flex flex-col lg:flex-row space-y-4 lg:space-y-0 space-x-0 lg:space-x-6 lg:items-center absolute lg:static top-16 left-0 w-full lg:w-auto bg-black lg:bg-transparent transition-all duration-300 ${menuOpen ? 'max-h-screen opacity-100 mt-4' : 'max-h-0 opacity-0 lg:opacity-100'
             } overflow-hidden lg:overflow-visible`}
         >
           {['about', 'food', 'drinks', 'info', 'blog', 'privateEvents'].map((link, index) => {
-            const linkText = location.pathname === `/${link.toLowerCase()}` ? 'text-[#FFD700]' : 'text-white'; // Highlight active page
+            const linkText = location.pathname === `/${link.toLowerCase()}` ? 'text-[#FFD700]' : 'text-white';
             const isCurrentPage = location.pathname === `/${link.toLowerCase()}`;
 
             return (
               <li key={index} className="text-center lg:text-left">
                 <a
-                  href={`/${link.toLowerCase()}`} // Always use English path
+                  href={`/${link.toLowerCase()}`}
                   className={`block transition-colors duration-300 text-base font-normal px-2 py-1 ${isCurrentPage ? 'text-[#FFD700]' : linkText
                     } hover:text-[#FFD700]`}
-                  onClick={() => setMenuOpen(false)} // Close menu on link click
+                  onClick={() => setMenuOpen(false)}
                 >
-                  {translations[language][link]} {/* Display translated text for each link */}
+                  {translations[language][link]}
                 </a>
               </li>
             );
           })}
+
+          {/* Mobile Language Dropdown */}
+          <li className="lg:hidden mt-4 px-4 pb-4">
+            <button onClick={toggleDropdown} className="w-full text-center bg-gray-800 text-white py-1 rounded">
+              {languageLabel}: {language}
+            </button>
+            {dropdownOpen && (
+              <div className="w-full bg-gray-900 mt-2 rounded">
+                <button
+                  onClick={() => changeLang('EN')}
+                  className="block w-full text-center text-gray-200 py-1 hover:bg-gray-700"
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => changeLang('DE')}
+                  className="block w-full text-center text-gray-200 py-1 hover:bg-gray-700"
+                >
+                  DE
+                </button>
+              </div>
+            )}
+          </li>
         </ul>
 
         {/* Reservation Button and Language Dropdown for Desktop */}
@@ -122,6 +144,7 @@ const Navbar = () => {
           >
             {bookTable} {/* Translated text for the reservation button */}
           </a>
+
 
           {/* Language Dropdown */}
           <div className="relative">
