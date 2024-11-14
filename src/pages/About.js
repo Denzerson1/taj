@@ -56,7 +56,7 @@ const AboutPage = () => {
       <Navbar />
 
       {/* Header Section with Gradient Background */}
-      <div className="relative pt-24 pb-16 px-4 sm:pt-32 sm:pb-20 lg:px-24 text-center bg-gradient-to-b from-[#4D2816] to-[#512E1F] text-gray-100">
+      <div style={{backgroundImage: 'linear-gradient(to bottom, #4D2816, #512E1F'}} className="relative pt-24 pb-16 px-4 sm:pt-32 sm:pb-20 lg:px-24 text-center text-gray-100">
         <h1 className="text-lightgold text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">
           {title}
         </h1>
