@@ -4,6 +4,21 @@ import drink from '../images/cocktail.jpg';
 import Navbar from '../components/navbar';
 import DrinkBanner from '../components/drinkImage';
 import Footer from '../components/Footer';
+import CocktailMenu from '../components/cocktailMenu';
+
+// Original Images
+import mughal from '../images/drinks-images/negroni.jpg';
+import highway44 from '../images/drinks-images/highway44.jpg';
+import espressomartini from '../images/drinks-images/espresso-martini.jpg';
+import paan from '../images/drinks-images/paan.jpg';
+import spicemargarita from '../images/drinks-images/spicemagaritha.jpg';
+
+// Desktop Images
+import newEspressoMartini from '../images/new-images/espresso-martini - Kopie.jpg';
+import newHighway44 from '../images/new-images/highway44 - Kopie.jpg';
+import newNegroni from '../images/new-images/negroni - Kopie.jpg';
+import newPaan from '../images/new-images/paan - Kopie.jpg';
+import newSpicemargarita from '../images/new-images/spicemagaritha - Kopie.jpg';
 
 const DrinkSection = () => {
     const galleryRef = useRef(null);
@@ -12,8 +27,6 @@ const DrinkSection = () => {
     const sectionText = {
         EN: {
             header: 'SIGNATURE COCKTAILS & CRAFTED DRINKS',
-            intro:
-                'Discover a world of flavors through our expertly crafted cocktails and drinks. Our bartenders bring creativity to each glass, balancing unique ingredients to create a taste experience that’s truly special.',
             description:
                 'From bold and refreshing concoctions to smooth, sophisticated classics, our drink menu is designed to enhance your experience. Whether you’re here for a quiet evening or a lively celebration, there’s something for every mood and moment.',
             closing:
@@ -23,8 +36,6 @@ const DrinkSection = () => {
         },
         DE: {
             header: 'Einzigartige Cocktails',
-            intro:
-                'Entdecken Sie eine Welt voller Aromen durch unsere meisterhaft zubereiteten Cocktails und Getränke. Unsere Barkeeper bringen Kreativität in jedes Glas und kombinieren einzigartige Zutaten, um ein wirklich besonderes Geschmackserlebnis zu schaffen.',
             description:
                 'Von kräftigen und erfrischenden Kreationen bis hin zu glatten, raffinierten Klassikern – unsere Getränkekarte ist darauf ausgelegt, Ihr Erlebnis zu bereichern. Ob für einen ruhigen Abend oder eine lebhafte Feier, es ist für jede Stimmung und jeden Moment etwas dabei.',
             closing:
@@ -39,6 +50,8 @@ const DrinkSection = () => {
             galleryRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
+    const isDesktop = window.innerWidth >= 1024; // Check if the viewport is desktop size
 
     return (
         <div>
@@ -67,9 +80,6 @@ const DrinkSection = () => {
                                 {sectionText[language].header}
                             </h2>
                             <p className="mb-4 text-gray-200 text-sm sm:text-base">
-                                {sectionText[language].intro}
-                            </p>
-                            <p className="mb-4 text-gray-200 text-sm sm:text-base">
                                 {sectionText[language].description}
                             </p>
                             <p className="text-gray-200 mb-6 text-sm sm:text-base">
@@ -86,110 +96,88 @@ const DrinkSection = () => {
                     </div>
                 </div>
 
-                {/* New Layout - Image with Description, Alternating Positions */}
+                <CocktailMenu />
+
+                {/* First Row: Image Top, Text Bottom on Mobile */}
                 <div ref={galleryRef} className="flex flex-col gap-8 my-10">
-                    {/* First Row: Image Left, Text Right */}
                     <div className="px-6 lg:px-32 xl:px-40">
                         <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
                             <img
-                                src={drink}
-                                alt="Cocktail"
+                                src={isDesktop ? newNegroni : mughal}
+                                alt="Negroni"
                                 loading="lazy"
                                 className="w-full lg:w-1/2 h-[300px] object-cover rounded shadow-md"
                             />
                             <div className="w-full lg:w-1/2 text-gray-200 text-sm sm:text-base">
-                                <h3 className="text-xl font-semibold mb-2 text-[#FFC107]">Refreshing Cocktail</h3>
+                                <h3 className="text-xl font-semibold mb-2 text-[#FFC107]">Mughal E Negroni</h3>
                                 <p>
-                                    This cocktail features a blend of bold flavors, with notes of citrus and herbs for a refreshing finish.
-                                    It’s perfect for any occasion, whether you’re celebrating or just winding down.
+                                    Gin, spiced vermouth, and bitter aperitif. This Negroni variation is inspired by the grandeur of the Mughal era, blending classic bitter notes with aromatic Indian spices for a regal twist on a timeless cocktail.
                                 </p>
                             </div>
                         </div>
                     </div>
-
-                    {/* Second Row: Image Right, Text Left */}
                     <div className="px-6 lg:px-32 xl:px-40">
-                        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+                        <div className="flex flex-col-reverse lg:flex-row items-center gap-6 lg:gap-12">
                             <div className="w-full lg:w-1/2 text-gray-200 text-sm sm:text-base">
-                                <h3 className="text-xl font-semibold mb-2 text-[#FFC107]">Classic Old Fashioned</h3>
+                                <h3 className="text-xl font-semibold mb-2 text-[#FFC107]">Espresso Martini</h3>
                                 <p>
-                                    A timeless classic, the Old Fashioned is crafted with care to bring out the deep flavors of aged whiskey, combined with subtle hints of orange and bitters.
+                                    Vodka, espresso, and coffee liqueur, topped with coffee beans. Bold, rich, and velvety, this cocktail is a coffee lover's dream—a perfect pick-me-up that combines smooth vodka with intense espresso flavors.
                                 </p>
                             </div>
                             <img
-                                src={drink}
-                                alt="Old Fashioned"
+                                src={isDesktop ? newEspressoMartini : espressomartini}
+                                alt="Espresso Martini"
                                 loading="lazy"
                                 className="w-full lg:w-1/2 h-[300px] object-cover rounded shadow-md"
                             />
                         </div>
                     </div>
-
-
-                    {/* First Row: Image Left, Text Right */}
                     <div className="px-6 lg:px-32 xl:px-40">
                         <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
                             <img
-                                src={drink}
-                                alt="Cocktail"
+                                src={isDesktop ? newHighway44 : highway44}
+                                alt="Highway 44"
                                 loading="lazy"
                                 className="w-full lg:w-1/2 h-[300px] object-cover rounded shadow-md"
                             />
                             <div className="w-full lg:w-1/2 text-gray-200 text-sm sm:text-base">
-                                <h3 className="text-xl font-semibold mb-2 text-[#FFC107]">Refreshing Cocktail</h3>
+                                <h3 className="text-xl font-semibold mb-2 text-[#FFC107]">Highway 44</h3>
                                 <p>
-                                    This cocktail features a blend of bold flavors, with notes of citrus and herbs for a refreshing finish.
-                                    It’s perfect for any occasion, whether you’re celebrating or just winding down.
+                                    A unique blend of cold masala chai, bourbon, lemon, and sugar, garnished with star anise. Inspired by India’s Highway 44, this cocktail combines the warmth of chai spices with the smoothness of bourbon for a refreshing twist.
                                 </p>
                             </div>
                         </div>
                     </div>
-                    {/* Second Row: Image Right, Text Left */}
                     <div className="px-6 lg:px-32 xl:px-40">
-                        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+                        <div className="flex flex-col-reverse lg:flex-row items-center gap-6 lg:gap-12">
                             <div className="w-full lg:w-1/2 text-gray-200 text-sm sm:text-base">
-                                <h3 className="text-xl font-semibold mb-2 text-[#FFC107]">Classic Old Fashioned</h3>
+                                <h3 className="text-xl font-semibold mb-2 text-[#FFC107]">Spicy Tequila Margarita</h3>
                                 <p>
-                                    A timeless classic, the Old Fashioned is crafted with care to bring out the deep flavors of aged whiskey, combined with subtle hints of orange and bitters.
+                                    Tequila, chili, agave, and lime with a chili salt rim. This bold margarita brings the spice of Indian chilies and balances it with sweet agave, creating a refreshing, flavor-packed drink.
                                 </p>
                             </div>
                             <img
-                                src={drink}
-                                alt="Old Fashioned"
+                                src={isDesktop ? newSpicemargarita : spicemargarita}
+                                alt="Spicy Margarita"
                                 loading="lazy"
                                 className="w-full lg:w-1/2 h-[300px] object-cover rounded shadow-md"
                             />
                         </div>
                     </div>
-                </div>
-
-                {/* Signature Cocktails List */}
-                <div className="p-6">
-                    <h2 className="text-2xl font-semibold mb-6 text-center text-[#FFC107]">Signature Cocktails</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div className="text-center">
-                            <h3 className="text-lg font-semibold text-white">ANARKALI</h3>
-                            <p className="text-gray-400">Gin, Campari, sweet vermouth, Darjeeling tea, and cardamom.</p>
-                        </div>
-                        <div className="text-center">
-                            <h3 className="text-lg font-semibold text-white">SHOLAY</h3>
-                            <p className="text-gray-400">Curry leaf-infused rum, Malibu, pineapple, and vanilla liqueur.</p>
-                        </div>
-                        <div className="text-center">
-                            <h3 className="text-lg font-semibold text-white">HERA PHERI</h3>
-                            <p className="text-gray-400">Mezcal, orange liqueur, spicy guava chutney, and pink salt.</p>
-                        </div>
-                        <div className="text-center">
-                            <h3 className="text-lg font-semibold text-white">MERA NAAM JOKER</h3>
-                            <p className="text-gray-400">Ghee-washed bourbon, Angostura bitters, and saffron syrup.</p>
-                        </div>
-                        <div className="text-center">
-                            <h3 className="text-lg font-semibold text-white">DILWALE DULHANIA LE JAYENGE</h3>
-                            <p className="text-gray-400">Tequila, tamarind, aged balsamic, blackberry syrup, and soda.</p>
-                        </div>
-                        <div className="text-center">
-                            <h3 className="text-lg font-semibold text-white">LAGAAN</h3>
-                            <p className="text-gray-400">Gin, honeydew melon, kale, Midori, and egg white.</p>
+                    <div className="px-6 lg:px-32 xl:px-40">
+                        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+                            <img
+                                src={isDesktop ? newPaan : paan}
+                                alt="Paan Refresher"
+                                loading="lazy"
+                                className="w-full lg:w-1/2 h-[300px] object-cover rounded shadow-md"
+                            />
+                            <div className="w-full lg:w-1/2 text-gray-200 text-sm sm:text-base">
+                                <h3 className="text-xl font-semibold mb-2 text-[#FFC107]">Tequila Paan Refresher</h3>
+                                <p>
+                                    Tequila, betel leaf (paan), and lime juice. A refreshing cocktail inspired by the iconic Indian paan, blending tequila with the bold, aromatic flavors of betel leaf.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
