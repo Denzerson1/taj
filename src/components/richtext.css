@@ -1,0 +1,13 @@
+/* Immediate background gradient for the container */
+.bombay-container {
+    background-image: linear-gradient(to bottom, #2C1A1A, #3B1414, #1E0D0D); /* Permanent gradient */
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh; /* Ensure it covers the screen while loading */
+  }
+  
+  /* Content wrapper for animation */
+  .content-wrapper {
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  

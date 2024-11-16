@@ -12,7 +12,6 @@ const translations = {
     drinks: 'Drinks',
     info: 'Info',
     blog: 'Blog',
-    privateEvents: 'Private Events',
     bookTable: 'BOOK A TABLE',
     language: 'Language',
   },
@@ -22,7 +21,6 @@ const translations = {
     drinks: 'Getränke',
     info: 'Informationen',
     blog: 'Blog',
-    privateEvents: 'Private Veranstaltungen',
     bookTable: 'RESERVIEREN',
     language: 'Sprache',
   },
@@ -94,7 +92,7 @@ const Navbar = () => {
           className={`lg:flex flex-col lg:flex-row space-y-4 lg:space-y-0 space-x-0 lg:space-x-6 lg:items-center absolute lg:static top-16 left-0 w-full lg:w-auto bg-black lg:bg-transparent transition-all duration-300 ${menuOpen ? 'max-h-screen opacity-100 mt-4' : 'max-h-0 opacity-0 lg:opacity-100'
             } overflow-hidden lg:overflow-visible`}
         >
-          {['about', 'food', 'drinks', 'info', 'blog', 'privateEvents'].map((link, index) => {
+          {['about', 'food', 'drinks', 'info', 'blog'].map((link, index) => {
             const linkText = location.pathname === `/${link.toLowerCase()}` ? 'text-[#FFD700]' : 'text-white';
             const isCurrentPage = location.pathname === `/${link.toLowerCase()}`;
 
@@ -111,6 +109,16 @@ const Navbar = () => {
               </li>
             );
           })}
+
+          {/* Book a Table Button for Mobile */}
+          <li className="lg:hidden mt-4 px-4">
+            <a
+              href="https://www.google.com/maps/reserve/v/dine/c/ZlyFqvufLB0?source=pa&opi=89978449&hl=en-AT&gei=J8M0Z4r2B9-pxc8P5vTssAk&sourceurl=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dtaj%2B1080%2Bwien%26rlz%3D1CDGOYI_enAT1087AT1087%26oq%3Dtaj%26gs_lcrp%3DEgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPDIJCAQQRRg5GIAEMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg7MgYICBBFGDsyDQgJEAAYkQIYgAQYigXSAQc4NDZqMGo5qAITsAIB4gMEGAEgXw%26hl%3Den-GB%26sourceid%3Dchrome-mobile%26ie%3DUTF-8&ihs=27"
+              className="block text-center border border-[#FFD700] bg-[#FFD700] text-sm text-black py-1 px-3 rounded transition-colors duration-300 hover:bg-transparent hover:text-[#FFD700]"
+            >
+              {bookTable} {/* Translated text for the reservation button */}
+            </a>
+          </li>
 
           {/* Mobile Language Dropdown */}
           <li className="lg:hidden mt-4 px-4 pb-4">
@@ -136,10 +144,12 @@ const Navbar = () => {
           </li>
         </ul>
 
+
+
         {/* Reservation Button and Language Dropdown for Desktop */}
         <div className="hidden lg:flex items-center space-x-6">
           <a
-            href="https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222"
+            href="https://www.google.com/maps/reserve/v/dine/c/ZlyFqvufLB0?source=pa&opi=89978449&hl=en-AT&gei=J8M0Z4r2B9-pxc8P5vTssAk&sourceurl=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dtaj%2B1080%2Bwien%26rlz%3D1CDGOYI_enAT1087AT1087%26oq%3Dtaj%26gs_lcrp%3DEgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPDIJCAQQRRg5GIAEMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg7MgYICBBFGDsyDQgJEAAYkQIYgAQYigXSAQc4NDZqMGo5qAITsAIB4gMEGAEgXw%26hl%3Den-GB%26sourceid%3Dchrome-mobile%26ie%3DUTF-8&ihs=27"
             className="border border-[#FFD700] bg-[#FFD700] text-sm text-black py-1 px-3 rounded transition-colors duration-300 hover:bg-transparent hover:text-[#FFD700]"
           >
             {bookTable} {/* Translated text for the reservation button */}

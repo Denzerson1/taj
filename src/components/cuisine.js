@@ -24,7 +24,7 @@ const translations = {
       button: "VIEW OUR DRINKS"
     },
     takeout: {
-      title: "ORDER TAKEOUT",
+      title: "ORDER ONLINE",
       description: "Enjoy the flavors of India at home with our delicious takeout options, perfectly prepared and ready for you to savor.",
       button: "ORDER ONLINE",
       menuTitle: "Takeout Menu",
@@ -52,7 +52,7 @@ const translations = {
       button: "UNSERE GETRÄNKE ANSEHEN"
     },
     takeout: {
-      title: "BESTELLEN SIE ZUM MITNEHMEN",
+      title: "ONLINE BESTELLEN",
       description: "Genießen Sie die Aromen Indiens zu Hause mit unseren köstlichen Takeout-Optionen, die perfekt zubereitet und bereit sind, von Ihnen genossen zu werden.",
       button: "ONLINE BESTELLEN",
       menuTitle: "Takeout-Menü",
@@ -127,7 +127,7 @@ const InfoSection = () => {
           <h2 className="text-[#FFC107] text-3xl font-serif font-semibold">{cuisine.title}</h2>
           <p className="text-gray-200 my-6 text-lg">{cuisine.description}</p>
           <a href="/food">
-          <button className="px-6 py-3 border border-[#FFC107] bg-[#FFC107] text-black font-semibold transition-all ease-in-out duration-300 hover:bg-[#FFC1071A] hover:text-gray-200">
+            <button className="px-6 py-3 border border-[#FFC107] bg-[#FFC107] text-black font-semibold transition-all ease-in-out duration-300 hover:bg-[#FFC1071A] hover:text-gray-200">
               {cuisine.button}
             </button>
           </a>
@@ -145,7 +145,6 @@ const InfoSection = () => {
         <div className="md:w-3/5 w-full">
           <img
             srcSet={`${image2} 1024w, ${image2} 480w`}
-            sizes="(max-width: 768px) 480px, 1024px"
             src={image2Mobile}
             alt="Cocktails"
             className="w-full h-[300px] md:h-[400px] object-cover shadow-lg"
@@ -155,7 +154,7 @@ const InfoSection = () => {
           <h2 className="text-[#FFC107] text-3xl font-serif font-semibold">{cocktails.title}</h2>
           <p className="text-gray-200 my-6 text-lg">{cocktails.description}</p>
           <a href="/drinks">
-          <button className="px-6 py-3 border border-[#FFC107] bg-[#FFC107] text-black font-semibold transition-all ease-in-out duration-300 hover:bg-[#FFC1071A] hover:text-gray-200">
+            <button className="px-6 py-3 border border-[#FFC107] bg-[#FFC107] text-black font-semibold transition-all ease-in-out duration-300 hover:bg-[#FFC1071A] hover:text-gray-200">
               {cocktails.button}
             </button>
           </a>
@@ -174,7 +173,7 @@ const InfoSection = () => {
           <img
             src={takeoutImage}
             alt="Takeout"
-            className="w-full h-[300px] md:h-[400px] object-cover shadow-lg"
+            className="w-full h-[400px] md:h-[500px] object-cover shadow-lg" // Increased height
           />
         </div>
         <div className="md:w-2/5 w-full flex flex-col items-center justify-center text-center py-8 px-6">
@@ -218,6 +217,7 @@ const InfoSection = () => {
         </div>
       </motion.div>
 
+
       {/* About Section */}
       <motion.div
         ref={aboutRef}
@@ -240,7 +240,7 @@ const InfoSection = () => {
           <h2 className="text-[#FFC107] text-3xl font-serif font-semibold">{about.title}</h2>
           <p className="text-gray-200 my-6 text-lg">{about.description}</p>
           <a href="/about">
-          <button className="px-6 py-3 border border-[#FFC107] bg-[#FFC107] text-black font-semibold transition-all ease-in-out duration-300 hover:bg-[#FFC1071A] hover:text-gray-200">
+            <button className="px-6 py-3 border border-[#FFC107] bg-[#FFC107] text-black font-semibold transition-all ease-in-out duration-300 hover:bg-[#FFC1071A] hover:text-gray-200">
               {about.button}
             </button>
           </a>

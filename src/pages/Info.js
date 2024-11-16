@@ -58,31 +58,13 @@ const InfoPage = () => {
     return (
         <div>
             <Navbar />
-            
-                {/* Banner Section with Background Image */}
-                <div
-                    className="relative bg-cover bg-center py-32 lg:py-48 text-center"
-                    style={{
-                        backgroundImage: `url(${bannerImage})`,
-                    }}
-                >
-                    {/* Dark overlay to enhance text visibility */}
-                    <div className="absolute inset-0 bg-black opacity-50"></div>
 
-                    <div className="relative z-10 max-w-4xl mx-auto px-4">
-                        <h1 className="text-5xl lg:text-7xl font-semibold text-white text-shadow-lg leading-tight">
-                            {sectionText[language].header}
-                        </h1>
-                        <p className="mt-4 text-lg lg:text-xl text-white leading-relaxed">
-                            {sectionText[language].subheader}
-                        </p>
-                    </div>
-                </div>
-                <div
+
+            <div
                 style={{
                     backgroundImage: 'linear-gradient(to bottom, #0C0907, #54271E,   #0B0706)',
                 }}
-                className="font-mukta min-h-screen text-gray-800"
+                className="font-mukta pt-20 min-h-screen text-gray-800"
             >
                 {/* Hours Section */}
                 <div className="py-10 px-6 text-center">
@@ -144,6 +126,25 @@ const InfoPage = () => {
                     >
                         {sectionText[language].reservationButton}
                     </button>
+                </div>
+            </div>
+            {/* Banner Section with Background Image */}
+            <div
+                className="relative bg-cover bg-center py-32 lg:py-48 text-center"
+                style={{
+                    backgroundImage: `url(${bannerImage})`,
+                }}
+            >
+                {/* Dark overlay to enhance text visibility */}
+                <div className="absolute inset-0 bg-black opacity-50"></div>
+
+                <div className="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 className="text-5xl lg:text-7xl font-semibold text-white text-shadow-lg leading-tight">
+                        {sectionText[language].header}
+                    </h1>
+                    <p className="mt-4 text-lg lg:text-xl text-white leading-relaxed">
+                        {sectionText[language].subheader}
+                    </p>
                 </div>
             </div>
             <Footer />

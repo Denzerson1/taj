@@ -75,7 +75,7 @@ const IndianDishBlog = () => {
     return (
         <div>
             <Navbar />
-            <div className="font-mukta bg-[#b2b2b2]  text-gray-100 min-h-screen">
+            <div style={{ backgroundImage: 'linear-gradient(to bottom, #241007, #27140D' }}className="font-mukta bg-[#b2b2b2]  text-gray-100 min-h-screen">
                 {/* Banner Section */}
                 <section className="relative h-[60vh] flex items-center justify-center">
                     <img
@@ -99,7 +99,7 @@ const IndianDishBlog = () => {
                     <section className="flex items-center justify-center gap-6 sm:gap-10 lg:gap-12 mb-10 lg:mb-16">
                         <div className="lg:w-7/12 px-4 sm:px-0 text-center">
                             <h2 className="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-4">{introHeading}</h2>
-                            <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-800">
+                            <p className="text-base sm:text-lg lg:text-xl leading-relaxed text-gray-200">
                                 {introText}
                             </p>
                         </div>
@@ -110,10 +110,10 @@ const IndianDishBlog = () => {
                     <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
                         <div className="flex flex-col gap-4 px-4 sm:px-0">
                             <h2 className="text-2xl sm:text-3xl font-semibold text-yellow-300">{ingredientsHeading}</h2>
-                            <p className="text-base sm:text-lg leading-relaxed text-gray-800 mb-4">
+                            <p className="text-base sm:text-lg leading-relaxed text-gray-200 mb-4">
                                 {ingredientsText}
                             </p>
-                            <ul className="list-disc ml-6 text-base sm:text-lg text-gray-700">
+                            <ul className="list-disc ml-6 text-base sm:text-lg text-gray-200">
                                 {ingredientsList.map((ingredient, index) => (
                                     <li key={index}>{ingredient}</li>
                                 ))}
@@ -130,7 +130,7 @@ const IndianDishBlog = () => {
                     <section className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <div className="flex flex-col gap-6 px-4 sm:px-0">
                             <h2 className="text-2xl sm:text-3xl font-semibold text-yellow-300">{cookingHeading}</h2>
-                            <ol className="list-decimal ml-6 text-base sm:text-lg text-gray-700 leading-relaxed">
+                            <ol className="list-decimal ml-6 text-base sm:text-lg text-gray-200 leading-relaxed">
                                 {steps.map((step, index) => (
                                     <li key={index} className="mb-2">{step}</li>
                                 ))}

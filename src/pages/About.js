@@ -97,7 +97,7 @@ const AboutPage = () => {
       </div>
 
       {/* Mission & Vision Section with Smooth Gradient */}
-      <div style={{ backgroundImage: 'linear-gradient(to bottom, #241007, #1E0D0D' }}>
+      <div style={{ backgroundImage: 'linear-gradient(to bottom, #241007, #473424'}}>
         <div className="py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8">
@@ -110,31 +110,32 @@ const AboutPage = () => {
         </div>
 
 
-        {/* Experience Section with Smooth Gradient */}
-        <div className="py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
-          <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2 items-center">
-            {/* Left Column: Image */}
-            <div className="relative">
-              <img
-                src={aboutImage2}
-                alt="Elegant Indian restaurant interior"
-                className="w-full h-full object-cover rounded-lg shadow-lg"
-              />
-              <div style={{ backgroundImage: 'linear-gradient(to bottom, #3E261C, transparent' }} className="absolute top-0 left-0 w-full h-20 sm:h-32"></div>
-            </div>
 
-            {/* Right Column: Description */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-lightgold mb-6 sm:mb-8">
-                {experienceTitle}
-              </h2>
-              <p className="leading-relaxed text-gray-200 mb-6 sm:mb-8">
-                {experienceText}
-              </p>
-              <p className="leading-relaxed text-gray-200">
-                {experienceText}
-              </p>
-            </div>
+      </div>
+      {/* Experience Section with Smooth Gradient */}
+      <div style={{ backgroundImage: 'linear-gradient(to bottom, #473424, #1E0D0D'}}  className="py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
+        <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2 items-center">
+          {/* Left Column: Image */}
+          <div className="relative">
+            <img
+              src={aboutImage2}
+              alt="Elegant Indian restaurant interior"
+              className="w-full h-full object-cover rounded-lg shadow-lg"
+            />
+            <div style={{ backgroundImage: 'linear-gradient(to bottom, #3E261C, transparent' }} className="absolute top-0 left-0 w-full h-20 sm:h-32"></div>
+          </div>
+
+          {/* Right Column: Description */}
+          <div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-lightgold mb-6 sm:mb-8">
+              {experienceTitle}
+            </h2>
+            <p className="leading-relaxed text-gray-200 mb-6 sm:mb-8">
+              {experienceText}
+            </p>
+            <p className="leading-relaxed text-gray-200">
+              {experienceText}
+            </p>
           </div>
         </div>
       </div>
