@@ -7,8 +7,14 @@ import Drinks from './pages/Drinks';
 import Events from './pages/Events';
 import Food from './pages/Food';
 import Info from './pages/Info';
-
+import Imprint from './pages/Impressum';
 import Blog1 from './pages/blogs/blog1';
+import Blog2 from './pages/blogs/blog2';
+import Blog3 from './pages/blogs/blog3';
+import Blog4 from './pages/blogs/blog4';
+import Blog5 from './pages/blogs/blog5';
+import Blog6 from './pages/blogs/blog6';
+
 import { LanguageProvider } from './LanguageContext';
 
 const Main = () => {
@@ -24,7 +30,14 @@ const Main = () => {
             <Route path="/drinks" element={<Drinks />} />
             <Route path="/info" element={<Info />} />
             <Route path="/private-events" element={<Events />} />
-            <Route path="/blog1" element={<Blog1 />} />
+            <Route path="/journey-trough-indian-curries" element={<Blog1 />} />
+            <Route path="/flavors-of-the-east" element={<Blog2 />} />
+            <Route path="/vibrant-vegan" element={<Blog3 />} />
+            <Route path="/green-goodness" element={<Blog4 />} />
+            <Route path="/vegetarian-comfort-food" element={<Blog5 />} />
+            <Route path="/eggplant-magic" element={<Blog6 />} />
+
+            <Route path="/imprint" element={<Imprint />} />
           </Routes>
         </Router>
       </div>

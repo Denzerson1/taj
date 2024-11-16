@@ -3,86 +3,79 @@ import Navbar from '../../components/navbar';
 import Footer from '../../components/Footer';
 import { useLanguage } from '../../LanguageContext';
 
-import img1 from '../../images/Ready to eat_The Taj_ChickenKorma (1).jpg';
-import img2 from '../../images/Ingredients_The Taj_Chana Masala (1).jpg';
-import img3 from '../../images/Ready to eat_The Taj_Chicken Kabli 02 (1).jpg';
-import Carousel from '../../components/carousel';
+import img1 from '../../images/blogs/linsen1.jpg';
+import img2 from '../../images/kichererbsen.jpg';
+import img3 from '../../images/fulltable.jpg';
 
 const translations = {
     EN: {
-        title: "Savor the Spices: A Journey through Indian Curries",
-        description: "Explore the magical world of spices that make Indian curries a global favorite. From aromatic blends to bold flavors, this dish promises an unforgettable experience.",
+        title: "Deliciously Meat-Free: Best Vegetarian Comfort Food",
+        description: "Satisfying and hearty vegetarian dishes that prove you don’t need meat for a flavorful meal.",
         introHeading: "Introduction",
-        introText: "Indian curries are famous for their intricate spice blends, which create a symphony of flavors. Each region offers a unique twist, from creamy butter chicken in the north to tangy fish curry in the south.",
+        introText: "Comfort food doesn't have to rely on meat. With the right ingredients and techniques, vegetarian meals can be just as indulgent and satisfying. From creamy curries to hearty casseroles, there’s no limit to the possibilities.",
         ingredientsHeading: "Ingredients & Cooking Tips",
-        ingredientsText: "Here are the key ingredients you’ll need for an authentic Indian curry:",
+        ingredientsText: "Create hearty vegetarian dishes with these core ingredients:",
         ingredientsList: [
-            "2 tbsp cooking oil",
-            "1 large onion, finely chopped",
-            "3 cloves of garlic, minced",
-            "1 tbsp ginger paste",
-            "2 medium tomatoes, pureed",
-            "1 tsp turmeric powder",
-            "1 tsp red chili powder",
-            "1 tbsp garam masala",
-            "1 lb chicken or vegetables",
+            "1 cup lentils or chickpeas",
+            "2 tbsp olive oil or butter",
+            "1 onion, diced",
+            "2 cloves garlic, minced",
+            "1 cup fresh spinach or kale",
             "1 cup coconut milk or cream",
-            "Salt to taste"
+            "1 tsp turmeric",
+            "1 tsp cumin",
+            "Salt and pepper to taste"
         ],
         cookingHeading: "Cooking Instructions",
         steps: [
-            "Heat oil in a pan and sauté onions until golden brown.",
-            "Add garlic and ginger paste, cooking until aromatic.",
-            "Stir in the tomato puree, turmeric, and chili powder, letting it cook until the oil separates.",
-            "Add your choice of chicken or vegetables, cooking until well-coated with spices.",
-            "Pour in coconut milk or cream, simmering until the curry thickens.",
-            "Sprinkle garam masala, garnish with fresh cilantro, and serve with naan or rice."
+            "Prepare the Lentils: Cook lentils or chickpeas in boiling water until tender. Drain and set aside.",
+            "Sauté the Base: Heat olive oil or butter in a pan. Sauté onion and garlic until fragrant.",
+            "Add the Spices: Stir in turmeric and cumin, then add fresh greens like spinach or kale.",
+            "Combine: Add cooked lentils/chickpeas and coconut milk. Simmer for 10 minutes.",
+            "Season and Serve: Adjust salt and pepper to taste. Serve with rice or bread."
         ]
     },
     DE: {
-        title: "Genieße die Gewürze: Eine Reise durch indische Currys",
-        description: "Tauchen Sie ein in die magische Welt der Gewürze, die indische Currys weltweit beliebt machen. Von aromatischen Mischungen bis zu kräftigen Aromen verspricht dieses Gericht ein unvergessliches Erlebnis.",
+        title: "Köstlich fleischlos: Die besten vegetarischen Komfortgerichte",
+        description: "Sättigende und herzhafte vegetarische Gerichte, die beweisen, dass es für Geschmack kein Fleisch braucht.",
         introHeading: "Einführung",
-        introText: "Indische Currys sind berühmt für ihre komplexen Gewürzmischungen, die eine Geschmackssymphonie schaffen. Jede Region bietet eine einzigartige Variante, von cremigem Butterhühnchen im Norden bis zu säuerlichem Fischcurry im Süden.",
+        introText: "Komfortessen muss nicht auf Fleisch setzen. Mit den richtigen Zutaten und Techniken können vegetarische Gerichte genauso indulgent und befriedigend sein. Von cremigen Currys bis hin zu herzhaften Aufläufen sind die Möglichkeiten endlos.",
         ingredientsHeading: "Zutaten & Kochtipps",
-        ingredientsText: "Hier sind die wichtigsten Zutaten für ein authentisches indisches Curry:",
+        ingredientsText: "Bereiten Sie die Gerichte mit diesen Grundzutaten zu:",
         ingredientsList: [
-            "2 EL Speiseöl",
-            "1 große Zwiebel, fein gehackt",
-            "3 Knoblauchzehen, gehackt",
-            "1 EL Ingwerpaste",
-            "2 mittelgroße Tomaten, püriert",
-            "1 TL Kurkumapulver",
-            "1 TL Chilipulver",
-            "1 EL Garam Masala",
-            "450 g Huhn oder Gemüse",
+            "1 Tasse Linsen oder Kichererbsen",
+            "2 EL Olivenöl oder Butter",
+            "1 Zwiebel, gewürfelt",
+            "2 Knoblauchzehen, gehackt",
+            "1 Tasse frischer Spinat oder Grünkohl",
             "1 Tasse Kokosmilch oder Sahne",
-            "Salz nach Geschmack"
+            "1 TL Kurkuma",
+            "1 TL Kreuzkümmel",
+            "Salz und Pfeffer nach Geschmack"
         ],
         cookingHeading: "Kochanleitung",
         steps: [
-            "Öl in einer Pfanne erhitzen und die Zwiebeln goldbraun anbraten.",
-            "Knoblauch und Ingwerpaste hinzufügen und anbraten, bis es duftet.",
-            "Tomatenpüree, Kurkuma und Chilipulver einrühren und kochen, bis sich das Öl absetzt.",
-            "Huhn oder Gemüse hinzufügen und gut mit den Gewürzen vermengen.",
-            "Kokosmilch oder Sahne eingießen und köcheln lassen, bis das Curry eindickt.",
-            "Mit Garam Masala bestreuen, mit frischem Koriander garnieren und mit Naan oder Reis servieren."
+            "Linsen vorbereiten: Linsen oder Kichererbsen in kochendem Wasser garen, bis sie weich sind. Abtropfen lassen und beiseite stellen.",
+            "Die Basis anbraten: Olivenöl oder Butter in einer Pfanne erhitzen. Zwiebel und Knoblauch anbraten, bis sie duften.",
+            "Die Gewürze hinzufügen: Kurkuma und Kreuzkümmel einrühren, dann frisches Grün wie Spinat oder Grünkohl hinzufügen.",
+            "Kombinieren: Gekochte Linsen/Kichererbsen und Kokosmilch hinzufügen. 10 Minuten köcheln lassen.",
+            "Abschmecken und servieren: Salz und Pfeffer nach Geschmack anpassen. Mit Reis oder Brot servieren."
         ]
     }
 };
 
-const IndianCurryBlog = () => {
+const VegetarianComfortFoodBlog = () => {
     const { language } = useLanguage();
     const { title, description, introHeading, introText, ingredientsHeading, ingredientsText, ingredientsList, cookingHeading, steps } = translations[language];
 
     return (
         <div>
             <Navbar />
-            <div style={{ backgroundImage: 'linear-gradient(to bottom, #241007, #27140D' }}className="font-mukta bg-[#b2b2b2] text-gray-100 min-h-screen">
+            <div style={{ backgroundImage: 'linear-gradient(to bottom, #27140D, #3E2010)' }} className="font-mukta bg-[#b2b2b2] text-gray-100 min-h-screen">
                 <section className="relative h-[60vh] flex items-center justify-center">
                     <img
                         src={img1}
-                        alt="Indian Curry Banner"
+                        alt="Vegetarian Comfort Food Banner"
                         className="absolute inset-0 w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -120,7 +113,7 @@ const IndianCurryBlog = () => {
                         </div>
                         <img
                             src={img2}
-                            alt="Curry Ingredients"
+                            alt="Vegetarian Comfort Food Ingredients"
                             className="w-full sm:w-8/12 lg:w-7/12 rounded-lg shadow-lg mx-auto"
                         />
                     </section>
@@ -136,17 +129,15 @@ const IndianCurryBlog = () => {
                         </div>
                         <img
                             src={img3}
-                            alt="Finished Curry"
+                            alt="Finished Vegetarian Comfort Food"
                             className="w-full sm:w-8/12 lg:w-7/12 rounded-lg shadow-lg mx-auto"
                         />
                     </section>
                 </div>
-                <Carousel />
             </div>
             <Footer />
         </div>
     );
 };
 
-export default IndianCurryBlog;
-
+export default VegetarianComfortFoodBlog;

@@ -1,26 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import { useLanguage } from '../LanguageContext';
-import recipeImage1 from '../images/IMG_6166.jpg';
-import recipeImage2 from '../images/One dish_The Taj_Paneer Shashlik_02 (1).jpg';
-import recipeImage3 from '../images/One dish_The Taj_Paneer Tikka (1).jpg';
-import recipeImage4 from '../images/Ready to eat_The Taj_Chicken Kabli 02 (1).jpg';
-import recipeImage5 from '../images/Start eating_The Taj_04 (1).jpg';
-import recipeImage6 from '../images/Action_The Taj_Gin Fizz_06 (1).jpg';
-import recipeImage7 from '../images/Action_The Taj_Smoked Old Fashioned_08 (1).jpg';
-import recipeImage8 from '../images/Action_The Taj_Cocktail 14 (1).jpg';
-import recipeImage9 from '../images/Full Table_The Taj_Butter Chicken (1).jpg';
+import recipeImage1 from '../images/blogs/indiancurry1.jpg';
+import recipeImage2 from '../images/blogs/dumplings1.jpg';
+import recipeImage3 from '../images/kichererbsen.jpg';
+import recipeImage4 from '../images/blogs/greengoddess1.jpg';
+import recipeImage5 from '../images/blogs/linsen1.jpg';
+import recipeImage6 from '../images/blogs/eggplant.jpg';
 
 const recipes = [
-  { title: 'Some food', type: 'RECIPE', image: recipeImage1, link: '#' },
-  { title: 'Paneer Shashlik', type: 'RECIPE', image: recipeImage2, link: '#' },
-  { title: 'Paneer Tikka', type: 'RECIPE', image: recipeImage3, link: '#' },
-  { title: 'Chicken Kabli', type: 'DINNER', image: recipeImage4, link: '#' },
-  { title: 'Some food', type: 'RECIPE', image: recipeImage5, link: '#' },
-  { title: 'New Dish 1', type: 'RECIPE', image: recipeImage6, link: '#' },
-  { title: 'New Dish 2', type: 'RECIPE', image: recipeImage7, link: '#' },
-  { title: 'New Dish 3', type: 'DINNER', image: recipeImage8, link: '#' },
-  { title: 'New Dish 4', type: 'RECIPE', image: recipeImage9, link: '#' },
+  { title: 'A Journey through Indian Curries', type: 'RECIPE', image: recipeImage1, link: '/journey-trough-indian-curries' },
+  { title: 'Flavors of the East: Dumplings & Beyond', type: 'RECIPE', image: recipeImage2, link: '/flavors-of-the-east' },
+  { title: 'Vibrant Vegan: A Rainbow on Your plate', type: 'RECIPE', image: recipeImage3, link: '/vibrant-vegan' },
+  { title: 'Green Goddess: The best salad recipe', type: 'DINNER', image: recipeImage4, link: '/green-goodness' },
+  { title: 'Deliciously Meat-Free', type: 'RECIPE', image: recipeImage5, link: '/vegetarian-comfort-food' },
+  { title: 'Eggplant Magic', type: 'RECIPE', image: recipeImage6, link: '/eggplant-magic' },
 ];
 
 const translations = {

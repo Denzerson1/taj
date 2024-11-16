@@ -3,11 +3,11 @@ import { motion, useInView } from 'framer-motion';
 import Navbar from '../components/navbar';
 import Footer from '../components/Footer';
 import Img5 from '../images/Action detail_The Taj_01 (1).jpg';
-import img2 from '../images/Action detail_The Taj_03 (1).jpg';
-import img3 from '../images/Action detail_The Taj_04 (1).jpg';
-import img4 from '../images/Action detail_The Taj_Chicken Korma (1).jpg';
-import img1 from '../images/One dish_The Taj_Butter Chicken copy (1).jpg';
-import img6 from '../images/One dish_The Taj_Thalli Platte vegetarisch (1).jpg';
+import img2 from '../images/blogs/dumplings1.jpg';
+import img3 from '../images/blogs/linsen1.jpg';
+import img4 from '../images/blogs/greengoddess2.jpg';
+import img1 from '../images/blogs/stirfry.jpg';
+import img6 from '../images/blogs/eggplant.jpg';
 import { useLanguage } from '../LanguageContext'; // Importing the useLanguage hook for translation
 
 const blogData = {
@@ -17,13 +17,13 @@ const blogData = {
                 title: "Savor the Spice: A Journey Through Indian Curries",
                 subtitle: "Discover the world of spices that make curries irresistible",
                 img: Img5,
-                link: "/blog1"
+                link: "/journey-trough-indian-curries"
             },
             {
                 title: "Flavors of the East: Dumplings & Beyond",
                 subtitle: "Exploring dumplings across cultures",
                 img: img2,
-                link: "/blog2"
+                link: "/flavors-of-the-east"
             }
         ],
         vegan: [
@@ -31,13 +31,13 @@ const blogData = {
                 title: "Vibrant Vegan: A Rainbow on Your Plate",
                 subtitle: "Fresh, colorful vegan dishes that burst with flavor",
                 img: img3,
-                link: "/blog3"
+                link: "/vibrant-vegan"
             },
             {
-                title: "Green Goodness: The Best Plant-Based Recipes",
+                title: "Green Gooddess: The Best Salad Recipes",
                 subtitle: "Elevate your meals with plant-based ingredients",
                 img: img4,
-                link: "/blog4"
+                link: "/green-goodness"
             }
         ],
         vegetarian: [
@@ -45,13 +45,13 @@ const blogData = {
                 title: "Deliciously Meat-Free: Best Vegetarian Comfort Food",
                 subtitle: "Satisfying and hearty vegetarian dishes",
                 img: img1,
-                link: "/blog5"
+                link: "/vegetarian-comfort-food"
             },
             {
                 title: "Eggplant Magic: Beyond the Basics",
                 subtitle: "How to make eggplant the star of your meal",
                 img: img6,
-                link: "/blog6"
+                link: "/eggplant-magic"
             }
         ]
     },
@@ -61,13 +61,13 @@ const blogData = {
                 title: "Genieße die Gewürze: Eine Reise durch indische Currys",
                 subtitle: "Entdecke die Welt der Gewürze, die Currys unwiderstehlich machen",
                 img: Img5,
-                link: "/blog1"
+                link: "/journey-trough-indian-curries"
             },
             {
                 title: "Aromen des Ostens: Dumplings & mehr",
                 subtitle: "Erkunde Dumplings aus verschiedenen Kulturen",
                 img: img2,
-                link: "/blog2"
+                link: "/flavors-of-the-east"
             }
         ],
         vegan: [
@@ -75,13 +75,13 @@ const blogData = {
                 title: "Vibrant Vegan: Ein Regenbogen auf deinem Teller",
                 subtitle: "Frische, bunte vegane Gerichte, die vor Geschmack platzen",
                 img: img3,
-                link: "/blog3"
+                link: "/vibrant-vegan"
             },
             {
                 title: "Grüne Köstlichkeiten: Die besten pflanzlichen Rezepte",
                 subtitle: "Verfeinere deine Mahlzeiten mit pflanzlichen Zutaten",
                 img: img4,
-                link: "/blog4"
+                link: "/green-goodness"
             }
         ],
         vegetarian: [
@@ -89,13 +89,13 @@ const blogData = {
                 title: "Köstlich fleischfrei: Beste vegetarische Komfortküche",
                 subtitle: "Herzhafte und sättigende vegetarische Gerichte",
                 img: img1,
-                link: "/blog5"
+                link: "/vegetarian-comfort-food"
             },
             {
                 title: "Auberginenmagie: Mehr als nur das Basische",
                 subtitle: "So wird die Aubergine zum Star deines Gerichts",
                 img: img6,
-                link: "/blog6"
+                link: "/eggplant-magic"
             }
         ]
     }

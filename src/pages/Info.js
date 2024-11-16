@@ -19,7 +19,7 @@ const InfoPage = () => {
                 'Sunday: 11:00 AM - 9:00 PM',
             ],
             locationTitle: 'Location',
-            location: '123 Flavor Street, Spice Town, IN 45678',
+            location: 'Kochgasse 9, 1080 Wien',
             directions: 'Get Directions',
             contactTitle: 'Contact Us',
             contactDetails: {
@@ -41,7 +41,7 @@ const InfoPage = () => {
                 'Sonntag: 11:00 - 21:00',
             ],
             locationTitle: 'Standort',
-            location: '123 Flavor Street, Spice Town, IN 45678',
+            location: 'Kochgasse 9, 1080 Wien',
             directions: 'Wegbeschreibung',
             contactTitle: 'Kontaktieren Sie uns',
             contactDetails: {

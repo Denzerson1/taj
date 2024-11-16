@@ -34,7 +34,7 @@ const HeroBanner = ({ onScrollToMenu }) => {
                 {/* Button with fade-in animation */}
                 <motion.button
                     onClick={() => window.open('/FoodMenu.pdf', '_blank')}
-                    className="mt-4 px-6 py-3 border border-radiu border-[#FFC107] bg-[#FFC107] text-black font-semibold transition-all ease-in-out duration-300 hover:bg-[#FFC1071A] hover:text-gray-200"
+                    className="mt-4 px-6 py-3 border border-[#FFC107] bg-[#FFC107] text-black font-semibold transition-all ease-in-out duration-300 hover:bg-[#FFC1071A] hover:text-gray-200"
                     initial={{ opacity: 0 }} // Start with 0 opacity
                     animate={{ opacity: 1 }} // Fade in to full opacity (100%)
                     transition={{ duration: 1 }} // Same duration as header (1 second)
