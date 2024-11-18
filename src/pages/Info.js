@@ -14,9 +14,7 @@ const InfoPage = () => {
             subheader: 'Where every meal tells a story, connecting people through flavors and memories.',
             hoursTitle: 'Hours',
             hours: [
-                'Monday - Thursday: 11:00 AM - 10:00 PM',
-                'Friday - Saturday: 11:00 AM - 11:00 PM',
-                'Sunday: 11:00 AM - 9:00 PM',
+                'Monday - Sunday: 17:00 - 23:00',
             ],
             locationTitle: 'Location',
             location: 'Kochgasse 9, 1080 Wien',
@@ -36,9 +34,7 @@ const InfoPage = () => {
             subheader: 'Wo jedes Gericht eine Geschichte erzählt, die Menschen durch Aromen und Erinnerungen verbindet.',
             hoursTitle: 'Öffnungszeiten',
             hours: [
-                'Montag - Donnerstag: 11:00 - 22:00',
-                'Freitag - Samstag: 11:00 - 23:00',
-                'Sonntag: 11:00 - 21:00',
+                'Montag - Sonntag: 17:00 - 23:00',
             ],
             locationTitle: 'Standort',
             location: 'Kochgasse 9, 1080 Wien',
