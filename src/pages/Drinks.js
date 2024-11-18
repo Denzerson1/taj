@@ -87,7 +87,7 @@ const DrinkSection = () => {
                             </p>
 
                             <button
-                                onClick={() => window.open('/food.pdf', '_blank')}
+                                onClick={() => window.open('/drinks.pdf', '_blank')}
                                 className="px-6 py-3 border border-radiu border-[#FFC107] bg-[#FFC107] text-black font-semibold transition-all ease-in-out duration-300 hover:bg-[#FFC1071A] hover:text-gray-200"
                             >
                                 {sectionText[language].buttonText}
