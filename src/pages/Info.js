@@ -118,7 +118,7 @@ const InfoPage = () => {
                     <p className="text-lg max-w-xl mx-auto mb-8">{sectionText[language].reservationMessage}</p>
                     <button
                         className="px-6 py-2 bg-[#FFD700] text-black font-semibold rounded hover:bg-yellow-600 transition duration-200"
-                        onClick={() => window.open("https://www.quandoo.at/place/taj-indisches-restaurant-bar-52222?aid=63", '_blank')}
+                        onClick={() => window.open("https://www.google.com/maps/reserve/v/dine/c/ZlyFqvufLB0?source=pa&opi=89978449&hl=en-AT&gei=J8M0Z4r2B9-pxc8P5vTssAk&sourceurl=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dtaj%2B1080%2Bwien%26rlz%3D1CDGOYI_enAT1087AT1087%26oq%3Dtaj%26gs_lcrp%3DEgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPDIJCAQQRRg5GIAEMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg7MgYICBBFGDsyDQgJEAAYkQIYgAQYigXSAQc4NDZqMGo5qAITsAIB4gMEGAEgXw%26hl%3Den-GB%26sourceid%3Dchrome-mobile%26ie%3DUTF-8&ihs=1", '_blank')}
                     >
                         {sectionText[language].reservationButton}
                     </button>
