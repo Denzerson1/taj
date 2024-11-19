@@ -41,7 +41,7 @@ const Impressum = () => {
 
                     <section className="mb-6">
                         <h2 className="text-xl font-semibold mb-2">Geschäftsführung</h2>
-                        <p>Sumit </p>
+                        <p>Sumit Kapahi</p>
                     </section>
 
                     <section className="mb-6">
