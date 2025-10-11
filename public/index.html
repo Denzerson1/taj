@@ -1,31 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  
-  <!-- Preconnect for better font loading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Google Fonts Mukta Link -->
-  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
 
-  <!-- Set Mukta as the global font in a style block -->
-  <style>
-    body {
-      font-family: 'Mukta', sans-serif;
-    }
-  </style>
+    <!--  SEO-Titel und Beschreibung -->
+    <title>Taj Restaurant Wien | Authentische Indische Küche</title>
+    <meta
+      name="description"
+      content="Genießen Sie authentische indische Küche im Taj Restaurant in Wien. Aromatische Currys, kreative Cocktails, vegane & vegetarische Spezialitäten in stilvollem Ambiente."
+    />
 
-  <title>Taj</title>
-</head>
+    <!--  Keywords -->
+    <meta
+      name="keywords"
+      content="Indisches Restaurant Wien, Taj Wien, Indisches Essen Wien, Curry Wien, Veganes Restaurant Wien, Vegetarisches Restaurant Wien, Indische Küche, Cocktailbar Wien"
+    />
 
-<body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-</body>
+    <!--  Author -->
+    <meta name="author" content="Taj Restaurant Wien" />
+
+    <!-- Open Graph (Facebook / LinkedIn / WhatsApp) -->
+    <meta property="og:title" content="Taj Restaurant Wien | Authentische Indische Küche" />
+    <meta
+      property="og:description"
+      content="Erleben Sie die Geschmacksvielfalt Indiens im Herzen Wiens. Taj Restaurant bietet traditionelle Gerichte, moderne Cocktails und ein einzigartiges Ambiente."
+    />
+    <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
+    <meta property="og:url" content="https://www.tajvienna.com/de" />
+    <meta property="og:type" content="restaurant" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Taj Restaurant Wien | Authentische Indische Küche" />
+    <meta
+      name="twitter:description"
+      content="Taj Restaurant Wien – authentische indische Küche, vegane Spezialitäten & kreative Cocktails im stilvollen Ambiente."
+    />
+    <meta name="twitter:image" content="%PUBLIC_URL%/og-image.jpg" />
+
+    <!-- Strukturierte Daten (JSON-LD Schema für Google) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Taj Restaurant Wien",
+        "image": "https://www.tajvienna.com/images/restaurant.jpg",
+        "telephone": "+43 1 924 7141",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Karlsplatz 1",
+          "addressLocality": "Wien",
+          "postalCode": "1010",
+          "addressCountry": "AT"
+        },
+        "servesCuisine": ["Indisch", "Vegan", "Vegetarisch"],
+        "priceRange": "$$",
+        "url": "https://www.tajvienna.com/de",
+        "menu": "https://www.tajvienna.com/de/menu",
+        "sameAs": [
+          "https://www.instagram.com/tajvienna",
+          "https://www.facebook.com/tajvienna"
+        ],
+        "openingHours": "Mo-So 11:00-22:30"
+      }
+    </script>
+
+    <!--  Preconnect für schnellere Schriftladen -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Globale Schrift -->
+    <style>
+      body {
+        font-family: "Mukta", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body>
+    <noscript>
+      Taj Restaurant Wien – genießen Sie authentische indische Küche und kreative Cocktails. Bitte aktivieren Sie JavaScript, um die vollständige Website zu sehen.
+    </noscript>
+    <div id="root"></div>
+  </body>
 </html>
