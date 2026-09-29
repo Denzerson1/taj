@@ -108,7 +108,10 @@ const Footer = () => {
             <li><a href="/food" className="hover:text-gray-400">{currentTranslations.food}</a></li>
             <li><a href="/drinks" className="hover:text-gray-400">{currentTranslations.drinks}</a></li>
             <li><a href="/info" className="hover:text-gray-400">{currentTranslations.contactUs}</a></li>
-            <li><a href="https://www.google.com/maps/reserve/v/dine/c/ZlyFqvufLB0?source=pa&opi=89978449&hl=en-AT&gei=J8M0Z4r2B9-pxc8P5vTssAk&sourceurl=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dtaj%2B1080%2Bwien%26rlz%3D1CDGOYI_enAT1087AT1087%26oq%3Dtaj%26gs_lcrp%3DEgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPDIJCAQQRRg5GIAEMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg7MgYICBBFGDsyDQgJEAAYkQIYgAQYigXSAQc4NDZqMGo5qAITsAIB4gMEGAEgXw%26hl%3Den-GB%26sourceid%3Dchrome-mobile%26ie%3DUTF-8&ihs=1" className="hover:text-gray-400">{currentTranslations.reservations}</a></li>
+            <li><a href="https://reservier.at/de/taj-indian-restaurant-bar"
+              open-widget="reservier.at"
+              target="_blank"
+              rel="noopener noreferrer" className="hover:text-gray-400">{currentTranslations.reservations}</a></li>
             <li><a href="/imprint" className="hover:text-gray-400">{currentTranslations.impressum}</a></li>
           </ul>
         </div>
