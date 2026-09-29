@@ -2,93 +2,86 @@
 <html lang="de">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0B0706" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <!--  SEO-Titel und Beschreibung -->
-    <title>Taj Restaurant Wien | Authentische Indische Küche</title>
+    <title>Taj – Indian Restaurant & Bar Wien</title>
     <meta
       name="description"
-      content="Genießen Sie authentische indische Küche im Taj Restaurant in Wien. Aromatische Currys, kreative Cocktails, vegane & vegetarische Spezialitäten in stilvollem Ambiente."
+      content="Taj in Wien-Josefstadt: authentische indische Küche, vegane & vegetarische Gerichte und indisch inspirierte Signature-Cocktails. Kochgasse 9, 1080 Wien."
     />
+    <link rel="canonical" href="https://thetaj.at" />
 
-    <!--  Keywords -->
-    <meta
-      name="keywords"
-      content="Indisches Restaurant Wien, Taj Wien, Indisches Essen Wien, Curry Wien, Veganes Restaurant Wien, Vegetarisches Restaurant Wien, Indische Küche, Cocktailbar Wien"
-    />
-
-    <!--  Author -->
-    <meta name="author" content="Taj Restaurant Wien" />
-
-    <!-- Open Graph (Facebook / LinkedIn / WhatsApp) -->
-    <meta property="og:title" content="Taj Restaurant Wien | Authentische Indische Küche" />
-    <meta
-      property="og:description"
-      content="Erleben Sie die Geschmacksvielfalt Indiens im Herzen Wiens. Taj Restaurant bietet traditionelle Gerichte, moderne Cocktails und ein einzigartiges Ambiente."
-    />
-    <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
-    <meta property="og:url" content="https://www.tajvienna.com/de" />
-    <meta property="og:type" content="restaurant" />
-
-    <!-- Twitter Cards -->
+    <meta property="og:site_name" content="Taj – Indian Restaurant & Bar" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_AT" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="og:url" content="https://thetaj.at" />
+    <meta property="og:title" content="Taj – Indian Restaurant & Bar Wien" />
+    <meta property="og:description" content="Authentische indische Küche, vegane & vegetarische Spezialitäten und kreative Cocktails in Wien-Josefstadt." />
+    <meta property="og:image" content="https://thetaj.at/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Taj Restaurant Wien | Authentische Indische Küche" />
-    <meta
-      name="twitter:description"
-      content="Taj Restaurant Wien – authentische indische Küche, vegane Spezialitäten & kreative Cocktails im stilvollen Ambiente."
-    />
-    <meta name="twitter:image" content="%PUBLIC_URL%/og-image.jpg" />
+    <meta name="twitter:title" content="Taj – Indian Restaurant & Bar Wien" />
+    <meta name="twitter:description" content="Authentische indische Küche, vegane & vegetarische Spezialitäten und kreative Cocktails in Wien-Josefstadt." />
+    <meta name="twitter:image" content="https://thetaj.at/og-image.jpg" />
 
-    <!-- Strukturierte Daten (JSON-LD Schema für Google) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Restaurant",
-        "name": "Taj Restaurant Wien",
-        "image": "https://www.tajvienna.com/images/restaurant.jpg",
+        "name": "Taj – Indian Restaurant & Bar",
+        "url": "https://thetaj.at",
+        "image": "https://thetaj.at/og-image.jpg",
+        "logo": "https://thetaj.at/images/brand/logo.webp",
         "telephone": "+43 1 924 7141",
+        "email": "office@thetaj.at",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Karlsplatz 1",
+          "streetAddress": "Kochgasse 9",
           "addressLocality": "Wien",
-          "postalCode": "1010",
+          "postalCode": "1080",
           "addressCountry": "AT"
         },
-        "servesCuisine": ["Indisch", "Vegan", "Vegetarisch"],
-        "priceRange": "$$",
-        "url": "https://www.tajvienna.com/de",
-        "menu": "https://www.tajvienna.com/de/menu",
-        "sameAs": [
-          "https://www.instagram.com/tajvienna",
-          "https://www.facebook.com/tajvienna"
+        "geo": { "@type": "GeoCoordinates", "latitude": 48.212809, "longitude": 16.3494272 },
+        "hasMap": "https://maps.app.goo.gl/TesETbkyUZdL7S9W6",
+        "servesCuisine": ["Indian", "Vegetarian", "Vegan"],
+        "priceRange": "€€",
+        "acceptsReservations": "https://reservier.at/de/taj-indian-restaurant-bar",
+        "hasMenu": "https://thetaj.at/food",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "17:00",
+            "closes": "23:00"
+          }
         ],
-        "openingHours": "Mo-So 11:00-22:30"
+        "sameAs": ["https://www.instagram.com/austriantaj1080/", "https://www.facebook.com/austriantaj/"]
       }
     </script>
 
-    <!--  Preconnect für schnellere Schriftladen -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Mukta:wght@300;400;500;600&display=swap"
     />
+    <link rel="preload" as="image" type="image/webp" href="%PUBLIC_URL%/images/brand/logo.webp" />
 
-    <!-- Globale Schrift -->
     <style>
-      body {
-        font-family: "Mukta", sans-serif;
-      }
+      /* Paint the brand background immediately, before the JS bundle loads. */
+      html, body { background: #0B0706; color: #F4ECE1; margin: 0; }
     </style>
   </head>
 
   <body>
     <noscript>
-      Taj Restaurant Wien – genießen Sie authentische indische Küche und kreative Cocktails. Bitte aktivieren Sie JavaScript, um die vollständige Website zu sehen.
+      Taj – Indian Restaurant & Bar, Kochgasse 9, 1080 Wien. Täglich 17:00–23:00. Tel. +43 1 924 7141.
+      Bitte aktivieren Sie JavaScript, um die vollständige Website zu sehen.
     </noscript>
     <div id="root"></div>
   </body>

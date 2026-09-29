@@ -1,48 +1,44 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { LazyMotion, domAnimation } from 'framer-motion';
+import { LanguageProvider } from './i18n/LanguageContext';
+import Layout from './components/Layout';
 import Home from './pages/Home';
-import About from './pages/About';
-import BlogList from './pages/BlogList';
-import Drinks from './pages/Drinks';
-import Events from './pages/Events';
-import Food from './pages/Food';
-import Info from './pages/Info';
-import Imprint from './pages/Impressum';
-import Blog1 from './pages/blogs/blog1';
-import Blog2 from './pages/blogs/blog2';
-import Blog3 from './pages/blogs/blog3';
-import Blog4 from './pages/blogs/blog4';
-import Blog5 from './pages/blogs/blog5';
-import Blog6 from './pages/blogs/blog6';
+import { LEGACY_BLOG_SLUGS } from './content/blog/posts';
 
-import { LanguageProvider } from './LanguageContext';
+// Home is bundled eagerly (it's the landing page); everything else is split into its own chunk.
+const About = lazy(() => import('./pages/About'));
+const Food = lazy(() => import('./pages/Food'));
+const Drinks = lazy(() => import('./pages/Drinks'));
+const Info = lazy(() => import('./pages/Info'));
+const Blog = lazy(() => import('./pages/Blog'));
+const BlogPost = lazy(() => import('./pages/BlogPost'));
+const Imprint = lazy(() => import('./pages/Imprint'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
-const Main = () => {
+export default function App() {
   return (
     <LanguageProvider>
-      <div className="overflow-x-hidden">
-        <Router>
+      <LazyMotion features={domAnimation} strict>
+        <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/blog" element={<BlogList />} />
-            <Route path="/food" element={<Food />} />
-            <Route path="/drinks" element={<Drinks />} />
-            <Route path="/info" element={<Info />} />
-            <Route path="/private-events" element={<Events />} />
-            <Route path="/journey-trough-indian-curries" element={<Blog1 />} />
-            <Route path="/flavors-of-the-east" element={<Blog2 />} />
-            <Route path="/vibrant-vegan" element={<Blog3 />} />
-            <Route path="/green-goodness" element={<Blog4 />} />
-            <Route path="/vegetarian-comfort-food" element={<Blog5 />} />
-            <Route path="/eggplant-magic" element={<Blog6 />} />
-
-            <Route path="/imprint" element={<Imprint />} />
+            <Route element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="food" element={<Food />} />
+              <Route path="drinks" element={<Drinks />} />
+              <Route path="info" element={<Info />} />
+              <Route path="blog" element={<Blog />} />
+              <Route path="blog/:slug" element={<BlogPost />} />
+              <Route path="imprint" element={<Imprint />} />
+              {Object.entries(LEGACY_BLOG_SLUGS).map(([from, to]) => (
+                <Route key={from} path={from} element={<Navigate to={`/blog/${to}`} replace />} />
+              ))}
+              <Route path="*" element={<NotFound />} />
+            </Route>
           </Routes>
-        </Router>
-      </div>
+        </BrowserRouter>
+      </LazyMotion>
     </LanguageProvider>
   );
-};
-
-export default Main;
+}

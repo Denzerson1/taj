@@ -1,161 +1,103 @@
-// src/components/Footer.js
-
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
-import Logo from '../images/logo.png'; // Import your logo image
-import { useLanguage } from '../LanguageContext';
+import { useCopy } from '../i18n/LanguageContext';
+import { CONTACT, DIRECTIONS_URL, HOURS, BOOKING_LINK, SOCIAL } from '../config/site';
+import Img from './Img';
 
-const translations = {
-  en: {
-    diningHours: 'DINING HOURS',
-    dinner: 'Dinner',
-    takeoutDelivery: 'Takeout and Delivery',
-    quickLinks: 'QUICK LINKS',
-    location: 'LOCATION',
-    contact: 'CONTACT',
-    followUs: 'FOLLOW US',
-    home: 'Home',
-    aboutUs: 'About Us',
-    food: 'Food',
-    drinks: 'Drinks',
-    contactUs: 'Contact',
-    reservations: 'Reservations',
-    address: 'Kochgasse 9\n1080 Wien',
-    phoneNumber: '+43 (1) 924 7141',
-    dinnerHours: [
-      'Monday 17:00 - 23:00',
-      'Tuesday 17:00 - 23:00',
-      'Wednesday 17:00 - 23:00',
-      'Thursday 17:00 - 23:00',
-      'Friday 17:00 - 23:00',
-      'Saturday 17:00 - 23:00',
-      'Sunday 17:00 - 23:00',
-    ],
-    takeoutHours: 'Monday to Sunday: 11:00am – 10:30pm',
-    impressum: 'Imprint',
+const copy = {
+  EN: {
+    tagline: 'Indian cuisine & cocktail bar in the heart of Josefstadt, Vienna.',
+    hours: 'Opening hours',
+    daily: 'Monday – Sunday',
+    takeout: 'Takeout & delivery',
+    takeoutHours: 'Daily 11:00 – 22:30',
+    explore: 'Explore',
+    visit: 'Visit us',
+    links: { about: 'About', food: 'Food', drinks: 'Drinks', info: 'Contact', blog: 'Journal' },
+    reserve: 'Reservations',
+    imprint: 'Imprint',
   },
-  de: {
-    diningHours: 'ÖFFNUNGSZEITEN',
-    dinner: 'Abendessen',
-    takeoutDelivery: 'Abholung und Lieferung',
-    quickLinks: 'SCHNELLE LINKS',
-    location: 'STANDORT',
-    contact: 'KONTAKT',
-    followUs: 'FOLGEN SIE UNS',
-    home: 'Startseite',
-    aboutUs: 'Über Uns',
-    food: 'Essen',
-    drinks: 'Getränke',
-    contactUs: 'Kontakt',
-    reservations: 'Reservierungen',
-    address: 'Kochgasse 9\n1080 Wien',
-    phoneNumber: '+43 (1) 924 7141',
-    dinnerHours: [
-      'Montag 17:00 - 23:00',
-      'Dienstag 17:00 - 23:00',
-      'Mittwoch 17:00 - 23:00',
-      'Donnerstag 17:00 - 23:00',
-      'Freitag 17:00 - 23:00',
-      'Samstag 17:00 - 23:00',
-      'Sonntag 17:00 - 23:00',
-    ],
-    takeoutHours: 'Montag bis Sonntag: 11:00 - 22:30',
-    impressum:'Impressum'
+  DE: {
+    tagline: 'Indische Küche & Cocktailbar im Herzen der Josefstadt, Wien.',
+    hours: 'Öffnungszeiten',
+    daily: 'Montag – Sonntag',
+    takeout: 'Abholung & Lieferung',
+    takeoutHours: 'Täglich 11:00 – 22:30',
+    explore: 'Entdecken',
+    visit: 'Besuchen Sie uns',
+    links: { about: 'Über uns', food: 'Speisen', drinks: 'Getränke', info: 'Kontakt', blog: 'Journal' },
+    reserve: 'Reservierung',
+    imprint: 'Impressum',
   },
 };
 
-const Footer = () => {
-  const { language } = useLanguage();
-  const currentTranslations = translations[language.toLowerCase()] || translations['en'];
+export default function Footer() {
+  const t = useCopy(copy);
 
   return (
-    <footer className="bg-[#0B0706] text-white py-16 px-4 md:px-20"
-    >
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 text-center md:text-left">
-
-        {/* Logo and Copyright */}
-        <div className="flex flex-col items-center md:items-start">
-          <img src={Logo} alt="Logo" className="h-12 mb-2" />
-          <div className="text-sm font-bold text-gray-300">© 2024 Taj</div>
-          <div className="text-sm text-gray-300">Site by DK</div>
+    <footer className="border-t border-gold/15 bg-ink bg-gradient-to-b from-ink via-ink to-espresso pb-16 lg:pb-0">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-10 px-5 py-12 md:py-16 lg:grid-cols-4 lg:gap-12 lg:px-8">
+        <div className="col-span-2 lg:col-span-1">
+          <Img name="brand/logo" alt="Taj" className="h-12 w-auto" />
+          <p className="mt-5 max-w-xs text-sm leading-relaxed text-cream/60">{t.tagline}</p>
+          <div className="mt-6 flex gap-3">
+            <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/30 text-gold transition-colors duration-300 hover:bg-gold hover:text-ink">
+              <FaInstagram size={16} />
+            </a>
+            <a href={SOCIAL.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/30 text-gold transition-colors duration-300 hover:bg-gold hover:text-ink">
+              <FaFacebookF size={14} />
+            </a>
+          </div>
         </div>
 
-        {/* Dining Hours */}
         <div>
-          <h4 className="text-lg font-semibold mb-4 text-[#FFD700]">
-            {currentTranslations.diningHours}
-          </h4>
-          <p className="text-sm">
-            <strong>{currentTranslations.dinner}</strong><br />
-            {currentTranslations.dinnerHours.map((day, index) => (
-              <span key={index}>{day}<br /></span>
+          <h2 className="eyebrow">{t.hours}</h2>
+          <dl className="mt-5 space-y-4 text-sm text-cream/75">
+            <div>
+              <dt className="text-cream">{t.daily}</dt>
+              <dd>{HOURS.open} – {HOURS.close}</dd>
+            </div>
+            <div>
+              <dt className="text-cream">{t.takeout}</dt>
+              <dd>{t.takeoutHours}</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div>
+          <h2 className="eyebrow">{t.explore}</h2>
+          <ul className="mt-5 space-y-2.5 text-sm">
+            {Object.entries(t.links).map(([key, label]) => (
+              <li key={key}>
+                <Link to={`/${key}`} className="text-cream/75 transition-colors hover:text-gold">{label}</Link>
+              </li>
             ))}
-          </p>
-          <p className="text-sm mt-4">
-            <strong>{currentTranslations.takeoutDelivery}</strong><br />
-            {currentTranslations.takeoutHours}
-          </p>
-        </div>
-
-        {/* Quick Links */}
-        <div>
-          <h4 className="text-lg font-semibold mb-4 text-[#FFD700]">
-            {currentTranslations.quickLinks}
-          </h4>
-          <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-gray-400">{currentTranslations.home}</a></li>
-            <li><a href="/about" className="hover:text-gray-400">{currentTranslations.aboutUs}</a></li>
-            <li><a href="/food" className="hover:text-gray-400">{currentTranslations.food}</a></li>
-            <li><a href="/drinks" className="hover:text-gray-400">{currentTranslations.drinks}</a></li>
-            <li><a href="/info" className="hover:text-gray-400">{currentTranslations.contactUs}</a></li>
-            <li><a href="https://www.google.com/maps/reserve/v/dine/c/ZlyFqvufLB0?source=pa&opi=89978449&hl=en-AT&gei=J8M0Z4r2B9-pxc8P5vTssAk&sourceurl=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dtaj%2B1080%2Bwien%26rlz%3D1CDGOYI_enAT1087AT1087%26oq%3Dtaj%26gs_lcrp%3DEgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPDIJCAQQRRg5GIAEMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg7MgYICBBFGDsyDQgJEAAYkQIYgAQYigXSAQc4NDZqMGo5qAITsAIB4gMEGAEgXw%26hl%3Den-GB%26sourceid%3Dchrome-mobile%26ie%3DUTF-8&ihs=1" className="hover:text-gray-400">{currentTranslations.reservations}</a></li>
-            <li><a href="/imprint" className="hover:text-gray-400">{currentTranslations.impressum}</a></li>
+            <li>
+              <a {...BOOKING_LINK} className="text-cream/75 transition-colors hover:text-gold">{t.reserve}</a>
+            </li>
           </ul>
         </div>
 
-        {/* Location, Contact, and Social Links */}
         <div>
-          <h4 className="text-lg font-semibold mb-4 text-[#FFD700]">
-            {currentTranslations.location}
-          </h4>
-          <p className="text-sm">
-            <a
-              href="https://www.google.com/maps/place/Taj+-+Indian+Restaurant+%26+Bar/@48.2128893,16.3493324,19.73z/data=!4m6!3m5!1s0x476d07d819e4938b:0xf458d4cad4b2fd32!8m2!3d48.212809!4d16.3494272!16s%2Fg%2F11h2dr2nsn?entry=tts&g_ep=EgoyMDI0MTAyMy4wIPu8ASoASAFQAw%3D%3D"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-400"
-            >
-              {currentTranslations.address}
+          <h2 className="eyebrow">{t.visit}</h2>
+          <address className="mt-5 space-y-2.5 text-sm not-italic text-cream/75">
+            <a href={DIRECTIONS_URL} target="_blank" rel="noopener noreferrer" className="block transition-colors hover:text-gold">
+              {CONTACT.street}
+              <br />
+              {CONTACT.postalCode} {CONTACT.city}
             </a>
-          </p>
+            <a href={CONTACT.phoneHref} className="block transition-colors hover:text-gold">{CONTACT.phone}</a>
+            <a href={`mailto:${CONTACT.email}`} className="block transition-colors hover:text-gold">{CONTACT.email}</a>
+          </address>
+        </div>
+      </div>
 
-          <h4 className="text-lg font-semibold mt-6 mb-4 text-[#FFD700]">
-            {currentTranslations.contact}
-          </h4>
-          <p className="text-sm">
-            <a
-              href="tel:+4319247141"
-              className="hover:text-gray-400"
-            >
-              {currentTranslations.phoneNumber}
-            </a>
-          </p>
-
-          <h4 className="text-lg font-semibold mt-6 mb-4 text-[#FFD700]">
-            {currentTranslations.followUs}
-          </h4>
-          <div className="flex justify-center md:justify-start space-x-4 text-[#FFD700]">
-            <a href="https://www.facebook.com/austriantaj/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">
-              <FaFacebookF size={20} />
-            </a>
-            <a href="https://www.instagram.com/austriantaj1080/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">
-              <FaInstagram size={20} />
-            </a>
-          </div>
+      <div className="border-t border-cream/10">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-5 py-6 text-xs text-cream/45 sm:flex-row lg:px-8">
+          <p>© {new Date().getFullYear()} Taj – Indian Restaurant & Bar · Site by DK</p>
+          <Link to="/imprint" className="transition-colors hover:text-gold">{t.imprint}</Link>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

@@ -1,0 +1,136 @@
+// Blog index: lightweight metadata only. Article bodies live in ./articles/<slug>.js and are
+// loaded on demand by the BlogPost page, so the home page carousel doesn't pull in every article.
+
+export const CATEGORY_LABELS = {
+  EN: { all: 'All', classics: 'Indian classics', vegetarian: 'Vegetarian', vegan: 'Vegan', drinks: 'Drinks' },
+  DE: { all: 'Alle', classics: 'Indische Klassiker', vegetarian: 'Vegetarisch', vegan: 'Vegan', drinks: 'Drinks' },
+};
+
+export const POSTS = [
+  {
+    slug: 'chicken-biryani',
+    category: 'classics',
+    image: 'blog/biryani',
+    published: '2026-09-29',
+    readingTime: 6,
+    EN: { title: 'The Art of Chicken Biryani', excerpt: 'Layered rice, tender chicken and a whisper of saffron — how India’s most celebrated rice dish is built, one layer at a time.' },
+    DE: { title: 'Die Kunst des Chicken Biryani', excerpt: 'Geschichteter Reis, zartes Huhn und ein Hauch Safran — wie Indiens berühmtestes Reisgericht Schicht für Schicht entsteht.' },
+  },
+  {
+    slug: 'cocktail-food-pairing',
+    category: 'drinks',
+    image: 'blog/pairing',
+    published: '2026-09-29',
+    readingTime: 5,
+    EN: { title: 'Cocktails & Curry: A Pairing Guide', excerpt: 'Wine isn’t the only answer. How acidity, bitterness and spice in a cocktail can make Indian food taste even better.' },
+    DE: { title: 'Cocktails & Curry: Der Pairing-Guide', excerpt: 'Wein ist nicht die einzige Antwort. Wie Säure, Bitterkeit und Würze im Cocktail indisches Essen noch besser machen.' },
+  },
+  {
+    slug: 'paneer-tikka',
+    category: 'vegetarian',
+    image: 'blog/paneer-tikka',
+    published: '2026-09-29',
+    readingTime: 5,
+    EN: { title: 'Paneer Tikka: Smoky, Charred, Irresistible', excerpt: 'The tandoor classic that converts every sceptic of vegetarian food — and how to get that char at home.' },
+    DE: { title: 'Paneer Tikka: Rauchig, geröstet, unwiderstehlich', excerpt: 'Der Tandoor-Klassiker, der jeden Zweifler an vegetarischer Küche überzeugt — und wie die Röstaromen auch zu Hause gelingen.' },
+  },
+  {
+    slug: 'what-is-a-thali',
+    category: 'vegetarian',
+    image: 'blog/thali',
+    published: '2026-09-29',
+    readingTime: 4,
+    EN: { title: 'What Is a Thali? India on One Plate', excerpt: 'Sweet, sour, salty, bitter, pungent and astringent: the philosophy behind India’s most generous way to eat.' },
+    DE: { title: 'Was ist ein Thali? Indien auf einem Teller', excerpt: 'Süß, sauer, salzig, bitter, scharf und herb: die Philosophie hinter Indiens großzügigster Art zu essen.' },
+  },
+  {
+    slug: 'highway-44-masala-chai',
+    category: 'drinks',
+    image: 'blog/highway-44',
+    published: '2026-09-29',
+    readingTime: 4,
+    EN: { title: 'From Chai Stall to Cocktail Bar: Highway 44', excerpt: 'The story behind our signature cocktail — and a masala chai recipe you can brew at home.' },
+    DE: { title: 'Vom Chai-Stand an die Bar: Highway 44', excerpt: 'Die Geschichte hinter unserem Signature-Cocktail — und ein Masala-Chai-Rezept für zu Hause.' },
+  },
+  {
+    slug: 'chana-masala',
+    category: 'vegan',
+    image: 'blog/chana-masala',
+    published: '2026-09-29',
+    readingTime: 5,
+    EN: { title: 'Chana Masala: The Chickpea Curry Everyone Loves', excerpt: 'Punjab’s tangy, deeply spiced chickpea curry is naturally vegan, endlessly comforting and easy to master.' },
+    DE: { title: 'Chana Masala: Das Kichererbsen-Curry, das alle lieben', excerpt: 'Das würzig-säuerliche Kichererbsen-Curry aus dem Punjab ist von Natur aus vegan, wohltuend und leicht gemacht.' },
+  },
+  {
+    slug: 'indian-curry-guide',
+    category: 'classics',
+    image: 'blog/curry-spread',
+    published: '2024-11-15',
+    updated: '2026-09-29',
+    readingTime: 6,
+    EN: { title: 'Savour the Spices: A Journey Through Indian Curries', excerpt: 'Korma, vindaloo, butter chicken — what actually makes a curry, and the spice basics behind every great one.' },
+    DE: { title: 'Die Welt der Gewürze: Eine Reise durch indische Currys', excerpt: 'Korma, Vindaloo, Butter Chicken — was ein Curry ausmacht und welche Gewürz-Grundlagen hinter jedem guten stecken.' },
+  },
+  {
+    slug: 'dal-tadka',
+    category: 'vegetarian',
+    image: 'blog/lentils',
+    published: '2024-11-15',
+    updated: '2026-09-29',
+    readingTime: 5,
+    EN: { title: 'Dal Tadka: India’s Ultimate Comfort Food', excerpt: 'Humble lentils, transformed by a sizzling tempering of ghee, cumin and garlic. The dish every Indian home is built on.' },
+    DE: { title: 'Dal Tadka: Indiens ultimatives Soulfood', excerpt: 'Einfache Linsen, verwandelt durch ein zischendes Tadka aus Ghee, Kreuzkümmel und Knoblauch. Das Gericht, auf dem jede indische Küche aufbaut.' },
+  },
+  {
+    slug: 'vegetable-jalfrezi',
+    category: 'vegan',
+    image: 'blog/stirfry-1',
+    published: '2024-11-15',
+    updated: '2026-09-29',
+    readingTime: 4,
+    EN: { title: 'Vibrant Vegan: Vegetable Jalfrezi', excerpt: 'India’s answer to the stir-fry: crisp peppers, fiery chilli and a rainbow of vegetables in under 30 minutes.' },
+    DE: { title: 'Vibrant Vegan: Gemüse-Jalfrezi', excerpt: 'Indiens Antwort auf das Pfannengericht: knackige Paprika, feurige Chili und ein Regenbogen aus Gemüse in unter 30 Minuten.' },
+  },
+  {
+    slug: 'baingan-bharta',
+    category: 'vegan',
+    image: 'blog/eggplant',
+    published: '2024-11-15',
+    updated: '2026-09-29',
+    readingTime: 4,
+    EN: { title: 'Eggplant Magic: Smoky Baingan Bharta', excerpt: 'Fire-roasted aubergine mashed with tomato, onion and spice — the most flavourful thing you can do with an eggplant.' },
+    DE: { title: 'Auberginen-Magie: Rauchiges Baingan Bharta', excerpt: 'Über offener Flamme geröstete Aubergine mit Tomate, Zwiebel und Gewürzen — das Aromatischste, was man mit einer Aubergine machen kann.' },
+  },
+  {
+    slug: 'kachumber-salad',
+    category: 'vegan',
+    image: 'blog/salad-1',
+    published: '2024-11-15',
+    updated: '2026-09-29',
+    readingTime: 3,
+    EN: { title: 'Green Goodness: Kachumber & Chickpea Salad', excerpt: 'A crunchy, lime-bright Indian salad with roasted chickpeas and chaat masala — the perfect partner for rich curries.' },
+    DE: { title: 'Grüne Frische: Kachumber-Kichererbsen-Salat', excerpt: 'Ein knackiger indischer Salat mit Limette, gerösteten Kichererbsen und Chaat Masala — der perfekte Begleiter zu reichhaltigen Currys.' },
+  },
+  {
+    slug: 'momos-dumplings',
+    category: 'classics',
+    image: 'blog/dumplings-1',
+    published: '2024-11-15',
+    updated: '2026-09-29',
+    readingTime: 5,
+    EN: { title: 'Flavours of the East: Momos & Dumplings', excerpt: 'From the Himalayas to the streets of Delhi — how the humble momo became India’s favourite street snack.' },
+    DE: { title: 'Aromen des Ostens: Momos & Teigtaschen', excerpt: 'Vom Himalaya auf die Straßen Delhis — wie die einfache Momo zu Indiens liebstem Street-Food-Snack wurde.' },
+  },
+];
+
+/** Old top-level blog URLs, kept working (and pointing search engines to the new address). */
+export const LEGACY_BLOG_SLUGS = {
+  'journey-trough-indian-curries': 'indian-curry-guide',
+  'flavors-of-the-east': 'momos-dumplings',
+  'vibrant-vegan': 'vegetable-jalfrezi',
+  'green-goodness': 'kachumber-salad',
+  'vegetarian-comfort-food': 'dal-tadka',
+  'eggplant-magic': 'baingan-bharta',
+};
+
+export const getPost = (slug) => POSTS.find((p) => p.slug === slug);

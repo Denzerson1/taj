@@ -1,19 +1,88 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Everything is sized in rem, so this scales the whole layout: 16px on phones and laptops,
+       growing smoothly on large monitors (~19.5px at 1920px wide, capped at 22px). */
+    font-size: clamp(16px, calc(8px + 0.6vw), 22px);
+  }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  body {
+    @apply bg-ink font-sans text-cream antialiased;
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+  }
+
+  h1, h2, h3 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-gold text-ink;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-gold;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  /* Warm band that starts and ends in the page colour, so it blends into whatever sits above and below. */
+  .bg-band {
+    background-image: linear-gradient(to bottom, theme('colors.ink'), theme('colors.espresso') 30%, theme('colors.espresso') 70%, theme('colors.ink'));
+  }
+
+  /* Soft pools of warm light. They fade to transparent well before any edge, so they never create seams. */
+  .bg-glow,
+  .bg-glow-left,
+  .bg-glow-right {
+    --glow-x: 50%;
+    background-image:
+      radial-gradient(ellipse 45% 50% at var(--glow-x) 50%, rgb(214 169 79 / 0.035), transparent 70%),
+      radial-gradient(ellipse 65% 60% at var(--glow-x) 50%, rgb(70 36 18 / 0.38), transparent 72%);
+  }
+
+  .bg-glow-left {
+    --glow-x: 28%;
+  }
+
+  .bg-glow-right {
+    --glow-x: 72%;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3 text-sm font-semibold uppercase tracking-[0.14em] transition-colors duration-300 ease-smooth;
+  }
+
+  .btn-primary {
+    @apply btn border border-gold bg-gold text-ink hover:bg-transparent hover:text-gold;
+  }
+
+  .btn-outline {
+    @apply btn border border-gold/70 text-cream hover:border-gold hover:bg-gold/10;
+  }
+
+  .eyebrow {
+    @apply font-sans text-xs font-semibold uppercase tracking-[0.3em] text-gold;
+  }
+
+  .prose-taj p {
+    @apply mb-4 text-base leading-relaxed text-cream/80 md:mb-5 md:text-lg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

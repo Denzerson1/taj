@@ -1,0 +1,504 @@
+{
+ "blog/biryani": {
+  "h": 4560,
+  "w": 3648,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/biryani-serving": {
+  "h": 4025,
+  "w": 3220,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/biryani-top": {
+  "h": 4286,
+  "w": 3429,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/butter-chicken": {
+  "h": 4560,
+  "w": 3648,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/chai-table": {
+  "h": 4424,
+  "w": 3539,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/chana-ingredients": {
+  "h": 3954,
+  "w": 3163,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/chana-masala": {
+  "h": 4560,
+  "w": 3648,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/chickpeas": {
+  "h": 4560,
+  "w": 3648,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/cocktail-ingredients": {
+  "h": 4560,
+  "w": 3648,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/curry-spread": {
+  "h": 4081,
+  "w": 3265,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/dumplings-1": {
+  "h": 1001,
+  "w": 1500,
+  "widths": [
+   640,
+   1200
+  ]
+ },
+ "blog/dumplings-2": {
+  "h": 266,
+  "w": 400,
+  "widths": [
+   400
+  ]
+ },
+ "blog/eggplant": {
+  "h": 1200,
+  "w": 1200,
+  "widths": [
+   640,
+   1200
+  ]
+ },
+ "blog/feast": {
+  "h": 4560,
+  "w": 3648,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/full-table": {
+  "h": 3885,
+  "w": 3648,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/highway-44": {
+  "h": 4551,
+  "w": 3641,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/highway-44-bar": {
+  "h": 4046,
+  "w": 3237,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/lentils": {
+  "h": 1350,
+  "w": 1080,
+  "widths": [
+   640
+  ]
+ },
+ "blog/negroni-table": {
+  "h": 4560,
+  "w": 3648,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/pairing": {
+  "h": 4453,
+  "w": 3562,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/paneer-plate": {
+  "h": 4387,
+  "w": 3510,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/paneer-shashlik": {
+  "h": 4404,
+  "w": 3523,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/paneer-tikka": {
+  "h": 4560,
+  "w": 3648,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/salad-1": {
+  "h": 1125,
+  "w": 1500,
+  "widths": [
+   640,
+   1200
+  ]
+ },
+ "blog/salad-2": {
+  "h": 1800,
+  "w": 1200,
+  "widths": [
+   640,
+   1200
+  ]
+ },
+ "blog/spices": {
+  "h": 4393,
+  "w": 3514,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "blog/stirfry-1": {
+  "h": 1200,
+  "w": 1200,
+  "widths": [
+   640,
+   1200
+  ]
+ },
+ "blog/stirfry-2": {
+  "h": 525,
+  "w": 900,
+  "widths": [
+   640
+  ]
+ },
+ "blog/thali": {
+  "h": 4513,
+  "w": 3610,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "brand/logo": {
+  "h": 251,
+  "w": 400
+ },
+ "delivery/foodora": {
+  "h": 128,
+  "w": 128
+ },
+ "delivery/lieferando": {
+  "h": 128,
+  "w": 128
+ },
+ "delivery/wolt": {
+  "h": 128,
+  "w": 128
+ },
+ "drinks/espresso-martini": {
+  "h": 1628,
+  "w": 1290,
+  "widths": [
+   640,
+   1200
+  ]
+ },
+ "drinks/highway-44": {
+  "h": 1608,
+  "w": 1290,
+  "widths": [
+   640,
+   1200
+  ]
+ },
+ "drinks/negroni": {
+  "h": 1665,
+  "w": 1290,
+  "widths": [
+   640,
+   1200
+  ]
+ },
+ "drinks/paan": {
+  "h": 1610,
+  "w": 1290,
+  "widths": [
+   640,
+   1200
+  ]
+ },
+ "drinks/spicy-margarita": {
+  "h": 1621,
+  "w": 1290,
+  "widths": [
+   640,
+   1200
+  ]
+ },
+ "hero/ambience": {
+  "h": 4452,
+  "w": 3562,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "hero/cocktails": {
+  "h": 4422,
+  "w": 3538,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "hero/dining-room": {
+  "h": 4212,
+  "w": 3370,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "hero/drinks": {
+  "h": 3392,
+  "w": 3187,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "hero/favourite": {
+  "h": 1298,
+  "w": 1290,
+  "widths": [
+   640,
+   1200
+  ]
+ },
+ "hero/spread": {
+  "h": 4480,
+  "w": 3584,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "hero/table": {
+  "h": 4560,
+  "w": 3648,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "hero/table-2": {
+  "h": 4560,
+  "w": 3648,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "home/about": {
+  "h": 2583,
+  "w": 2797,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "home/cocktails": {
+  "h": 2617,
+  "w": 3446,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "home/cuisine": {
+  "h": 3806,
+  "w": 3045,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "home/intro": {
+  "h": 4141,
+  "w": 3313,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "home/takeout": {
+  "h": 4486,
+  "w": 3589,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "pages/about-interior": {
+  "h": 4073,
+  "w": 3258,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "pages/about-lamp": {
+  "h": 2944,
+  "w": 2355,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "pages/bar": {
+  "h": 3417,
+  "w": 2734,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "pages/dining-room": {
+  "h": 4226,
+  "w": 3381,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "pages/drinks": {
+  "h": 4354,
+  "w": 3483,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "pages/drinks-banner": {
+  "h": 1645,
+  "w": 1290,
+  "widths": [
+   640,
+   1200
+  ]
+ },
+ "pages/food": {
+  "h": 3967,
+  "w": 3174,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "pages/food-banner": {
+  "h": 1941,
+  "w": 2625,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ },
+ "pages/info-banner": {
+  "h": 4452,
+  "w": 3562,
+  "widths": [
+   640,
+   1200,
+   1920
+  ]
+ }
+}

@@ -1,164 +1,95 @@
-import React from 'react';
-import Navbar from '../components/navbar';
-import Footer from '../components/Footer';
-import aboutImage from '../images/about.jpg';
-import aboutImage2 from '../images/2.jpg';
-import { useLanguage } from '../LanguageContext'; // Import the language context
+import { useCopy } from '../i18n/LanguageContext';
+import { BOOKING_LINK } from '../config/site';
+import Seo from '../components/Seo';
+import PageHero from '../components/PageHero';
+import SplitSection from '../components/SplitSection';
+import Reveal from '../components/Reveal';
 
-// Translations for the AboutPage component
-const translations = {
+const copy = {
   EN: {
-    title: "Taj: A Feast for the Senses – The Flavors of India in the Heart of Vienna",
-    description: "Step into a world where tradition meets elegance. At Taj, we invite you to embark on a culinary journey through the vibrant landscapes of India, reimagined for the refined tastes of our discerning guests.",
-    symphonyTitle: "A Symphony of Flavors, Curated with Passion",
-    symphonyText: "At Taj, each dish is a masterpiece crafted with meticulous care, capturing the boldness and beauty of India’s culinary heritage. From the royal Mughlai feasts of Rajasthan to the coastal delicacies of Kerala, every plate tells a story of timeless tradition blended with contemporary sophistication.",
-    missionTitle: "Our Mission and Vision",
-    missionText: "Our mission is to create a haven where the spirit of Indian hospitality and flavors unite, offering an immersive experience that transports you from Vienna to the heart of India. We are dedicated to excellence, not only in taste but in every moment of your visit.",
-    experienceTitle: "An Experience Beyond Dining",
-    experienceText: "Taj Vienna is more than a restaurant—it is an experience. Amidst an ambiance that combines opulence and warmth, our guests are treated to exceptional service and attention to detail. Every moment is designed to evoke the charm and grandeur of Indian hospitality.",
-    ctaTitle: "Ready to Begin Your Culinary Journey?",
-    ctaText: "Whether it’s an intimate dinner or a celebration with loved ones, Taj Vienna offers the perfect setting for unforgettable moments. Reserve your table and allow us to share the flavors and traditions of India with you.",
-    reserveButton: "Reserve a table",
+    seoTitle: 'About us',
+    seoDescription: 'The story of Taj: Indian cuisine, hospitality and signature cocktails in Vienna-Josefstadt. Discover what makes our restaurant special.',
+    eyebrow: 'About us',
+    title: 'A feast for the senses in the heart of Vienna',
+    subtitle: 'Step into a world where tradition meets elegance — a culinary journey through India, reimagined for Vienna.',
+    symphonyEyebrow: 'Our kitchen',
+    symphonyTitle: 'A symphony of flavours, curated with passion',
+    symphonyText: 'Each dish is crafted with care, capturing the boldness and beauty of India’s culinary heritage. From the rich Mughlai kitchens of the north to the coastal cooking of Kerala, every plate tells a story of timeless tradition with a contemporary touch.',
+    missionTitle: 'Our mission',
+    missionText: 'We want to create a place where the spirit of Indian hospitality and flavour come together — an experience that carries you from Vienna to the heart of India. We care about excellence, not only in taste, but in every moment of your visit.',
+    experienceEyebrow: 'The experience',
+    experienceTitle: 'More than dinner',
+    experienceText: [
+      'Taj is more than a restaurant. In a setting that combines warmth with a touch of opulence, our team looks after every detail — from the first greeting to the last cup of chai.',
+      'Brass lamps, soft candlelight and an intimate dining room make it the right place for a quiet dinner for two as much as for a long evening with friends.',
+    ],
+    barEyebrow: 'The bar',
+    barTitle: 'Stay for one more',
+    barText: 'Our bar pairs Indian spices with classic mixology. Saffron, masala chai, chilli and betel leaf find their way into cocktails made to accompany your meal — or to be enjoyed on their own.',
+    ctaTitle: 'Ready to begin your culinary journey?',
+    ctaText: 'Whether it’s an intimate dinner or a celebration with loved ones, we look forward to welcoming you.',
+    reserve: 'Reserve a table',
   },
   DE: {
-    title: "Taj: Ein Fest für die Sinne – Indiens Aromen im Herzen Wiens",
-    description: "Treten Sie ein in eine Welt, in der Tradition auf Eleganz trifft. Im Taj laden wir Sie ein, eine kulinarische Reise durch die lebendigen Landschaften Indiens zu unternehmen, neu interpretiert für die raffinierten Geschmäcker unserer anspruchsvollen Gäste.",
-    symphonyTitle: "Eine Symphonie der Aromen, mit Leidenschaft kreiert",
-    symphonyText: "Im Taj ist jedes Gericht ein Meisterwerk, das mit sorgfältiger Hingabe zubereitet wird und die Kühnheit und Schönheit des kulinarischen Erbes Indiens einfängt. Vom königlichen Mughlai-Fest in Rajasthan bis hin zu den Küstengerichten aus Kerala erzählt jeder Teller eine Geschichte von zeitloser Tradition, die mit zeitgenössischer Raffinesse vermischt wird.",
-    missionTitle: "Unsere Mission und Vision",
-    missionText: "Unsere Mission ist es, einen Ort zu schaffen, an dem der Geist der indischen Gastfreundschaft und der Aromen vereint wird, um ein immersives Erlebnis zu bieten, das Sie von Wien ins Herz Indiens entführt. Wir sind der Exzellenz verpflichtet, nicht nur im Geschmack, sondern in jedem Moment Ihres Besuchs.",
-    experienceTitle: "Ein Erlebnis jenseits des Essens",
-    experienceText: "Das Taj Wien ist mehr als ein Restaurant—es ist ein Erlebnis. Inmitten einer Atmosphäre, die Opulenz und Wärme vereint, werden unsere Gäste mit außergewöhnlichem Service und Liebe zum Detail behandelt. Jeder Moment ist darauf ausgelegt, den Charme und die Grandeur der indischen Gastfreundschaft zu wecken.",
-    ctaTitle: "Bereit, Ihre kulinarische Reise zu beginnen?",
-    ctaText: "Ob es sich um ein intimes Abendessen oder eine Feier mit Ihren Liebsten handelt, Taj Wien bietet die perfekte Kulisse für unvergessliche Momente. Reservieren Sie Ihren Tisch und lassen Sie uns die Aromen und Traditionen Indiens mit Ihnen teilen.",
-    reserveButton: "Zur Reservierung",
-  }
+    seoTitle: 'Über uns',
+    seoDescription: 'Die Geschichte des Taj: indische Küche, Gastfreundschaft und Signature-Cocktails in Wien-Josefstadt. Entdecken Sie, was unser Restaurant besonders macht.',
+    eyebrow: 'Über uns',
+    title: 'Ein Fest für die Sinne im Herzen Wiens',
+    subtitle: 'Treten Sie ein in eine Welt, in der Tradition auf Eleganz trifft — eine kulinarische Reise durch Indien, neu interpretiert für Wien.',
+    symphonyEyebrow: 'Unsere Küche',
+    symphonyTitle: 'Eine Symphonie der Aromen, mit Leidenschaft kreiert',
+    symphonyText: 'Jedes Gericht wird mit Hingabe zubereitet und fängt die Kraft und Schönheit des kulinarischen Erbes Indiens ein. Von den reichhaltigen Mogul-Küchen des Nordens bis zur Küstenküche Keralas erzählt jeder Teller eine Geschichte zeitloser Tradition mit zeitgemäßer Note.',
+    missionTitle: 'Unsere Mission',
+    missionText: 'Wir möchten einen Ort schaffen, an dem indische Gastfreundschaft und Aromen zusammenkommen — ein Erlebnis, das Sie von Wien ins Herz Indiens entführt. Exzellenz ist uns wichtig, nicht nur im Geschmack, sondern in jedem Moment Ihres Besuchs.',
+    experienceEyebrow: 'Das Erlebnis',
+    experienceTitle: 'Mehr als ein Abendessen',
+    experienceText: [
+      'Das Taj ist mehr als ein Restaurant. In einem Ambiente, das Wärme mit einem Hauch Opulenz verbindet, kümmert sich unser Team um jedes Detail — von der Begrüßung bis zur letzten Tasse Chai.',
+      'Messinglampen, sanftes Kerzenlicht und ein intimer Gastraum machen es zum richtigen Ort für ein ruhiges Abendessen zu zweit ebenso wie für einen langen Abend mit Freunden.',
+    ],
+    barEyebrow: 'Die Bar',
+    barTitle: 'Auf einen Drink mehr',
+    barText: 'Unsere Bar verbindet indische Gewürze mit klassischer Mixologie. Safran, Masala Chai, Chili und Betelblatt finden ihren Weg in Cocktails, die Ihr Essen begleiten — oder für sich allein genossen werden.',
+    ctaTitle: 'Bereit für Ihre kulinarische Reise?',
+    ctaText: 'Ob intimes Abendessen oder Feier mit Ihren Liebsten — wir freuen uns auf Ihren Besuch.',
+    reserve: 'Tisch reservieren',
+  },
 };
 
-const AboutPage = () => {
-  const { language } = useLanguage(); // Get the current language from context
-  const {
-    title,
-    description,
-    symphonyTitle,
-    symphonyText,
-    missionTitle,
-    missionText,
-    experienceTitle,
-    experienceText,
-    ctaTitle,
-    ctaText,
-    reserveButton,
-  } = translations[language]; // Get translations based on the selected language
+export default function About() {
+  const t = useCopy(copy);
 
   return (
-    <div className="relative min-h-screen font-mukta text-gray-900">
-      <Navbar />
+    <>
+      <Seo title={t.seoTitle} description={t.seoDescription} />
+      <PageHero image="pages/dining-room" alt="The Taj dining room" eyebrow={t.eyebrow} title={t.title} subtitle={t.subtitle} />
 
-      {/* Header Section with Gradient Background */}
-      <div style={{ backgroundImage: 'linear-gradient(to bottom, #1C1411, #241007' }} >
-        <div className="relative pt-24 pb-16 px-4 sm:pt-32 sm:pb-20 lg:px-24 text-center text-gray-100">
-          <h1 className="text-lightgold text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">
-            {title}
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-100 max-w-3xl mx-auto">
-            {description}
-          </p>
-        </div>
+      <SplitSection image="home/about" alt="Indian cuisine at Taj" eyebrow={t.symphonyEyebrow} title={t.symphonyTitle}>
+        <p>{t.symphonyText}</p>
+      </SplitSection>
 
+      <section className="bg-band px-5 py-12 md:py-20">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl text-gold-light sm:text-4xl lg:text-5xl">{t.missionTitle}</h2>
+          <p className="mt-8 font-display text-lg italic leading-relaxed text-cream/85 sm:text-2xl">{t.missionText}</p>
+        </Reveal>
+      </section>
 
-        {/* Main Content Section with Smooth Gradient */}
-        <div className="text-gray-100 py-12 sm:py-16 px-4 lg:px-24">
-          <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2">
-            {/* Left Column: Rich Text */}
-            <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-lightgold mb-6 sm:mb-8">
-                {symphonyTitle}
-              </h2>
-              <p className="leading-relaxed text-gray-200 mb-6 sm:mb-8">
-                {symphonyText}
-              </p>
-              <p className="leading-relaxed text-gray-200">
-                {missionText}
-              </p>
-            </div>
+      <SplitSection image="pages/about-interior" alt="A cocktail being poured at the Taj bar" eyebrow={t.experienceEyebrow} title={t.experienceTitle} reverse>
+        {t.experienceText.map((p) => <p key={p}>{p}</p>)}
+      </SplitSection>
 
-            {/* Right Column: Image with Overlay */}
-            <div className="relative">
-              <img
-                src={aboutImage}
-                alt="Indian cuisine"
-                className="w-full h-full object-cover rounded-lg shadow-lg"
-              />
-              <div style={{ backgroundImage: 'linear-gradient(to bottom, #512E1F, transperant' }} className="absolute bottom-0 left-0 w-full h-20 sm:h-32"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <SplitSection image="pages/bar" alt="The Taj bar" eyebrow={t.barEyebrow} title={t.barTitle}>
+        <p>{t.barText}</p>
+      </SplitSection>
 
-      {/* Mission & Vision Section with Smooth Gradient */}
-      <div style={{ backgroundImage: 'linear-gradient(to bottom, #241007, #473424'}}>
-        <div className="py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8">
-              {missionTitle}
-            </h2>
-            <p className="text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
-              {missionText}
-            </p>
-          </div>
-        </div>
-
-
-
-      </div>
-      {/* Experience Section with Smooth Gradient */}
-      <div style={{ backgroundImage: 'linear-gradient(to bottom, #473424, #1E0D0D'}}  className="py-16 sm:py-20 px-4 lg:px-24 text-gray-100">
-        <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2 items-center">
-          {/* Left Column: Image */}
-          <div className="relative">
-            <img
-              src={aboutImage2}
-              alt="Elegant Indian restaurant interior"
-              className="w-full h-full object-cover rounded-lg shadow-lg"
-            />
-            <div style={{ backgroundImage: 'linear-gradient(to bottom, #3E261C, transparent' }} className="absolute top-0 left-0 w-full h-20 sm:h-32"></div>
-          </div>
-
-          {/* Right Column: Description */}
-          <div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif text-lightgold mb-6 sm:mb-8">
-              {experienceTitle}
-            </h2>
-            <p className="leading-relaxed text-gray-200 mb-6 sm:mb-8">
-              {experienceText}
-            </p>
-            <p className="leading-relaxed text-gray-200">
-              {experienceText}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Final CTA Section with Smooth Gradient */}
-      <div style={{ backgroundImage: 'linear-gradient(to bottom, #1E0D0D, #0B0706' }} className="py-16 sm:py-20 px-4 lg:px-24 text-center text-gray-100">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8">
-          {ctaTitle}
-        </h2>
-        <p className="text-lg sm:text-xl leading-relaxed mb-6 sm:mb-8">
-          {ctaText}
-        </p>
-        <a
-          href="https://www.google.com/maps/reserve/v/dine/c/ZlyFqvufLB0?source=pa&opi=89978449&hl=en-AT&gei=J8M0Z4r2B9-pxc8P5vTssAk&sourceurl=https%3A%2F%2Fwww.google.com%2Fsearch%3Fq%3Dtaj%2B1080%2Bwien%26rlz%3D1CDGOYI_enAT1087AT1087%26oq%3Dtaj%26gs_lcrp%3DEgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPDIJCAQQRRg5GIAEMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg7MgYICBBFGDsyDQgJEAAYkQIYgAQYigXSAQc4NDZqMGo5qAITsAIB4gMEGAEgXw%26hl%3Den-GB%26sourceid%3Dchrome-mobile%26ie%3DUTF-8&ihs=1"
-          className="inline-block bg-lightgold text-gray-900 px-8 py-3 sm:py-4 rounded-lg shadow-lg hover:bg-gray-800 hover:text-white transition"
-        >
-          {reserveButton}
-        </a>
-      </div>
-
-      <Footer />
-    </div>
+      <section className="bg-band px-5 py-12 text-center md:py-20">
+        <Reveal className="mx-auto max-w-2xl">
+          <h2 className="text-3xl text-cream sm:text-4xl">{t.ctaTitle}</h2>
+          <p className="mt-5 text-lg text-cream/70">{t.ctaText}</p>
+          <a {...BOOKING_LINK} className="btn-primary mt-10">{t.reserve}</a>
+        </Reveal>
+      </section>
+    </>
   );
-};
-
-export default AboutPage;
+}
