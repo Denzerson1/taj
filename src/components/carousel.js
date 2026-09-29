@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import { useLanguage } from '../LanguageContext';
 import recipeImage1 from '../images/blogs/indiancurry1.jpg';

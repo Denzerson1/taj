@@ -103,7 +103,7 @@ const Footer = () => {
             {currentTranslations.quickLinks}
           </h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-gray-400">{currentTranslations.home}</a></li>
+            <li><a href="/" className="hover:text-gray-400">{currentTranslations.home}</a></li>
             <li><a href="/about" className="hover:text-gray-400">{currentTranslations.aboutUs}</a></li>
             <li><a href="/food" className="hover:text-gray-400">{currentTranslations.food}</a></li>
             <li><a href="/drinks" className="hover:text-gray-400">{currentTranslations.drinks}</a></li>

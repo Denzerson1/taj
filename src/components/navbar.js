@@ -63,7 +63,7 @@ const Navbar = () => {
   const backgroundOpacity = isSpecialPage ? 1 : (menuOpen ? 1 : Math.min(1, scrollPosition / 200));
 
   // Get the current translations based on the selected language
-  const { about, food, drinks, info, blog, privateEvents, bookTable, language: languageLabel } = translations[language];
+  const { bookTable, language: languageLabel } = translations[language];
 
   return (
     <nav
